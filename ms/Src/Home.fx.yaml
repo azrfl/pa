@@ -465,6 +465,14 @@ Home As screen:
                     Y: =0
                     ZIndex: =24
 
+                TextCanvas1 As Text:
+                    DisplayMode: =DisplayMode.Edit
+                    Height: =25
+                    Width: =96
+                    X: =40
+                    Y: =0
+                    ZIndex: =25
+
             GalleryMaster As gallery.variableTemplateHeightGallery:
                 '#CopilotOverlayLabel': ="Filtered"
                 BorderColor: =App.Theme.Colors.Darker40
