@@ -41,7 +41,7 @@
                 LayoutMinHeight: =75
                 LayoutMinWidth: =Parent.Width
                 OnSelectLogo: =false
-                Title: ="Verify MS (Example)"
+                Title: ="Verify MS (Example) Test commit github"
                 UserEmail: =User().Email
                 UserImage: =User().Image
                 UserName: =User().FullName
