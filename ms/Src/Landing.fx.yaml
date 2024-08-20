@@ -17,57 +17,26 @@ Landing As screen:
         Width: =App.Width
         ZIndex: =2
 
-        Container3 As groupContainer.manualLayoutContainer:
-            AlignInContainer: =AlignInContainer.Center
-            DropShadow: =DropShadow.Semibold
-            FillPortions: =0
-            Height: =73
-            LayoutMinHeight: =100
-            LayoutMinWidth: =250
-            Width: =230
-            ZIndex: =1
+        TH_1 As Text:
+            Align: ='TextCanvas.Align'.Center
+            Size: =12
+            Text: ="#"
+            Weight: ='TextCanvas.Weight'.Bold
+            Height: =28
+            Width: =30
 
-            Image4 As image:
-                BorderColor: =App.Theme.Colors.Darker40
-                DisabledBorderColor: =RGBA(166, 166, 166, 1)
-                DisabledFill: =RGBA(244, 244, 244, 1)
-                Height: =73
-                Image: =logo_topglove
-                ImagePosition: =ImagePosition.Fill
-                Width: =230
-                ZIndex: =1
+        TH_2 As Text:
+            Align: ='TextCanvas.Align'.Center
+            Size: =12
+            Text: ="MSID"
+            Weight: ='TextCanvas.Weight'.Bold
+            Height: =28
+            Width: =200
 
-        Label6 As label:
-            Align: =Align.Center
-            AlignInContainer: =AlignInContainer.Stretch
-            BorderColor: =App.Theme.Colors.Darker40
-            Color: =RGBA(9, 33, 98, 1)
-            DisabledColor: =RGBA(166, 166, 166, 1)
-            Font: =App.Theme.Font
-            FontWeight: =FontWeight.Bold
-            Height: =80
-            Text: ="PMQC MASTER SAMPLE LOG SYSTEM"
-            ZIndex: =3
-
-        ButtonCanvas1 As Button:
-            Align: =""
-            BasePaletteColor: =
-            BorderColor: =
-            BorderStyle: =""
-            DisplayMode: =DisplayMode.Edit
-            FontColor: =
-            Height: =32
-            Icon: =""
-            IconRotation: =0
-            IconStyle: ="Outline"
-            Layout: ="Icon before"
-            LayoutMinHeight: =32
-            LayoutMinWidth: =96
-            OnSelect: =Set(mobileview,false);Navigate(Roleselect,ScreenTransition.Fade)
-            Text: ="Enter"
-            VerticalAlign: =""
-            Width: =96
-            X: =0
-            Y: =0
-            ZIndex: =5
-
+        TH_3 As Text:
+            Align: ='TextCanvas.Align'.Center
+            Size: =12
+            Text: ="BRAND"
+            Weight: ='TextCanvas.Weight'.Bold
+            Height: =28
+            Width: =160
