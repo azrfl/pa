@@ -2413,7 +2413,7 @@
         {
           "Category": "Data",
           "PropertyName": "Title",
-          "RuleProviderType": "Unknown"
+          "RuleProviderType": "User"
         },
         {
           "Category": "Data",
