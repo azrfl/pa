@@ -1,0 +1,183 @@
+headerscanner_1 As CanvasComponent:
+    Fill: =RGBA(0, 0, 0, 0)
+    Height: =768
+    Width: =Max(App.Width, App.MinScreenWidth)
+    X: =0
+    Y: =0
+    ZIndex: =1
+
+    HtmlText2 As htmlViewer:
+        AutoHeight: =true
+        Color: =RGBA(0, 0, 0, 0.1)
+        DisplayMode: =DisplayMode.View
+        Fill: =RGBA(255, 255, 255, 1)
+        Height: =768
+        HtmlText: |-
+            ="<div style='margin: 0;
+            height: 768px;overflow:hidden;
+            background: radial-gradient(#ffffff,#7db8f0);opacity:0.3;
+            '>   
+            </div>"
+        PaddingBottom: =0
+        PaddingLeft: =0
+        PaddingRight: =0.00
+        PaddingTop: =0.00
+        Size: =9.90
+        Width: =1366
+        X: =0.00
+        ZIndex: =1
+
+    kepalaback_1 As htmlViewer:
+        Color: =RGBA(255, 255, 255, 1)
+        Fill: =RGBA(255, 255, 255,0)
+        Height: =77
+        HtmlText: |-
+            ="<DIV style='height:59px;margin:0px 0px;background: linear-gradient(180deg, #bde8ff, #9fc3d9);padding:2px 5px;opacity:0.9;box-shadow: 3px 3px 5px #96b8cd;font-weight:bold;color:RGBA(9, 33, 98, 1);font-size:12px;float:left;
+            width:100%;'></DIV>
+            "
+        OnSelect: =
+        PaddingBottom: =0
+        PaddingLeft: =0
+        PaddingRight: =0.00
+        PaddingTop: =0.00
+        Size: =8
+        Width: =1366
+        ZIndex: =2
+
+    Label1_3 As label:
+        BorderColor: =RGBA(0, 18, 107, 1)
+        Color: =RGBA(0, 0, 0, 1)
+        DisabledColor: =RGBA(166, 166, 166, 1)
+        FontWeight: =FontWeight.Bold
+        Height: =35
+        PaddingRight: =4.50
+        PaddingTop: =4.50
+        Size: =9.00
+        Text: =User().FullName
+        Width: =183.54
+        X: =1156
+        ZIndex: =3
+
+    HtmlText1_4 As htmlViewer:
+        Color: =RGBA(255, 255, 255, 1)
+        Fill: =RGBA(255, 255, 255,0)
+        HtmlText: |-
+            ="<button style='border-radius: 15px;width:30px;height:30px;border:0px;margin:1px 1px;
+            background: linear-gradient(145deg,#FFFFFF,#86c5ff);'><p style='font-weight:bold;color:RGBA(9, 33, 98, 1);font-size:20px;'></p></button>"
+        OnSelect: =Back()
+        PaddingBottom: =0
+        PaddingLeft: =0
+        PaddingRight: =0.00
+        PaddingTop: =0.00
+        Size: =9.90
+        Width: =35
+        X: =1331
+        Y: =12
+        ZIndex: =4
+
+    Image1_2 As image:
+        BorderColor: =RGBA(0, 18, 107, 1)
+        DisabledBorderColor: =RGBA(166, 166, 166, 1)
+        DisabledFill: =RGBA(244, 244, 244, 1)
+        Height: =58
+        Image: =Office365Users.UserPhotoV2(User().Email)
+        PaddingRight: =0.00
+        PaddingTop: =0.00
+        RadiusBottomLeft: =29
+        RadiusBottomRight: =29
+        RadiusTopLeft: =29
+        RadiusTopRight: =29
+        Transparency: =0.2
+        Width: =58
+        X: =1101
+        Y: =1
+        ZIndex: =5
+
+    Icon4_1 As icon.Leave:
+        BorderColor: =RGBA(0, 18, 107, 1)
+        Color: =RGBA(0, 18, 107, 1)
+        DisabledBorderColor: =RGBA(166, 166, 166, 1)
+        DisabledColor: =RGBA(244, 244, 244, 1)
+        Height: =20
+        Icon: =Icon.Leave
+        PaddingRight: =0.00
+        PaddingTop: =0.00
+        Width: =19.79
+        X: =1340
+        Y: =17
+        ZIndex: =6
+
+    Label1_4 As label:
+        BorderColor: =RGBA(0, 18, 107, 1)
+        Color: =RGBA(0, 0, 0, 1)
+        DisabledColor: =RGBA(166, 166, 166, 1)
+        FontWeight: =FontWeight.Semibold
+        Height: =25
+        Italic: =true
+        PaddingRight: =4.50
+        PaddingTop: =4.50
+        Size: =9.00
+        Text: =User().Email
+        Width: =184.44
+        X: =1155
+        Y: =32
+        ZIndex: =7
+
+    htmlback_6 As htmlViewer:
+        Color: =RGBA(255, 255, 255, 1)
+        Fill: =RGBA(255, 255, 255,0)
+        Height: =77
+        HtmlText: |-
+            ="<button style='border-radius: 30px;width:60px;height:60px;border:0px;margin:2px 25px;
+            background: linear-gradient(145deg,#FFFFFF,#86c5ff);
+            box-shadow: 3px 3px 10px #6a9ccc,-3px -3px 10px #FFFFff;'><p style='font-weight:bold;color:RGBA(9, 33, 98, 1);font-size:20px;'></p></button>"
+        PaddingBottom: =0
+        PaddingLeft: =0
+        PaddingRight: =0.00
+        PaddingTop: =0.00
+        Size: =9.90
+        Width: =97
+        ZIndex: =8
+
+    Label2_1 As label:
+        BorderColor: =RGBA(0, 18, 107, 1)
+        Color: =RGBA(0, 18, 107, 1)
+        DisabledColor: =RGBA(166, 166, 166, 1)
+        Font: =Font.'Lato Black'
+        Height: =58
+        LineHeight: =1
+        PaddingBottom: =0
+        PaddingLeft: =0
+        PaddingRight: =0
+        Size: =8
+        Text: ="BACK"
+        Width: =36
+        X: =48
+        ZIndex: =9
+
+    Icon3_2 As icon.ChevronLeft:
+        BorderColor: =RGBA(0, 18, 107, 1)
+        Color: =RGBA(0, 18, 107, 1)
+        DisabledBorderColor: =RGBA(166, 166, 166, 1)
+        DisabledColor: =RGBA(244, 244, 244, 1)
+        Height: =63
+        Icon: =Icon.ChevronLeft
+        OnSelect: =Back(ScreenTransition.UnCoverRight)
+        PaddingLeft: =3
+        PaddingRight: =20
+        Width: =60
+        X: =26
+        ZIndex: =10
+
+    Image32 As image:
+        BorderColor: =RGBA(0, 18, 107, 1)
+        DisabledBorderColor: =RGBA(166, 166, 166, 1)
+        DisabledFill: =RGBA(244, 244, 244, 1)
+        Height: =36
+        Image: =logo_topglove
+        Transparency: =0.9
+        Width: =97
+        X: =7
+        Y: =732
+        ZIndex: =11
+

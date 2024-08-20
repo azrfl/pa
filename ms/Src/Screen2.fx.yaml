@@ -1,0 +1,974 @@
+Screen2 As screen:
+    Fill: =Color.White
+    LoadingSpinnerColor: =App.Theme.Colors.Primary
+
+    Gallery1 As gallery.galleryVertical:
+        '#CopilotOverlayLabel': ="Filtered"
+        BorderColor: =App.Theme.Colors.Darker40
+        DelayItemLoading: =true
+        Height: =728
+        Items: =collectdataWithSequence
+        Layout: =Layout.Vertical
+        LoadingSpinner: =LoadingSpinner.Data
+        TemplateSize: =70
+        Width: =1400
+        X: =256
+        Y: =40
+        ZIndex: =1
+
+        Container7 As groupContainer.manualLayoutContainer:
+            DropShadow: =DropShadow.Regular
+            Fill: =RGBA(255, 255, 255, 1)
+            Height: =70
+            RadiusBottomLeft: =4
+            RadiusBottomRight: =4
+            RadiusTopLeft: =4
+            RadiusTopRight: =4
+            Width: =Parent.Width
+            ZIndex: =1
+
+            Label10_16 As label:
+                Align: =Align.Center
+                BorderColor: =App.Theme.Colors.Darker40
+                Color: =RGBA(255, 191, 0, 1)
+                DisabledColor: =RGBA(166, 166, 166, 1)
+                Fill: =RGBA(255, 255, 255, 1)
+                Font: =App.Theme.Font
+                Height: =15
+                OnSelect: =
+                PaddingBottom: =0
+                PaddingLeft: =0
+                PaddingRight: =0
+                PaddingTop: =0
+                Size: =6
+                Text: ="CTN"
+                Width: =26
+                Y: =36
+                ZIndex: =1
+
+        Label10 As label:
+            BorderColor: =App.Theme.Colors.Darker40
+            Color: =RGBA(0, 0, 0, 1)
+            DisabledColor: =RGBA(166, 166, 166, 1)
+            Fill: =RGBA(219, 237, 255, 1)
+            Font: =App.Theme.Font
+            Height: =15
+            OnSelect: =Select(Parent)
+            Size: =8
+            Text: =Text(DateValue(DateAdd(Date(1900,1,1), Value(ThisItem.PD)-1,TimeUnit.Days)),"yyyy-mm-dd")
+            Width: =118
+            X: =330
+            ZIndex: =2
+
+        Label10_5 As label:
+            BorderColor: =App.Theme.Colors.Darker40
+            Color: =RGBA(0, 0, 0, 1)
+            DisabledColor: =RGBA(166, 166, 166, 1)
+            Fill: =RGBA(219, 237, 255, 1)
+            Font: =App.Theme.Font
+            Height: =15
+            OnSelect: =Select(Parent)
+            Size: =8
+            Text: =ThisItem.RID
+            Width: =102
+            X: =31
+            ZIndex: =7
+
+        Label10_6 As label:
+            BorderColor: =App.Theme.Colors.Darker40
+            Color: =RGBA(0, 0, 0, 1)
+            DisabledColor: =RGBA(166, 166, 166, 1)
+            Fill: =RGBA(219, 237, 255, 1)
+            Font: =Font.'Open Sans Condensed'
+            FontWeight: =FontWeight.Semibold
+            Height: =15
+            OnSelect: =Select(Parent)
+            Size: =8
+            Text: =ThisItem.BRAND
+            Width: =154
+            X: =139
+            ZIndex: =8
+
+        TextInput5 As text:
+            BorderColor: =App.Theme.Colors.Darker40
+            Color: =RGBA(0, 0, 0, 1)
+            Default: =ThisItem.SI
+            DisabledBorderColor: =RGBA(166, 166, 166, 1)
+            DisabledColor: =RGBA(166, 166, 166, 1)
+            DisabledFill: =RGBA(244, 244, 244, 1)
+            FocusedBorderThickness: =1
+            Font: =App.Theme.Font
+            Height: =15
+            HintText: ="Inner suplier"
+            HoverBorderColor: =App.Theme.Colors.Darker40
+            HoverColor: =RGBA(0, 0, 0, 1)
+            HoverFill: =App.Theme.Colors.Lighter70
+            OnSelect: =Select(Parent)
+            PaddingLeft: =5
+            RadiusBottomLeft: =0
+            RadiusBottomRight: =0
+            RadiusTopLeft: =0
+            RadiusTopRight: =0
+            Size: =8
+            Width: =102
+            X: =31
+            Y: =17
+            ZIndex: =9
+
+        Label10_7 As label:
+            BorderColor: =App.Theme.Colors.Darker40
+            Color: =RGBA(0, 0, 0, 1)
+            DisabledColor: =RGBA(166, 166, 166, 1)
+            Fill: =RGBA(255, 255, 0, 1)
+            Font: =Font.'Open Sans Condensed'
+            FontWeight: =FontWeight.Semibold
+            Height: =15
+            OnSelect: =Select(Parent)
+            Size: =8
+            Text: =First(Search(Filter(PM_Supplier,Type_Inner),Substitute(TextInput5.Text,".",""),FullName)).FullName
+            Width: =154
+            Wrap: =false
+            X: =139
+            Y: =17
+            ZIndex: =10
+
+        TextInput5_1 As text:
+            BorderColor: =App.Theme.Colors.Darker40
+            Color: =RGBA(0, 0, 0, 1)
+            Default: =ThisItem.SC
+            DisabledBorderColor: =RGBA(166, 166, 166, 1)
+            DisabledColor: =RGBA(166, 166, 166, 1)
+            DisabledFill: =RGBA(244, 244, 244, 1)
+            FocusedBorderThickness: =1
+            Font: =App.Theme.Font
+            Height: =15
+            HintText: ="ctn supplier"
+            HoverBorderColor: =App.Theme.Colors.Darker40
+            HoverColor: =RGBA(0, 0, 0, 1)
+            HoverFill: =App.Theme.Colors.Lighter70
+            OnSelect: =Select(Parent)
+            PaddingLeft: =5
+            RadiusBottomLeft: =0
+            RadiusBottomRight: =0
+            RadiusTopLeft: =0
+            RadiusTopRight: =0
+            Size: =8
+            Width: =103
+            X: =30
+            Y: =36
+            ZIndex: =11
+
+        Label10_8 As label:
+            BorderColor: =App.Theme.Colors.Darker40
+            Color: =RGBA(0, 0, 0, 1)
+            DisabledColor: =RGBA(166, 166, 166, 1)
+            Fill: =RGBA(255, 255, 0, 1)
+            Font: =Font.'Open Sans Condensed'
+            FontWeight: =FontWeight.Semibold
+            Height: =15
+            OnSelect: =Select(Parent)
+            Size: =8
+            Text: =First(Search(Filter(PM_Supplier,Type_Carton),Substitute(Substitute(TextInput5_1.Text,"25",""),".",""),FullName)).FullName
+            Width: =154
+            Wrap: =false
+            X: =139
+            Y: =36
+            ZIndex: =12
+
+        innum As label:
+            Align: =Align.Center
+            BorderColor: =App.Theme.Colors.Darker40
+            Color: =RGBA(0, 0, 0, 1)
+            DisabledColor: =RGBA(166, 166, 166, 1)
+            Fill: =RGBA(255, 255, 0, 1)
+            Font: =Font.'Open Sans Condensed'
+            FontWeight: =FontWeight.Semibold
+            Height: =15
+            OnSelect: =Select(Parent)
+            Size: =8
+            Text: =If(TextInput5.Text="","",First(Search(Filter(PM_Supplier,Type_Inner),Substitute(TextInput5.Text,".",""),FullName)).ID)
+            Width: =24
+            X: =299
+            Y: =17
+            ZIndex: =13
+
+        canum As label:
+            Align: =Align.Center
+            BorderColor: =App.Theme.Colors.Darker40
+            Color: =RGBA(0, 0, 0, 1)
+            DisabledColor: =RGBA(166, 166, 166, 1)
+            Fill: =RGBA(255, 255, 0, 1)
+            Font: =Font.'Open Sans Condensed'
+            FontWeight: =FontWeight.Semibold
+            Height: =15
+            OnSelect: =Select(Parent)
+            Size: =8
+            Text: =If(TextInput5_1.Text="","",First(Search(Filter(PM_Supplier,Type_Carton),Substitute(Substitute(TextInput5_1.Text,"25",""),".",""),FullName)).ID)
+            Width: =24
+            X: =299
+            Y: =36
+            ZIndex: =14
+
+        Label10_12 As label:
+            BorderColor: =App.Theme.Colors.Darker40
+            Color: =RGBA(0, 0, 0, 1)
+            DisabledColor: =RGBA(166, 166, 166, 1)
+            Fill: =RGBA(219, 237, 255, 1)
+            Font: =App.Theme.Font
+            Height: =15
+            OnSelect: =Select(Parent)
+            Size: =8
+            Text: =ThisItem.LOCATION
+            Width: =106
+            X: =475
+            ZIndex: =16
+
+        Label10_14 As label:
+            BorderColor: =App.Theme.Colors.Darker40
+            Color: =RGBA(40, 134, 222, 1)
+            DisabledColor: =RGBA(166, 166, 166, 1)
+            Fill: =RGBA(219, 237, 255, 1)
+            Font: =App.Theme.Font
+            Height: =15
+            OnSelect: =Select(Parent)
+            Size: =8
+            Text: =ThisItem.NU
+            Width: =30
+            ZIndex: =21
+
+        metctn As text:
+            BorderColor: =App.Theme.Colors.Darker40
+            Color: =RGBA(0, 0, 0, 1)
+            Default: =ThisItem.MAT
+            DisabledBorderColor: =RGBA(166, 166, 166, 1)
+            DisabledColor: =RGBA(166, 166, 166, 1)
+            DisabledFill: =RGBA(244, 244, 244, 1)
+            FocusedBorderThickness: =1
+            Font: =App.Theme.Font
+            Height: =15
+            HintText: ="input"
+            HoverBorderColor: =App.Theme.Colors.Darker40
+            HoverColor: =RGBA(0, 0, 0, 1)
+            HoverFill: =App.Theme.Colors.Lighter70
+            OnSelect: =Select(Parent)
+            PaddingLeft: =5
+            RadiusBottomLeft: =0
+            RadiusBottomRight: =0
+            RadiusTopLeft: =0
+            RadiusTopRight: =0
+            Size: =8
+            Width: =118
+            X: =330
+            Y: =37
+            ZIndex: =22
+
+        Label10_15 As label:
+            Align: =Align.Center
+            BorderColor: =App.Theme.Colors.Darker40
+            Color: =RGBA(255, 191, 0, 1)
+            DisabledColor: =RGBA(166, 166, 166, 1)
+            Fill: =RGBA(255, 255, 255, 1)
+            Font: =App.Theme.Font
+            Height: =15
+            OnSelect: =Select(Parent)
+            PaddingBottom: =0
+            PaddingLeft: =0
+            PaddingRight: =0
+            PaddingTop: =0
+            Size: =6
+            Text: ="INN"
+            Width: =26
+            Y: =18
+            ZIndex: =23
+
+        rvii As text:
+            BorderColor: =App.Theme.Colors.Darker40
+            Color: =RGBA(0, 0, 0, 1)
+            Default: =ThisItem.RVI
+            DisabledBorderColor: =RGBA(166, 166, 166, 1)
+            DisabledColor: =RGBA(166, 166, 166, 1)
+            DisabledFill: =RGBA(244, 244, 244, 1)
+            FocusedBorderThickness: =1
+            Font: =App.Theme.Font
+            Height: =15
+            HintText: ="input"
+            HoverBorderColor: =App.Theme.Colors.Darker40
+            HoverColor: =RGBA(0, 0, 0, 1)
+            HoverFill: =App.Theme.Colors.Lighter70
+            OnSelect: =Select(Parent)
+            PaddingLeft: =5
+            RadiusBottomLeft: =0
+            RadiusBottomRight: =0
+            RadiusTopLeft: =0
+            RadiusTopRight: =0
+            Size: =8
+            Width: =35
+            X: =456
+            Y: =18
+            ZIndex: =24
+
+        rvci As text:
+            BorderColor: =App.Theme.Colors.Darker40
+            Color: =RGBA(0, 0, 0, 1)
+            Default: =ThisItem.RVC
+            DisabledBorderColor: =RGBA(166, 166, 166, 1)
+            DisabledColor: =RGBA(166, 166, 166, 1)
+            DisabledFill: =RGBA(244, 244, 244, 1)
+            FocusedBorderThickness: =1
+            Font: =App.Theme.Font
+            Height: =15
+            HintText: ="input"
+            HoverBorderColor: =App.Theme.Colors.Darker40
+            HoverColor: =RGBA(0, 0, 0, 1)
+            HoverFill: =App.Theme.Colors.Lighter70
+            OnSelect: =
+            PaddingLeft: =5
+            RadiusBottomLeft: =0
+            RadiusBottomRight: =0
+            RadiusTopLeft: =0
+            RadiusTopRight: =0
+            Size: =8
+            Width: =34
+            X: =456
+            Y: =37
+            ZIndex: =25
+
+        linkimage As text:
+            BorderColor: =App.Theme.Colors.Darker40
+            Color: =RGBA(0, 0, 0, 1)
+            Default: =Substitute(First(Split(ThisItem.LINKobj,""",""")).Value,"=HYPERLINK(""","")
+            DisabledBorderColor: =RGBA(166, 166, 166, 1)
+            DisabledColor: =RGBA(166, 166, 166, 1)
+            DisabledFill: =RGBA(244, 244, 244, 1)
+            FocusedBorderThickness: =1
+            Font: =App.Theme.Font
+            Height: =49
+            HoverBorderColor: =App.Theme.Colors.Darker40
+            HoverColor: =RGBA(0, 0, 0, 1)
+            HoverFill: =App.Theme.Colors.Lighter70
+            Mode: =TextMode.MultiLine
+            OnSelect: =Select(Parent)
+            PaddingBottom: =2
+            PaddingLeft: =2
+            PaddingRight: =2
+            PaddingTop: =2
+            Size: =8
+            X: =970
+            ZIndex: =26
+
+        datevernya As text:
+            BorderColor: =App.Theme.Colors.Darker40
+            Color: =RGBA(0, 0, 0, 1)
+            Default: |
+                =Text(
+                Date(
+                Int(
+                Index(Split(
+                    Last(Split(Substitute(Last(Split(ThisItem.LINKobj,""",""")).Value,""")","")," ")).Value
+                    ,"/"),3).Value)
+                ,   
+                Int( 
+                Index(Split(
+                    Last(Split(Substitute(Last(Split(ThisItem.LINKobj,""",""")).Value,""")","")," ")).Value
+                    ,"/"),2).Value)
+                ,
+                 Int(
+                Index(Split(
+                    Last(Split(Substitute(Last(Split(ThisItem.LINKobj,""",""")).Value,""")","")," ")).Value
+                    ,"/"),1).Value
+                       ))
+                ,"yyyy-mm-dd")
+            DisabledBorderColor: =RGBA(166, 166, 166, 1)
+            DisabledColor: =RGBA(166, 166, 166, 1)
+            DisabledFill: =RGBA(244, 244, 244, 1)
+            FocusedBorderThickness: =1
+            Font: =App.Theme.Font
+            Height: =19
+            HoverBorderColor: =App.Theme.Colors.Darker40
+            HoverColor: =RGBA(0, 0, 0, 1)
+            HoverFill: =App.Theme.Colors.Lighter70
+            Mode: =TextMode.MultiLine
+            OnSelect: =Select(Parent)
+            PaddingBottom: =2
+            PaddingLeft: =2
+            PaddingRight: =2
+            PaddingTop: =2
+            Size: =8
+            Width: =86
+            X: =970
+            Y: =51
+            ZIndex: =27
+
+        Image6 As image:
+            BorderColor: =App.Theme.Colors.Darker40
+            DisabledBorderColor: =RGBA(166, 166, 166, 1)
+            DisabledFill: =RGBA(244, 244, 244, 1)
+            Height: =60
+            Image: =linkimage.Text
+            ImagePosition: =ImagePosition.Fill
+            OnSelect: =Select(Parent)
+            Width: =60
+            X: =893
+            Y: =5
+            ZIndex: =28
+
+        Label10_17 As label:
+            Align: =Align.Center
+            BorderColor: =App.Theme.Colors.Darker40
+            Color: =RGBA(9, 33, 98, 1)
+            DisabledColor: =RGBA(166, 166, 166, 1)
+            Fill: =RGBA(255, 255, 255, 1)
+            Font: =App.Theme.Font
+            Height: =15
+            OnSelect: =Select(Parent)
+            PaddingBottom: =0
+            PaddingLeft: =0
+            PaddingRight: =0
+            PaddingTop: =0
+            Size: =6
+            Text: ="POL"
+            Width: =26
+            Y: =53
+            ZIndex: =29
+
+        TextInput5_2 As text:
+            BorderColor: =App.Theme.Colors.Darker40
+            Color: =RGBA(0, 0, 0, 1)
+            Default: =""
+            DisabledBorderColor: =RGBA(166, 166, 166, 1)
+            DisabledColor: =RGBA(166, 166, 166, 1)
+            DisabledFill: =RGBA(244, 244, 244, 1)
+            FocusedBorderThickness: =1
+            Font: =App.Theme.Font
+            Height: =15
+            HintText: ="Plbg suplier"
+            HoverBorderColor: =App.Theme.Colors.Darker40
+            HoverColor: =RGBA(0, 0, 0, 1)
+            HoverFill: =App.Theme.Colors.Lighter70
+            OnSelect: =Select(Parent)
+            PaddingLeft: =5
+            RadiusBottomLeft: =0
+            RadiusBottomRight: =0
+            RadiusTopLeft: =0
+            RadiusTopRight: =0
+            Size: =8
+            Width: =102
+            X: =30
+            Y: =54
+            ZIndex: =31
+
+        Label10_11 As label:
+            BorderColor: =App.Theme.Colors.Darker40
+            Color: =RGBA(0, 0, 0, 1)
+            DisabledColor: =RGBA(166, 166, 166, 1)
+            Fill: =RGBA(255, 255, 0, 1)
+            Font: =Font.'Open Sans Condensed'
+            FontWeight: =FontWeight.Semibold
+            Height: =15
+            OnSelect: =Select(Parent)
+            Size: =8
+            Text: =If(TextInput5_2.Text="","",First(Search(Filter(PM_Supplier,Type_Polybag),TextInput5_2.Text,FullName)).FullName)
+            Width: =154
+            Wrap: =false
+            X: =138
+            Y: =54
+            ZIndex: =32
+
+        ponum As label:
+            Align: =Align.Center
+            BorderColor: =App.Theme.Colors.Darker40
+            Color: =RGBA(0, 0, 0, 1)
+            DisabledColor: =RGBA(166, 166, 166, 1)
+            Fill: =RGBA(255, 255, 0, 1)
+            Font: =Font.'Open Sans Condensed'
+            FontWeight: =FontWeight.Semibold
+            Height: =15
+            OnSelect: =Select(Parent)
+            Size: =8
+            Text: =If(TextInput5_2.Text="","",First(Search(Filter(PM_Supplier,Type_Polybag),TextInput5_2.Text,FullName)).ID)
+            Width: =24
+            X: =298
+            Y: =54
+            ZIndex: =33
+
+        rvpoi As text:
+            BorderColor: =App.Theme.Colors.Darker40
+            Color: =RGBA(0, 0, 0, 1)
+            Default: =""
+            DisabledBorderColor: =RGBA(166, 166, 166, 1)
+            DisabledColor: =RGBA(166, 166, 166, 1)
+            DisabledFill: =RGBA(244, 244, 244, 1)
+            FocusedBorderThickness: =1
+            Font: =App.Theme.Font
+            Height: =15
+            HintText: ="input"
+            HoverBorderColor: =App.Theme.Colors.Darker40
+            HoverColor: =RGBA(0, 0, 0, 1)
+            HoverFill: =App.Theme.Colors.Lighter70
+            OnSelect: =Select(Parent)
+            PaddingLeft: =5
+            RadiusBottomLeft: =0
+            RadiusBottomRight: =0
+            RadiusTopLeft: =0
+            RadiusTopRight: =0
+            Size: =8
+            Width: =35
+            X: =455
+            Y: =55
+            ZIndex: =34
+
+        metin As text:
+            BorderColor: =App.Theme.Colors.Darker40
+            Color: =RGBA(0, 0, 0, 1)
+            Default: =ThisItem.MAT
+            DisabledBorderColor: =RGBA(166, 166, 166, 1)
+            DisabledColor: =RGBA(166, 166, 166, 1)
+            DisabledFill: =RGBA(244, 244, 244, 1)
+            FocusedBorderThickness: =1
+            Font: =App.Theme.Font
+            Height: =15
+            HintText: ="input"
+            HoverBorderColor: =App.Theme.Colors.Darker40
+            HoverColor: =RGBA(0, 0, 0, 1)
+            HoverFill: =App.Theme.Colors.Lighter70
+            OnSelect: =Select(Parent)
+            PaddingLeft: =5
+            RadiusBottomLeft: =0
+            RadiusBottomRight: =0
+            RadiusTopLeft: =0
+            RadiusTopRight: =0
+            Size: =8
+            Width: =118
+            X: =330
+            Y: =17
+            ZIndex: =35
+
+        metpo As text:
+            BorderColor: =App.Theme.Colors.Darker40
+            Color: =RGBA(0, 0, 0, 1)
+            Default: =""
+            DisabledBorderColor: =RGBA(166, 166, 166, 1)
+            DisabledColor: =RGBA(166, 166, 166, 1)
+            DisabledFill: =RGBA(244, 244, 244, 1)
+            FocusedBorderThickness: =1
+            Font: =App.Theme.Font
+            Height: =15
+            HintText: ="input"
+            HoverBorderColor: =App.Theme.Colors.Darker40
+            HoverColor: =RGBA(0, 0, 0, 1)
+            HoverFill: =App.Theme.Colors.Lighter70
+            OnSelect: =Select(Parent)
+            PaddingLeft: =5
+            RadiusBottomLeft: =0
+            RadiusBottomRight: =0
+            RadiusTopLeft: =0
+            RadiusTopRight: =0
+            Size: =8
+            Width: =118
+            X: =330
+            Y: =55
+            ZIndex: =36
+
+        inreq As text:
+            BorderColor: =RGBA(214, 221, 224, 1)
+            Color: =RGBA(0, 0, 0, 1)
+            Default: =If(ThisItem.INNAME="0",Blank(),ThisItem.INNAME&"/"&ThisItem.INMAIL)
+            DisabledBorderColor: =RGBA(166, 166, 166, 1)
+            DisabledColor: =RGBA(166, 166, 166, 1)
+            DisabledFill: =RGBA(244, 244, 244, 1)
+            Fill: =RGBA(237, 245, 252, 1)
+            FocusedBorderThickness: =1
+            Font: =App.Theme.Font
+            Height: =15
+            HintText: ="input"
+            HoverBorderColor: =App.Theme.Colors.Darker40
+            HoverColor: =RGBA(0, 0, 0, 1)
+            HoverFill: =App.Theme.Colors.Lighter70
+            OnSelect: =Select(Parent)
+            PaddingLeft: =5
+            RadiusBottomLeft: =0
+            RadiusBottomRight: =0
+            RadiusTopLeft: =0
+            RadiusTopRight: =0
+            Size: =8
+            Width: =199
+            X: =540
+            Y: =18
+            ZIndex: =37
+
+        instatus As text:
+            BorderColor: =RGBA(214, 221, 224, 1)
+            Color: =RGBA(0, 0, 0, 1)
+            Default: =If(ThisItem.INSTA="0","",ThisItem.INSTA)
+            DisabledBorderColor: =RGBA(166, 166, 166, 1)
+            DisabledColor: =RGBA(166, 166, 166, 1)
+            DisabledFill: =RGBA(244, 244, 244, 1)
+            Fill: =RGBA(237, 245, 252, 1)
+            FocusedBorderThickness: =1
+            Font: =App.Theme.Font
+            Height: =15
+            HintText: ="input"
+            HoverBorderColor: =App.Theme.Colors.Darker40
+            HoverColor: =RGBA(0, 0, 0, 1)
+            HoverFill: =App.Theme.Colors.Lighter70
+            OnSelect: =Select(Parent)
+            PaddingLeft: =5
+            RadiusBottomLeft: =0
+            RadiusBottomRight: =0
+            RadiusTopLeft: =0
+            RadiusTopRight: =0
+            Size: =8
+            Width: =56
+            X: =739
+            Y: =18
+            ZIndex: =38
+
+        indate As text:
+            BorderColor: =RGBA(214, 221, 224, 1)
+            Color: =RGBA(0, 0, 0, 1)
+            Default: =If(IsBlank(ThisItem.INDATE),"",Last(Split(ThisItem.INDATE,"/")).Value&"-"&Index(Split(ThisItem.INDATE,"/"),2).Value&"-"&First(Split(ThisItem.INDATE,"/")).Value)
+            DisabledBorderColor: =RGBA(166, 166, 166, 1)
+            DisabledColor: =RGBA(166, 166, 166, 1)
+            DisabledFill: =RGBA(244, 244, 244, 1)
+            Fill: =RGBA(237, 245, 252, 1)
+            FocusedBorderThickness: =1
+            Font: =App.Theme.Font
+            Height: =15
+            HintText: ="input"
+            HoverBorderColor: =App.Theme.Colors.Darker40
+            HoverColor: =RGBA(0, 0, 0, 1)
+            HoverFill: =App.Theme.Colors.Lighter70
+            OnSelect: =Select(Parent)
+            PaddingLeft: =5
+            RadiusBottomLeft: =0
+            RadiusBottomRight: =0
+            RadiusTopLeft: =0
+            RadiusTopRight: =0
+            Size: =8
+            Width: =81
+            X: =795
+            Y: =18
+            ZIndex: =39
+
+        enumreq As text:
+            BorderColor: =RGBA(214, 221, 224, 1)
+            Color: =RGBA(0, 0, 0, 1)
+            Default: =If(ThisItem.INNAME="0",Blank(),2)
+            DisabledBorderColor: =RGBA(166, 166, 166, 1)
+            DisabledColor: =RGBA(166, 166, 166, 1)
+            DisabledFill: =RGBA(244, 244, 244, 1)
+            Fill: =RGBA(227, 255, 219, 1)
+            FocusedBorderThickness: =1
+            Font: =App.Theme.Font
+            Height: =15
+            HintText: ="enum"
+            HoverBorderColor: =App.Theme.Colors.Darker40
+            HoverColor: =RGBA(0, 0, 0, 1)
+            HoverFill: =App.Theme.Colors.Lighter70
+            OnSelect: =Select(Parent)
+            PaddingLeft: =5
+            RadiusBottomLeft: =0
+            RadiusBottomRight: =0
+            RadiusTopLeft: =0
+            RadiusTopRight: =0
+            Size: =8
+            Width: =40
+            X: =500
+            Y: =18
+            ZIndex: =40
+
+        inreq_1 As text:
+            BorderColor: =RGBA(214, 221, 224, 1)
+            Color: =RGBA(0, 0, 0, 1)
+            Default: =If(ThisItem.CANAME="0",Blank(),ThisItem.CANAME&"/"&ThisItem.CAMAIL)
+            DisabledBorderColor: =RGBA(166, 166, 166, 1)
+            DisabledColor: =RGBA(166, 166, 166, 1)
+            DisabledFill: =RGBA(244, 244, 244, 1)
+            Fill: =RGBA(237, 245, 252, 1)
+            FocusedBorderThickness: =1
+            Font: =App.Theme.Font
+            Height: =15
+            HintText: ="input"
+            HoverBorderColor: =App.Theme.Colors.Darker40
+            HoverColor: =RGBA(0, 0, 0, 1)
+            HoverFill: =App.Theme.Colors.Lighter70
+            OnSelect: =Select(Parent)
+            PaddingLeft: =5
+            RadiusBottomLeft: =0
+            RadiusBottomRight: =0
+            RadiusTopLeft: =0
+            RadiusTopRight: =0
+            Size: =8
+            Width: =199
+            X: =540
+            Y: =37
+            ZIndex: =41
+
+        instatus_1 As text:
+            BorderColor: =RGBA(214, 221, 224, 1)
+            Color: =RGBA(0, 0, 0, 1)
+            Default: =If(ThisItem.CASTA="0","",ThisItem.CASTA)
+            DisabledBorderColor: =RGBA(166, 166, 166, 1)
+            DisabledColor: =RGBA(166, 166, 166, 1)
+            DisabledFill: =RGBA(244, 244, 244, 1)
+            Fill: =RGBA(237, 245, 252, 1)
+            FocusedBorderThickness: =1
+            Font: =App.Theme.Font
+            Height: =15
+            HintText: ="input"
+            HoverBorderColor: =App.Theme.Colors.Darker40
+            HoverColor: =RGBA(0, 0, 0, 1)
+            HoverFill: =App.Theme.Colors.Lighter70
+            OnSelect: =Select(Parent)
+            PaddingLeft: =5
+            RadiusBottomLeft: =0
+            RadiusBottomRight: =0
+            RadiusTopLeft: =0
+            RadiusTopRight: =0
+            Size: =8
+            Width: =56
+            X: =739
+            Y: =37
+            ZIndex: =42
+
+        indate_1 As text:
+            BorderColor: =RGBA(214, 221, 224, 1)
+            Color: =RGBA(0, 0, 0, 1)
+            Default: =If(IsBlank(ThisItem.CADATE),"",Last(Split(ThisItem.CADATE,"/")).Value&"-"&Index(Split(ThisItem.CADATE,"/"),2).Value&"-"&First(Split(ThisItem.CADATE,"/")).Value)
+            DisabledBorderColor: =RGBA(166, 166, 166, 1)
+            DisabledColor: =RGBA(166, 166, 166, 1)
+            DisabledFill: =RGBA(244, 244, 244, 1)
+            Fill: =RGBA(237, 245, 252, 1)
+            FocusedBorderThickness: =1
+            Font: =App.Theme.Font
+            Height: =15
+            HintText: ="input"
+            HoverBorderColor: =App.Theme.Colors.Darker40
+            HoverColor: =RGBA(0, 0, 0, 1)
+            HoverFill: =App.Theme.Colors.Lighter70
+            OnSelect: =Select(Parent)
+            PaddingLeft: =5
+            RadiusBottomLeft: =0
+            RadiusBottomRight: =0
+            RadiusTopLeft: =0
+            RadiusTopRight: =0
+            Size: =8
+            Width: =81
+            X: =795
+            Y: =37
+            ZIndex: =43
+
+        enumreq_1 As text:
+            BorderColor: =RGBA(214, 221, 224, 1)
+            Color: =RGBA(0, 0, 0, 1)
+            Default: =If(ThisItem.CANAME="0",Blank(),1)
+            DisabledBorderColor: =RGBA(166, 166, 166, 1)
+            DisabledColor: =RGBA(166, 166, 166, 1)
+            DisabledFill: =RGBA(244, 244, 244, 1)
+            Fill: =RGBA(227, 255, 219, 1)
+            FocusedBorderThickness: =1
+            Font: =App.Theme.Font
+            Height: =15
+            HintText: ="enum"
+            HoverBorderColor: =App.Theme.Colors.Darker40
+            HoverColor: =RGBA(0, 0, 0, 1)
+            HoverFill: =App.Theme.Colors.Lighter70
+            OnSelect: =Select(Parent)
+            PaddingLeft: =5
+            RadiusBottomLeft: =0
+            RadiusBottomRight: =0
+            RadiusTopLeft: =0
+            RadiusTopRight: =0
+            Size: =8
+            Width: =40
+            X: =500
+            Y: =37
+            ZIndex: =44
+
+        arrayrequisition As label:
+            BorderColor: =App.Theme.Colors.Darker40
+            Color: =RGBA(255, 255, 0, 1)
+            DisabledColor: =RGBA(166, 166, 166, 1)
+            Fill: =RGBA(0, 0, 0, 1)
+            Font: =Font.'Open Sans Condensed'
+            Height: =15
+            OnSelect: =Select(Parent)
+            Size: =6
+            Text: |-
+                ="["&If(IsBlank(enumreq.Text),"",
+                "{""pm"" :"&enumreq.Text&",""requester"" :"""&inreq.Text&""",""reqstatus"" :"""&instatus.Text&""",""dateout"" :"""&indate.Text&"""}"
+                
+                )
+                &If(IsBlank(enumreq_1.Text),"",If(IsBlank(enumreq.Text),"",",")&
+                
+                "{""pm"" :"&enumreq_1.Text&",""requester"" :"""&inreq_1.Text&""",""reqstatus"" :"""&instatus_1.Text&""",""dateout"" :"""&indate_1.Text&"""}"
+                
+                
+                
+                ) &"]"
+            Width: =371
+            X: =505
+            Y: =55
+            ZIndex: =45
+
+    Label11 As label:
+        BorderColor: =App.Theme.Colors.Darker40
+        Color: =RGBA(0, 0, 0, 1)
+        DisabledColor: =RGBA(166, 166, 166, 1)
+        Font: =App.Theme.Font
+        Size: =13
+        Text: =","&Char(10)
+        X: =30
+        ZIndex: =2
+
+    ButtonCanvas3 As Button:
+        Align: =""
+        BasePaletteColor: =
+        BorderColor: =
+        BorderStyle: =""
+        DisplayMode: =DisplayMode.Edit
+        FontColor: =
+        Height: =32
+        Icon: =""
+        IconRotation: =0
+        IconStyle: ="Outline"
+        Layout: ="Icon before"
+        OnSelect: |-
+            =ClearCollect(
+                collectdataWithSequence,
+                ForAll(
+                    Split(TextInput4.Text,Char(10)),
+                    {
+                       RID : Index(Split(Value,Char(9)),1).Value
+            ,NU : Index(Split(Value,Char(9)),2).Value
+            ,LOCATION : Index(Split(Value,Char(9)),3).Value
+            ,MAT : Index(Split(Value,Char(9)),4).Value
+            ,BRAND : Index(Split(Value,Char(9)),5).Value
+            ,RVI : Index(Split(Value,Char(9)),6).Value
+            ,SI : Index(Split(Value,Char(9)),7).Value
+            ,RVC : Index(Split(Value,Char(9)),8).Value
+            ,SC : Index(Split(Value,Char(9)),9).Value
+            ,VER : Index(Split(Value,Char(9)),10).Value
+            ,PD : Index(Split(Value,Char(9)),11).Value
+            ,ED : Index(Split(Value,Char(9)),12).Value
+            ,DU : Index(Split(Value,Char(9)),13).Value
+            ,INNAME : Index(Split(Value,Char(9)),14).Value
+            ,INMAIL : Index(Split(Value,Char(9)),15).Value
+            ,INDATE : If(Index(Split(Value,Char(9)),16).Value="0",Blank(),If
+                (Len(Index(Split(Value,Char(9)),16).Value)<6,
+                Text(DateValue(DateAdd(Date(1900,1,1), Value(Index(Split(Value,Char(9)),16).Value)-1,TimeUnit.Days)),"dd/mm/yyyy")
+                ,Index(Split(Value,Char(9)),16).Value))
+            ,INSTA : Index(Split(Value,Char(9)),18).Value
+            ,CANAME : Index(Split(Value,Char(9)),19).Value
+            ,CAMAIL : Index(Split(Value,Char(9)),20).Value
+            ,CADATE : If(Index(Split(Value,Char(9)),21).Value="0",Blank(),If
+                (Len(Index(Split(Value,Char(9)),21).Value)<6,
+                Text(DateValue(DateAdd(Date(1900,1,1), Value(Index(Split(Value,Char(9)),21).Value)-1,TimeUnit.Days)),"dd/mm/yyyy")
+                ,Index(Split(Value,Char(9)),16).Value))
+            ,CASTA : Index(Split(Value,Char(9)),23).Value
+            ,LINKobj : Index(Split(Value,Char(9)),28).Value
+                    }
+                )
+            )
+        Text: ="Generate"
+        VerticalAlign: =""
+        Width: =96
+        X: =256
+        Y: =6
+        ZIndex: =3
+
+    ButtonCanvas4 As Button:
+        Align: =""
+        BasePaletteColor: =
+        BorderColor: =
+        BorderStyle: =""
+        DisplayMode: =DisplayMode.Edit
+        FontColor: =
+        Height: =36
+        Icon: =""
+        IconRotation: =0
+        IconStyle: ="Outline"
+        Layout: ="Icon before"
+        OnSelect: |-
+            =SENDTOpa.Run(TextInput7.Text)
+               
+        Text: ="Migrate now"
+        VerticalAlign: =""
+        Width: =134
+        X: =971
+        Y: =4
+        ZIndex: =4
+
+    TextInput7 As text:
+        BorderColor: =App.Theme.Colors.Darker40
+        BorderThickness: =2
+        Color: =RGBA(22, 242, 231, 1)
+        Default: |-
+            ="[{"&Concat(Gallery1.AllItems,
+             """RID"": """ & RID &""","&
+             """num"" : " & NU &","&
+            """LOCATION"" : """ & LOCATION &""","&
+            """MAT"" : """ & MAT &""","&
+            """BRAND"" : """ & BRAND &""","&
+            """inMAT"" : """ & metin.Text&""","&
+            """inRV"" : """ & rvii.Text&""","&
+            """inSup"" : """ & innum.Text &""","&
+            """caMAT"" : """ & metctn.Text &""","&
+            """caRV"" : """ & rvci.Text&""","&
+            """caSup"" : """ & canum.Text &""","&
+            """poMAT"" : """ & metpo.Text &""","&
+            """poRV"" : """ & rvpoi.Text&""","&
+            """poSup"" : """ & ponum.Text &""","&
+            """VER"" : """ & VER &""","&
+            """PD"" : """ & Label10.Text &""","&
+            """Reqarray"" : " & arrayrequisition.Text &","&
+            """verdate"" : """ & datevernya.Text &""","&
+            """LINK"" : """ & linkimage.Text
+            ,
+            """},"&Char(10)&"{")
+            &"""}]"
+        DisabledBorderColor: =RGBA(166, 166, 166, 1)
+        DisabledColor: =RGBA(166, 166, 166, 1)
+        DisabledFill: =RGBA(244, 244, 244, 1)
+        Fill: =RGBA(0, 0, 0, 1)
+        FocusedBorderThickness: =4
+        Font: =Font.Arial
+        Height: =509
+        HoverBorderColor: =App.Theme.Colors.Darker40
+        HoverColor: =RGBA(0, 0, 0, 1)
+        HoverFill: =App.Theme.Colors.Lighter70
+        Mode: =TextMode.MultiLine
+        Size: =8
+        Width: =239
+        Y: =257
+        ZIndex: =5
+
+    TextInput4 As text:
+        BorderColor: =App.Theme.Colors.Darker40
+        BorderThickness: =2
+        Color: =RGBA(0, 0, 0, 1)
+        Default: |-
+            ="https://graph.microsoft.com/v1.0/sites/topglove.sharepoint.com,c6c0c0bd-4c39-458a-85cc-0689803c3e72,d65e1190-fd5f-49e1-aa0c-ce133e5a5187/drives/b!vcDAxjlMikWFzAaJgDw-cpARXtZf_eFJqgzOEz5aUYeCQNZ9N7m4QawVh5biLdb8/items/10C0D905-6BD2-421B-A7A8-2751E12A71A6/workbook/worksheets('MASTER_SAMPLE')/usedRange"
+        DisabledBorderColor: =RGBA(166, 166, 166, 1)
+        DisabledColor: =RGBA(166, 166, 166, 1)
+        DisabledFill: =RGBA(244, 244, 244, 1)
+        FocusedBorderThickness: =4
+        Font: =Font.'Open Sans Condensed'
+        Height: =257
+        HoverBorderColor: =App.Theme.Colors.Darker40
+        HoverColor: =RGBA(0, 0, 0, 1)
+        HoverFill: =App.Theme.Colors.Lighter70
+        Mode: =TextMode.MultiLine
+        Size: =6
+        Width: =239
+        ZIndex: =6
+
+    ButtonCanvas11 As Button:
+        DisplayMode: =DisplayMode.Edit
+        Height: =32
+        OnSelect: =VerifyMSNew.Run("noorziella@topglove.com.my",3)
+        Width: =96
+        X: =452
+        Y: =432
+        ZIndex: =7
+

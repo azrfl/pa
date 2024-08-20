@@ -1,0 +1,100 @@
+navi_blank As CanvasComponent:
+    Fill: =RGBA(0, 0, 0, 0)
+    Height: =App.Height
+    Width: =140
+    X: =0
+    Y: =0
+    ZIndex: =7
+
+    HtmlText1_8 As htmlViewer:
+        Fill: =RGBA(0, 0, 0, 0)
+        Height: =App.Height
+        HtmlText: |-
+            ="<div style='border-radius: 5px;width:120px;height:"&Self.Height-20&"px;opacity:1;margin:1px 3px;
+            background: linear-gradient(170deg, #ffffff,#c1e2f5);
+            box-shadow:  0px 5px 9px #b5b5b5'></div>"
+        PaddingBottom: =0
+        PaddingLeft: =0
+        PaddingRight: =0
+        PaddingTop: =0
+        Size: =13
+        Width: =136
+        ZIndex: =1
+
+    Label9_26 As label:
+        Align: =Align.Center
+        BorderColor: =RGBA(0, 0, 0, 0)
+        BorderStyle: =BorderStyle.None
+        BorderThickness: =2
+        Color: =RGBA(116, 116, 116, 1)
+        DisabledBorderColor: =RGBA(0, 0, 0, 0)
+        DisabledColor: =RGBA(166, 166, 166, 1)
+        FocusedBorderThickness: =4
+        Font: =Font.'Segoe UI'
+        Height: =16
+        Size: =6
+        Text: =Char(169)&" QA Researcher 2023"
+        Width: =130
+        Y: =App.Height-16
+        ZIndex: =29
+
+    Image10_2 As image:
+        BorderColor: =RGBA(0, 0, 0, 0)
+        BorderStyle: =BorderStyle.None
+        BorderThickness: =2
+        DisabledBorderColor: =RGBA(0, 0, 0, 0)
+        DisabledFill: =RGBA(0, 0, 0, 0)
+        FocusedBorderThickness: =4
+        Height: =59
+        HoverBorderColor: =RGBA(0, 0, 0, 0)
+        HoverFill: =RGBA(0, 0, 0, 0)
+        Image: ='mqc enhance'
+        PressedBorderColor: =RGBA(0, 0, 0, 0)
+        PressedFill: =RGBA(0, 0, 0, 0)
+        Width: =125
+        X: =1
+        Y: =5
+        ZIndex: =30
+
+    Icon9_2 As icon.Home:
+        BorderColor: =RGBA(0, 0, 0, 0)
+        Color: =RGBA(9, 33, 98, 1)
+        DisabledBorderColor: =RGBA(245, 245, 245, 1)
+        DisabledColor: =RGBA(225, 223, 221, 1)
+        DisabledFill: =RGBA(0, 0, 0, 0)
+        FocusedBorderThickness: =4
+        Height: =28
+        HoverBorderColor: =RGBA(0, 0, 0, 0)
+        HoverColor: =RGBA(16, 110, 190, 1)
+        HoverFill: =RGBA(0, 0, 0, 0)
+        Icon: =Icon.Home
+        OnSelect: =Navigate(Homescreen,ScreenTransition.UnCover)
+        PressedBorderColor: =RGBA(0, 0, 0, 0)
+        PressedColor: =RGBA(16, 110, 190, 1)
+        PressedFill: =RGBA(0, 0, 0, 0)
+        Width: =38
+        X: =25
+        Y: =63
+        ZIndex: =31
+
+    Icon10_1 As icon.BackArrow:
+        BorderColor: =RGBA(0, 0, 0, 0)
+        Color: =RGBA(9, 33, 98, 1)
+        DisabledBorderColor: =RGBA(245, 245, 245, 1)
+        DisabledColor: =RGBA(225, 223, 221, 1)
+        DisabledFill: =RGBA(0, 0, 0, 0)
+        FocusedBorderThickness: =4
+        Height: =25
+        HoverBorderColor: =RGBA(0, 0, 0, 0)
+        HoverColor: =RGBA(16, 110, 190, 1)
+        HoverFill: =RGBA(0, 0, 0, 0)
+        Icon: =Icon.BackArrow
+        OnSelect: =Back()
+        PressedBorderColor: =RGBA(0, 0, 0, 0)
+        PressedColor: =RGBA(16, 110, 190, 1)
+        PressedFill: =RGBA(0, 0, 0, 0)
+        Width: =36
+        X: =63
+        Y: =65
+        ZIndex: =32
+

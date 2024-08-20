@@ -1,0 +1,485 @@
+Component1 As CanvasComponent:
+    Fill: =RGBA(0, 0, 0, 0)
+    Height: =640
+    Width: =640
+    X: =0
+    Y: =0
+    ZIndex: =1
+
+    Rectangle13_6 As rectangle:
+        BorderColor: =RGBA(0, 18, 107, 1)
+        Fill: =RGBA(9, 33, 98, 1)
+        Height: =10
+        Width: =2
+        X: =420
+        Y: =65
+        ZIndex: =29
+
+    Rectangle14_1 As rectangle:
+        BorderColor: =RGBA(0, 18, 107, 1)
+        Fill: =RGBA(9, 33, 98, 1)
+        Height: =2
+        Width: =91
+        X: =420
+        Y: =64
+        ZIndex: =30
+
+    Circle1_10 As circle:
+        BorderColor: =RGBA(0, 18, 107, 1)
+        Fill: =RGBA(204, 231, 246, 1)
+        Height: =20
+        Width: =20
+        X: =505
+        Y: =57
+        ZIndex: =31
+
+    Circle1_11 As circle:
+        BorderColor: =RGBA(0, 18, 107, 1)
+        Fill: =RGBA(9, 33, 98, 1)
+        Height: =14
+        Width: =14
+        X: =511
+        Y: =60
+        ZIndex: =32
+
+    Icon37 As icon.ChevronDown:
+        BorderColor: =RGBA(0, 18, 107, 1)
+        Color: =RGBA(9, 33, 98, 1)
+        DisabledBorderColor: =RGBA(166, 166, 166, 1)
+        DisabledColor: =RGBA(244, 244, 244, 1)
+        DisplayMode: =DisplayMode.View
+        Height: =14
+        Icon: =Icon.ChevronDown
+        Width: =25
+        X: =409
+        Y: =66
+        ZIndex: =33
+
+    submitEVA_12 As htmlViewer:
+        Color: =RGBA(255, 255, 255, 1)
+        Fill: =RGBA(255, 255, 255,0)
+        Height: =58
+        HtmlText: |-
+            ="<button style='border-radius: 10px;width:150px;height:30px;border:0px;margin:10px 7px;background: linear-gradient(145deg,#FFFFFF,#86c5ff);box-shadow: 5px 5px 10px #6a9ccc'>trt</button>"
+        OnSelect: =
+        PaddingBottom: =0
+        PaddingLeft: =0
+        PaddingRight: =0.00
+        PaddingTop: =0.00
+        Size: =9.90
+        Width: =194
+        X: =446
+        Y: =9
+        ZIndex: =34
+
+    Group11 As group:
+        Height: =5
+        Width: =5
+        X: =-659
+        Y: =40
+        ZIndex: =34
+
+        Rectangle11 As rectangle:
+            BorderColor: =RGBA(0, 18, 107, 1)
+            Fill: =RGBA(204, 231, 246, 1)
+            Height: =6
+            Width: =280
+            X: =208
+            Y: =85
+            ZIndex: =1
+
+        Circle1 As circle:
+            BorderColor: =RGBA(0, 18, 107, 1)
+            Fill: =RGBA(204, 231, 246, 1)
+            Height: =20
+            Width: =20
+            X: =254
+            Y: =78
+            ZIndex: =2
+
+        kepala_66 As label:
+            Align: =Align.Center
+            BorderColor: =RGBA(0, 18, 107, 1)
+            Color: =RGBA(0, 13, 75, 1)
+            DisabledColor: =RGBA(166, 166, 166, 1)
+            FontWeight: =FontWeight.Bold
+            Height: =14
+            PaddingBottom: =2
+            PaddingLeft: =3
+            PaddingRight: =2
+            PaddingTop: =2
+            Size: =8
+            Text: ="New"
+            Width: =45
+            X: =241
+            Y: =96
+            ZIndex: =3
+
+        Circle1_1 As circle:
+            BorderColor: =RGBA(0, 18, 107, 1)
+            Fill: =RGBA(204, 231, 246, 1)
+            Height: =20
+            Width: =20
+            X: =327
+            Y: =78
+            ZIndex: =4
+
+        Circle1_2 As circle:
+            BorderColor: =RGBA(0, 18, 107, 1)
+            Fill: =RGBA(204, 231, 246, 1)
+            Height: =20
+            Width: =20
+            X: =411
+            Y: =77
+            ZIndex: =5
+
+        kepala_67 As label:
+            Align: =Align.Center
+            BorderColor: =RGBA(0, 18, 107, 1)
+            Color: =RGBA(0, 13, 75, 1)
+            DisabledColor: =RGBA(166, 166, 166, 1)
+            FontWeight: =FontWeight.Bold
+            Height: =14
+            PaddingBottom: =2
+            PaddingLeft: =3
+            PaddingRight: =2
+            PaddingTop: =2
+            Size: =8
+            Text: ="Draft"
+            Width: =45
+            X: =313
+            Y: =96
+            ZIndex: =6
+
+        kepala_68 As label:
+            Align: =Align.Center
+            BorderColor: =RGBA(0, 18, 107, 1)
+            Color: =RGBA(0, 13, 75, 1)
+            DisabledColor: =RGBA(166, 166, 166, 1)
+            FontWeight: =FontWeight.Bold
+            Height: =14
+            PaddingBottom: =2
+            PaddingLeft: =3
+            PaddingRight: =2
+            PaddingTop: =2
+            Size: =8
+            Text: ="Pen_Ver"
+            Width: =50
+            X: =397
+            Y: =96
+            ZIndex: =7
+
+        Circle1_3 As circle:
+            BorderColor: =RGBA(0, 18, 107, 1)
+            Fill: =RGBA(204, 231, 246, 1)
+            Height: =20
+            Width: =20
+            X: =601
+            Y: =78
+            ZIndex: =8
+
+        kepala_69 As label:
+            Align: =Align.Right
+            BorderColor: =RGBA(0, 18, 107, 1)
+            Color: =RGBA(0, 13, 75, 1)
+            DisabledColor: =RGBA(166, 166, 166, 1)
+            FontWeight: =FontWeight.Bold
+            Height: =20
+            Italic: =true
+            PaddingBottom: =0
+            PaddingLeft: =0
+            PaddingRight: =0
+            PaddingTop: =0
+            Size: =6
+            Text: |-
+                ="Request
+                by Purchaser"
+            Width: =62
+            X: =144
+            Y: =60
+            ZIndex: =9
+
+        Rectangle13 As rectangle:
+            BorderColor: =RGBA(0, 18, 107, 1)
+            Fill: =RGBA(204, 231, 246, 1)
+            Height: =30
+            Width: =2
+            X: =208
+            Y: =61
+            ZIndex: =10
+
+        kepala_89 As label:
+            Align: =Align.Right
+            BorderColor: =RGBA(0, 18, 107, 1)
+            Color: =RGBA(0, 13, 75, 1)
+            DisabledColor: =RGBA(166, 166, 166, 1)
+            FontWeight: =FontWeight.Bold
+            Height: =20
+            Italic: =true
+            PaddingBottom: =0
+            PaddingLeft: =0
+            PaddingRight: =0
+            PaddingTop: =0
+            Size: =6
+            Text: |-
+                ="Sample
+                Delivered"
+            Width: =37
+            X: =254
+            Y: =60
+            ZIndex: =11
+
+        Rectangle13_1 As rectangle:
+            BorderColor: =RGBA(0, 18, 107, 1)
+            Fill: =RGBA(204, 231, 246, 1)
+            Height: =30
+            Width: =2
+            X: =293
+            Y: =60
+            ZIndex: =12
+
+        kepala_90 As label:
+            BorderColor: =RGBA(0, 18, 107, 1)
+            Color: =RGBA(0, 13, 75, 1)
+            DisabledColor: =RGBA(166, 166, 166, 1)
+            FontWeight: =FontWeight.Bold
+            Height: =20
+            Italic: =true
+            PaddingBottom: =0
+            PaddingLeft: =0
+            PaddingRight: =0
+            PaddingTop: =0
+            Size: =6
+            Text: ="Perform Mock-up"
+            Width: =46
+            X: =321
+            Y: =60
+            ZIndex: =13
+
+        Rectangle13_2 As rectangle:
+            BorderColor: =RGBA(0, 18, 107, 1)
+            Fill: =RGBA(204, 231, 246, 1)
+            Height: =30
+            Width: =2
+            X: =318
+            Y: =60
+            ZIndex: =14
+
+        Rectangle13_3 As rectangle:
+            BorderColor: =RGBA(0, 18, 107, 1)
+            Fill: =RGBA(204, 231, 246, 1)
+            Height: =30
+            Width: =2
+            X: =367
+            Y: =60
+            ZIndex: =15
+
+        kepala_91 As label:
+            BorderColor: =RGBA(0, 18, 107, 1)
+            Color: =RGBA(0, 13, 75, 1)
+            DisabledColor: =RGBA(166, 166, 166, 1)
+            FontWeight: =FontWeight.Bold
+            Height: =20
+            Italic: =true
+            PaddingBottom: =0
+            PaddingLeft: =0
+            PaddingRight: =0
+            PaddingTop: =0
+            Size: =6
+            Text: |-
+                ="Notification
+                To QA"
+            Width: =46
+            X: =370
+            Y: =60
+            ZIndex: =16
+
+        kepala_93 As label:
+            Align: =Align.Right
+            BorderColor: =RGBA(0, 18, 107, 1)
+            Color: =RGBA(0, 13, 75, 1)
+            DisabledColor: =RGBA(166, 166, 166, 1)
+            FontWeight: =FontWeight.Bold
+            Height: =20
+            Italic: =true
+            PaddingBottom: =0
+            PaddingLeft: =0
+            PaddingRight: =0
+            PaddingTop: =0
+            Size: =6
+            Text: |-
+                ="Notify
+                Planner"
+            Width: =38
+            X: =206
+            Y: =60
+            ZIndex: =17
+
+        Rectangle13_5 As rectangle:
+            BorderColor: =RGBA(0, 18, 107, 1)
+            Fill: =RGBA(204, 231, 246, 1)
+            Height: =30
+            Width: =2
+            X: =246
+            Y: =61
+            ZIndex: =18
+
+        kepala_94 As label:
+            Align: =Align.Center
+            BorderColor: =RGBA(0, 18, 107, 1)
+            Color: =RGBA(0, 13, 75, 1)
+            DisabledColor: =RGBA(166, 166, 166, 1)
+            FontWeight: =FontWeight.Bold
+            Height: =14
+            PaddingBottom: =2
+            PaddingLeft: =3
+            PaddingRight: =2
+            PaddingTop: =2
+            Size: =8
+            Text: ="Complete"
+            Width: =60
+            X: =580
+            Y: =96
+            ZIndex: =19
+
+        kepala_95 As label:
+            BorderColor: =RGBA(0, 18, 107, 1)
+            Color: =RGBA(0, 13, 75, 1)
+            DisabledColor: =RGBA(166, 166, 166, 1)
+            FontWeight: =FontWeight.Bold
+            Height: =48
+            PaddingBottom: =2
+            PaddingLeft: =3
+            PaddingRight: =2
+            PaddingTop: =2
+            Size: =8
+            Text: |-
+                ="PROCESS
+                TIMELINE"
+            Width: =65
+            X: =102
+            Y: =61
+            ZIndex: =20
+
+        Rectangle14 As rectangle:
+            BorderColor: =RGBA(0, 18, 107, 1)
+            Fill: =RGBA(9, 33, 98, 1)
+            Height: =2
+            Width: |-
+                =Switch(
+                        GalleryMockup.Selected.Status,
+                        "New",60,
+                        "Draft",130,
+                        "Pen_Ver",200,
+                        "Complete",270,
+                        10
+                    )
+            X: =210
+            Y: =87
+            ZIndex: =21
+
+        Circle1_4 As circle:
+            BorderColor: =RGBA(0, 18, 107, 1)
+            Fill: =RGBA(9, 33, 98, 1)
+            Height: =14
+            Visible: |-
+                =Switch(
+                        GalleryMockup.Selected.Status,
+                        "New",true,
+                        "Draft",true,
+                        "Pen_Ver",true,
+                        "Complete",true,
+                       false
+                    )
+            Width: =14
+            X: =257
+            Y: =81
+            ZIndex: =22
+
+        Circle1_5 As circle:
+            BorderColor: =RGBA(0, 18, 107, 1)
+            Fill: =RGBA(9, 33, 98, 1)
+            Height: =14
+            Visible: |-
+                =Switch(
+                        GalleryMockup.Selected.Status,
+                        "New",false,
+                        "Draft",true,
+                        "Pen_Ver",true,
+                        "Complete",true,
+                       false
+                    )
+            Width: =14
+            X: =330
+            Y: =81
+            ZIndex: =23
+
+        Circle1_6 As circle:
+            BorderColor: =RGBA(0, 18, 107, 1)
+            Fill: =RGBA(9, 33, 98, 1)
+            Height: =14
+            Visible: |-
+                =Switch(
+                        GalleryMockup.Selected.Status,
+                        "New",false,
+                        "Draft",false,
+                        "Pen_Ver",true,
+                        "Complete",true,
+                       false
+                    )
+            Width: =14
+            X: =414
+            Y: =81
+            ZIndex: =24
+
+        Circle1_7 As circle:
+            BorderColor: =RGBA(0, 18, 107, 1)
+            Fill: =RGBA(9, 33, 98, 1)
+            Height: =14
+            Visible: |-
+                =//If(GalleryMockup.Selected.Status = "Complete",true,false)
+                true
+            Width: =14
+            X: =604
+            Y: =81
+            ZIndex: =25
+
+        Circle1_8 As circle:
+            BorderColor: =RGBA(0, 18, 107, 1)
+            Fill: =RGBA(204, 231, 246, 1)
+            Height: =20
+            Width: =20
+            X: =547
+            Y: =91
+            ZIndex: =26
+
+        Circle1_9 As circle:
+            BorderColor: =RGBA(0, 18, 107, 1)
+            Fill: =RGBA(9, 33, 98, 1)
+            Height: =14
+            Width: =14
+            X: =553
+            Y: =94
+            ZIndex: =27
+
+        kepala_92 As label:
+            Align: =Align.Center
+            BorderColor: =RGBA(0, 18, 107, 1)
+            Color: =RGBA(0, 13, 75, 1)
+            DisabledColor: =RGBA(166, 166, 166, 1)
+            FontWeight: =FontWeight.Bold
+            Height: =20
+            Italic: =true
+            PaddingBottom: =0
+            PaddingLeft: =0
+            PaddingRight: =0
+            PaddingTop: =0
+            Size: =6
+            Text: |-
+                ="QA
+                Verify"
+            Width: =50
+            X: =449
+            Y: =83
+            ZIndex: =28
+

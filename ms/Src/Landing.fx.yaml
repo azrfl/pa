@@ -1,0 +1,143 @@
+Landing As screen:
+    BackgroundImage: =pxfuel
+    Fill: =Color.White
+    ImagePosition: =ImagePosition.Fill
+    LoadingSpinnerColor: =App.Theme.Colors.Primary
+
+    Container1 As groupContainer.verticalAutoLayoutContainer:
+        Height: =App.Height
+        LayoutAlignItems: =LayoutAlignItems.Center
+        LayoutDirection: =LayoutDirection.Vertical
+        LayoutJustifyContent: =LayoutJustifyContent.Center
+        LayoutMode: =LayoutMode.Auto
+        RadiusBottomLeft: =4
+        RadiusBottomRight: =4
+        RadiusTopLeft: =4
+        RadiusTopRight: =4
+        Width: =App.Width
+        ZIndex: =2
+
+        Container3 As groupContainer.manualLayoutContainer:
+            AlignInContainer: =AlignInContainer.Center
+            DropShadow: =DropShadow.Semibold
+            FillPortions: =0
+            Height: =73
+            LayoutMinHeight: =100
+            LayoutMinWidth: =250
+            Width: =230
+            ZIndex: =1
+
+            Image4 As image:
+                BorderColor: =App.Theme.Colors.Darker40
+                DisabledBorderColor: =RGBA(166, 166, 166, 1)
+                DisabledFill: =RGBA(244, 244, 244, 1)
+                Height: =73
+                Image: =logo_topglove
+                ImagePosition: =ImagePosition.Fill
+                Width: =230
+                ZIndex: =1
+
+        Label6 As label:
+            Align: =Align.Center
+            AlignInContainer: =AlignInContainer.Stretch
+            BorderColor: =App.Theme.Colors.Darker40
+            Color: =RGBA(9, 33, 98, 1)
+            DisabledColor: =RGBA(166, 166, 166, 1)
+            Font: =App.Theme.Font
+            FontWeight: =FontWeight.Bold
+            Height: =80
+            Text: ="PMQC MASTER SAMPLE LOG SYSTEM"
+            ZIndex: =3
+
+        Container2 As groupContainer.manualLayoutContainer:
+            AlignInContainer: =AlignInContainer.Center
+            DropShadow: =DropShadow.Regular
+            Fill: =RGBA(255, 255, 255, 0.71)
+            FillPortions: =0
+            Height: =120
+            LayoutMinHeight: =50
+            LayoutMinWidth: =250
+            RadiusBottomLeft: =4
+            RadiusBottomRight: =4
+            RadiusTopLeft: =4
+            RadiusTopRight: =4
+            Visible: =false
+            Width: =170
+            ZIndex: =4
+
+            Icon1 As icon.Mobile:
+                BorderColor: =App.Theme.Colors.Darker40
+                Color: =App.Theme.Colors.Darker30
+                DisabledBorderColor: =RGBA(166, 166, 166, 1)
+                DisabledColor: =RGBA(244, 244, 244, 1)
+                DisplayMode: =DisplayMode.Disabled
+                Icon: =Icon.Mobile
+                OnSelect: =Set(mobileview,true);Navigate(Home,ScreenTransition.Fade)
+                PaddingTop: =3
+                X: =98
+                Y: =12
+                ZIndex: =1
+
+            Icon2 As icon.ComputerDesktop:
+                BorderColor: =App.Theme.Colors.Darker40
+                Color: =App.Theme.Colors.Darker30
+                DisabledBorderColor: =RGBA(166, 166, 166, 1)
+                DisabledColor: =RGBA(244, 244, 244, 1)
+                Icon: =Icon.ComputerDesktop
+                OnSelect: =Set(mobileview,false);Navigate(Roleselect,ScreenTransition.Fade)
+                X: =12
+                Y: =12
+                ZIndex: =2
+
+            Label8 As label:
+                Align: =Align.Center
+                BorderColor: =App.Theme.Colors.Darker40
+                Color: =RGBA(9, 33, 98, 1)
+                DisabledColor: =RGBA(166, 166, 166, 1)
+                Font: =App.Theme.Font
+                FontWeight: =FontWeight.Semibold
+                Height: =36
+                Size: =10
+                Text: ="WEB"
+                Width: =64
+                X: =12
+                Y: =76
+                ZIndex: =3
+
+            Label8_1 As label:
+                Align: =Align.Center
+                BorderColor: =App.Theme.Colors.Darker40
+                Color: =RGBA(9, 33, 98, 1)
+                DisabledColor: =RGBA(166, 166, 166, 1)
+                Font: =App.Theme.Font
+                FontWeight: =FontWeight.Semibold
+                Height: =36
+                Size: =10
+                Text: ="MOBILE"
+                Width: =64
+                X: =98
+                Y: =76
+                ZIndex: =4
+
+        ButtonCanvas1 As Button:
+            Align: =""
+            BasePaletteColor: =
+            BorderColor: =
+            BorderStyle: =""
+            DisplayMode: =DisplayMode.Edit
+            FontColor: =
+            Height: =32
+            Icon: =""
+            IconRotation: =0
+            IconStyle: ="Outline"
+            Layout: ="Icon before"
+            LayoutMinHeight: =32
+            LayoutMinWidth: =96
+            OnSelect: =Set(mobileview,false);Navigate(Roleselect,ScreenTransition.Fade)
+            Text: ="Enter"
+            VerticalAlign: =""
+            Width: =96
+            X: =0
+            Y: =0
+            ZIndex: =5
+

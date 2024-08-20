@@ -1,0 +1,18 @@
+imageViewer As CanvasComponent:
+    Fill: =RGBA(212, 212, 212, 0.58)
+    Height: =App.Height
+    Imageinput: =SampleImage
+    Width: =App.Width
+    X: =0
+    Y: =0
+    ZIndex: =1
+
+    Image12 As image:
+        BorderColor: =RGBA(0, 18, 107, 1)
+        DisabledBorderColor: =RGBA(166, 166, 166, 1)
+        DisabledFill: =RGBA(244, 244, 244, 1)
+        Height: =Parent.Height
+        Image: =If(IsBlank(Parent.Imageinput),inspect,Parent.Imageinput)
+        Width: =Parent.Width
+        ZIndex: =1
+

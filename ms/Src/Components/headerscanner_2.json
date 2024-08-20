@@ -1,0 +1,27 @@
+{
+  "ComponentAllowCustomization": true,
+  "ComponentChangedSinceFileImport": false,
+  "ComponentManifest": {
+    "AllowAccessToGlobals": false,
+    "AllowCustomization": true,
+    "Description": "",
+    "Name": "headerscanner_2",
+    "TemplateGuid": "75d0983d96d141d186e3bc79b533c355"
+  },
+  "ComponentType": "CanvasComponent",
+  "CustomGroupControlTemplateName": "",
+  "CustomProperties": [],
+  "FirstParty": true,
+  "Id": "http://microsoft.com/appmagic/Component",
+  "IsComponentLocked": false,
+  "IsComponentTemplate": true,
+  "IsCustomGroupControlTemplate": false,
+  "IsPcfControl": false,
+  "IsPremiumPcfControl": false,
+  "IsWidgetTemplate": false,
+  "LastModifiedTimestamp": "638597290586339931",
+  "Name": "75d0983d96d141d186e3bc79b533c355",
+  "OverridableProperties": {},
+  "TemplateOriginalName": "4f9967342f3c4e98924d1074a1adb768",
+  "Version": "637750748754320115"
+}

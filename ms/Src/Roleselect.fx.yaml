@@ -1,0 +1,790 @@
+Roleselect As screen:
+    BackgroundImage: =pxfuel
+    Fill: =Color.White
+    ImagePosition: =ImagePosition.Fill
+    LoadingSpinnerColor: =App.Theme.Colors.Primary
+
+    Container1_1 As groupContainer.verticalAutoLayoutContainer:
+        Height: =App.Height
+        LayoutAlignItems: =LayoutAlignItems.Center
+        LayoutDirection: =LayoutDirection.Vertical
+        LayoutJustifyContent: =LayoutJustifyContent.Center
+        LayoutMode: =LayoutMode.Auto
+        RadiusBottomLeft: =4
+        RadiusBottomRight: =4
+        RadiusTopLeft: =4
+        RadiusTopRight: =4
+        Width: =App.Width
+        ZIndex: =1
+
+        Container3_1 As groupContainer.manualLayoutContainer:
+            AlignInContainer: =AlignInContainer.Center
+            DropShadow: =DropShadow.Semibold
+            FillPortions: =0
+            Height: =73
+            LayoutMinHeight: =100
+            LayoutMinWidth: =250
+            Width: =230
+            ZIndex: =1
+
+            Image4_2 As image:
+                BorderColor: =App.Theme.Colors.Darker40
+                DisabledBorderColor: =RGBA(166, 166, 166, 1)
+                DisabledFill: =RGBA(244, 244, 244, 1)
+                Height: =73
+                Image: =logo_topglove
+                ImagePosition: =ImagePosition.Fill
+                Width: =230
+                ZIndex: =1
+
+        Label6_1 As label:
+            Align: =Align.Center
+            AlignInContainer: =AlignInContainer.Stretch
+            BorderColor: =App.Theme.Colors.Darker40
+            Color: =RGBA(9, 33, 98, 1)
+            DisabledColor: =RGBA(166, 166, 166, 1)
+            Font: =App.Theme.Font
+            FontWeight: =FontWeight.Bold
+            Height: =50
+            Text: ="PMQC MASTER SAMPLE LOG SYSTEM"
+            ZIndex: =2
+
+        Container2_1 As groupContainer.manualLayoutContainer:
+            AlignInContainer: =AlignInContainer.Center
+            DropShadow: =DropShadow.Regular
+            Fill: =RGBA(255, 255, 255, 0.76)
+            FillPortions: =0
+            Height: =195
+            LayoutMinHeight: =50
+            LayoutMinWidth: =250
+            RadiusBottomLeft: =4
+            RadiusBottomRight: =4
+            RadiusTopLeft: =4
+            RadiusTopRight: =4
+            Width: =400
+            ZIndex: =3
+
+            Image13 As image:
+                BorderColor: =App.Theme.Colors.Darker40
+                DisabledBorderColor: =RGBA(166, 166, 166, 1)
+                DisabledFill: =RGBA(244, 244, 244, 1)
+                Height: =195
+                Image: =pxfuel
+                ImagePosition: =ImagePosition.Fill
+                Transparency: =0.5
+                Width: =400
+                ZIndex: =1
+
+            Label8_2 As label:
+                BorderColor: =App.Theme.Colors.Darker40
+                Color: =RGBA(9, 33, 98, 1)
+                DisabledColor: =RGBA(166, 166, 166, 1)
+                Font: =App.Theme.Font
+                FontWeight: =FontWeight.Semibold
+                Height: =44
+                Size: =10
+                Text: |-
+                    ="Select Role :"
+                Width: =249
+                X: =16
+                ZIndex: =2
+
+            RadioGroupCanvas1 As Radio.pcfdataset:
+                DisplayMode: =DisplayMode.Edit
+                Height: =50
+                Items: =Filter('PMQC Factory PIC',Prime.Email = TextInputCanvas3.Value)
+                Layout: ='RadioGroupCanvas.Layout'.Horizontal
+                RadioSize: =16
+                Width: =285
+                X: =112
+                Y: =94
+                ZIndex: =3
+
+                Titled2 As PowerApps_CoreControls_RadioGroupCanvasTemplate_dataField.textualColumn:
+                    FieldDisplayName: ="Titled"
+                    FieldName: ="Title"
+                    FieldType: ="s"
+                    FieldVariantName: ="textualColumn"
+                    Order: =1
+                    ZIndex: =5
+
+                Factory2 As PowerApps_CoreControls_RadioGroupCanvasTemplate_dataField.textualColumn:
+                    FieldDisplayName: ="Factory"
+                    FieldName: ="Factory"
+                    FieldType: ="s"
+                    FieldVariantName: ="textualColumn"
+                    Order: =2
+                    ZIndex: =6
+
+                Prime2 As PowerApps_CoreControls_RadioGroupCanvasTemplate_dataField.textualColumn:
+                    FieldDisplayName: ="Prime"
+                    FieldName: ="Prime"
+                    FieldType: ="E"
+                    FieldVariantName: ="textualColumn"
+                    Order: =3
+                    ZIndex: =7
+
+                QA_other2 As PowerApps_CoreControls_RadioGroupCanvasTemplate_dataField.textualColumn:
+                    FieldDisplayName: ="QA_other"
+                    FieldName: ="QA_other"
+                    FieldType: ="E"
+                    FieldVariantName: ="textualColumn"
+                    Order: =4
+                    ZIndex: =8
+
+                QA_Manager2 As PowerApps_CoreControls_RadioGroupCanvasTemplate_dataField.textualColumn:
+                    FieldDisplayName: ="QA_Manager"
+                    FieldName: ="QA_Manager"
+                    FieldType: ="E"
+                    FieldVariantName: ="textualColumn"
+                    Order: =5
+                    ZIndex: =9
+
+                Other_CC_NCAS2 As PowerApps_CoreControls_RadioGroupCanvasTemplate_dataField.textualColumn:
+                    FieldDisplayName: ="Other_CC_NCAS"
+                    FieldName: ="Other_CC_NCAS"
+                    FieldType: ="E"
+                    FieldVariantName: ="textualColumn"
+                    Order: =6
+                    ZIndex: =10
+
+                t_id2 As PowerApps_CoreControls_RadioGroupCanvasTemplate_dataField.textualColumn:
+                    FieldDisplayName: ="t_id"
+                    FieldName: ="table_id_old"
+                    FieldType: ="s"
+                    FieldVariantName: ="textualColumn"
+                    Order: =7
+                    ZIndex: =11
+
+                Add_Purchaser_NCAS2 As PowerApps_CoreControls_RadioGroupCanvasTemplate_dataField.textualColumn:
+                    FieldDisplayName: ="Add_Purchaser_NCAS"
+                    FieldName: ="Add_Purchaser_NCAS"
+                    FieldType: ="E"
+                    FieldVariantName: ="textualColumn"
+                    Order: =8
+                    ZIndex: =12
+
+                Verifier_MS2 As PowerApps_CoreControls_RadioGroupCanvasTemplate_dataField.textualColumn:
+                    FieldDisplayName: ="Verifier_MS"
+                    FieldName: ="Verifier_MS"
+                    FieldType: ="E"
+                    FieldVariantName: ="textualColumn"
+                    Order: =9
+                    ZIndex: =13
+
+                Inspector_main2 As PowerApps_CoreControls_RadioGroupCanvasTemplate_dataField.textualColumn:
+                    FieldDisplayName: ="Inspector_main"
+                    FieldName: ="Inspector_main"
+                    FieldType: ="s"
+                    FieldVariantName: ="textualColumn"
+                    Order: =10
+                    ZIndex: =14
+
+                Badge_ID_main2 As PowerApps_CoreControls_RadioGroupCanvasTemplate_dataField.textualColumn:
+                    FieldDisplayName: ="Badge_ID_main"
+                    FieldName: ="Badge_ID_main"
+                    FieldType: ="s"
+                    FieldVariantName: ="textualColumn"
+                    Order: =11
+                    ZIndex: =15
+
+                OFFDAY_main2 As PowerApps_CoreControls_RadioGroupCanvasTemplate_dataField.textualColumn:
+                    FieldDisplayName: ="OFFDAY_main"
+                    FieldName: ="OFFDAY_main"
+                    FieldType: ="E"
+                    FieldVariantName: ="textualColumn"
+                    Order: =12
+                    ZIndex: =16
+
+                LOC_CheckerEmail2 As PowerApps_CoreControls_RadioGroupCanvasTemplate_dataField.textualColumn:
+                    FieldDisplayName: ="LOC_CheckerEmail"
+                    FieldName: ="LOC_CheckerEmail"
+                    FieldType: ="s"
+                    FieldVariantName: ="textualColumn"
+                    Order: =13
+                    ZIndex: =17
+
+                LOC_CheckerInbox2 As PowerApps_CoreControls_RadioGroupCanvasTemplate_dataField.textualColumn:
+                    FieldDisplayName: ="LOC_CheckerInbox"
+                    FieldName: ="LOC_CheckerInbox"
+                    FieldType: ="s"
+                    FieldVariantName: ="textualColumn"
+                    Order: =14
+                    ZIndex: =18
+
+                LOC_VerifierEmail2 As PowerApps_CoreControls_RadioGroupCanvasTemplate_dataField.textualColumn:
+                    FieldDisplayName: ="LOC_VerifierEmail"
+                    FieldName: ="LOC_VerifierEmail"
+                    FieldType: ="s"
+                    FieldVariantName: ="textualColumn"
+                    Order: =15
+                    ZIndex: =19
+
+                "'Plant Code SAP2' As PowerApps_CoreControls_RadioGroupCanvasTemplate_dataField.textualColumn":
+                    FieldDisplayName: ="Plant Code SAP"
+                    FieldName: ="PlantCodeSAP"
+                    FieldType: ="s"
+                    FieldVariantName: ="textualColumn"
+                    Order: =16
+                    ZIndex: =20
+
+                LOC_VerifierInbox2 As PowerApps_CoreControls_RadioGroupCanvasTemplate_dataField.textualColumn:
+                    FieldDisplayName: ="LOC_VerifierInbox"
+                    FieldName: ="LOC_VerifierInbox"
+                    FieldType: ="s"
+                    FieldVariantName: ="textualColumn"
+                    Order: =17
+                    ZIndex: =21
+
+                LOC_ApproverEmail2 As PowerApps_CoreControls_RadioGroupCanvasTemplate_dataField.textualColumn:
+                    FieldDisplayName: ="LOC_ApproverEmail"
+                    FieldName: ="LOC_ApproverEmail"
+                    FieldType: ="s"
+                    FieldVariantName: ="textualColumn"
+                    Order: =18
+                    ZIndex: =22
+
+                LOC_ApproverInbox2 As PowerApps_CoreControls_RadioGroupCanvasTemplate_dataField.textualColumn:
+                    FieldDisplayName: ="LOC_ApproverInbox"
+                    FieldName: ="LOC_ApproverInbox"
+                    FieldType: ="s"
+                    FieldVariantName: ="textualColumn"
+                    Order: =19
+                    ZIndex: =23
+
+                LOC_Finance2 As PowerApps_CoreControls_RadioGroupCanvasTemplate_dataField.textualColumn:
+                    FieldDisplayName: ="LOC_Finance"
+                    FieldName: ="finance"
+                    FieldType: ="s"
+                    FieldVariantName: ="textualColumn"
+                    Order: =20
+                    ZIndex: =24
+
+                REV2 As PowerApps_CoreControls_RadioGroupCanvasTemplate_dataField.textualColumn:
+                    FieldDisplayName: ="REV"
+                    FieldName: ="REV"
+                    FieldType: ="n"
+                    FieldVariantName: ="textualColumn"
+                    Order: =21
+                    ZIndex: =25
+
+                Inspector_Sub2 As PowerApps_CoreControls_RadioGroupCanvasTemplate_dataField.textualColumn:
+                    FieldDisplayName: ="Inspector_Sub"
+                    FieldName: ="Inspector_Sub"
+                    FieldType: ="s"
+                    FieldVariantName: ="textualColumn"
+                    Order: =22
+                    ZIndex: =26
+
+                Badge_ID_Sub2 As PowerApps_CoreControls_RadioGroupCanvasTemplate_dataField.textualColumn:
+                    FieldDisplayName: ="Badge_ID_Sub"
+                    FieldName: ="Badge_ID_Sub"
+                    FieldType: ="s"
+                    FieldVariantName: ="textualColumn"
+                    Order: =23
+                    ZIndex: =27
+
+                OFFDAY_Sub2 As PowerApps_CoreControls_RadioGroupCanvasTemplate_dataField.textualColumn:
+                    FieldDisplayName: ="OFFDAY_Sub"
+                    FieldName: ="OFFDAY_Sub"
+                    FieldType: ="E"
+                    FieldVariantName: ="textualColumn"
+                    Order: =24
+                    ZIndex: =28
+
+                flag2 As PowerApps_CoreControls_RadioGroupCanvasTemplate_dataField.textualColumn:
+                    FieldDisplayName: ="flag"
+                    FieldName: ="flag"
+                    FieldType: ="I"
+                    FieldVariantName: ="textualColumn"
+                    Order: =25
+                    ZIndex: =29
+
+                flag22 As PowerApps_CoreControls_RadioGroupCanvasTemplate_dataField.textualColumn:
+                    FieldDisplayName: ="flag2"
+                    FieldName: ="flag2"
+                    FieldType: ="I"
+                    FieldVariantName: ="textualColumn"
+                    Order: =26
+                    ZIndex: =30
+
+                Other_packing2 As PowerApps_CoreControls_RadioGroupCanvasTemplate_dataField.textualColumn:
+                    FieldDisplayName: ="Other_packing"
+                    FieldName: ="Mockup_PIC"
+                    FieldType: ="E"
+                    FieldVariantName: ="textualColumn"
+                    Order: =27
+                    ZIndex: =31
+
+                HOD_packing2 As PowerApps_CoreControls_RadioGroupCanvasTemplate_dataField.textualColumn:
+                    FieldDisplayName: ="HOD_packing"
+                    FieldName: ="HOD_packing"
+                    FieldType: ="E"
+                    FieldVariantName: ="textualColumn"
+                    Order: =28
+                    ZIndex: =32
+
+                Planner2 As PowerApps_CoreControls_RadioGroupCanvasTemplate_dataField.textualColumn:
+                    FieldDisplayName: ="Planner"
+                    FieldName: ="Planner"
+                    FieldType: ="E"
+                    FieldVariantName: ="textualColumn"
+                    Order: =29
+                    ZIndex: =33
+
+                GroupID2 As PowerApps_CoreControls_RadioGroupCanvasTemplate_dataField.textualColumn:
+                    FieldDisplayName: ="GroupID"
+                    FieldName: ="GroupID"
+                    FieldType: ="s"
+                    FieldVariantName: ="textualColumn"
+                    Order: =30
+                    ZIndex: =34
+
+                Arm2 As PowerApps_CoreControls_RadioGroupCanvasTemplate_dataField.textualColumn:
+                    FieldDisplayName: ="Arm"
+                    FieldName: ="Arm"
+                    FieldType: ="b"
+                    FieldVariantName: ="textualColumn"
+                    Order: =31
+                    ZIndex: =35
+
+                "'MQC email receiver LOC2' As PowerApps_CoreControls_RadioGroupCanvasTemplate_dataField.textualColumn":
+                    FieldDisplayName: ="MQC email receiver LOC"
+                    FieldName: ="MQCemailreceiverLOC"
+                    FieldType: ="s"
+                    FieldVariantName: ="textualColumn"
+                    Order: =32
+                    ZIndex: =36
+
+                MQC_LOC2 As PowerApps_CoreControls_RadioGroupCanvasTemplate_dataField.textualColumn:
+                    FieldDisplayName: ="MQC_LOC"
+                    FieldName: ="MQC_LOC"
+                    FieldType: ="E"
+                    FieldVariantName: ="textualColumn"
+                    Order: =33
+                    ZIndex: =37
+
+                Attachments3 As PowerApps_CoreControls_RadioGroupCanvasTemplate_dataField.textualColumn:
+                    FieldDisplayName: ="Attachments"
+                    FieldName: ="{Attachments}"
+                    FieldType: ="r*"
+                    FieldVariantName: ="textualColumn"
+                    Order: =34
+                    ZIndex: =38
+
+            RadioGroupCanvas1_1 As Radio.pcfdataset:
+                DisplayMode: =DisplayMode.Edit
+                Height: =50
+                Items: |+
+                    =Filter('PMQC Factory PIC', 
+                        TextInputCanvas3.Value in Verifier_MS.Email
+                    )
+                    
+                Layout: ='RadioGroupCanvas.Layout'.Horizontal
+                RadioSize: =16
+                Width: =285
+                X: =112
+                Y: =144
+                ZIndex: =4
+
+                Titled2_1 As PowerApps_CoreControls_RadioGroupCanvasTemplate_dataField.textualColumn:
+                    FieldDisplayName: ="Titled"
+                    FieldName: ="Title"
+                    FieldType: ="s"
+                    FieldVariantName: ="textualColumn"
+                    Order: =1
+                    ZIndex: =5
+
+                Factory2_1 As PowerApps_CoreControls_RadioGroupCanvasTemplate_dataField.textualColumn:
+                    FieldDisplayName: ="Factory"
+                    FieldName: ="Factory"
+                    FieldType: ="s"
+                    FieldVariantName: ="textualColumn"
+                    Order: =2
+                    ZIndex: =6
+
+                Prime2_1 As PowerApps_CoreControls_RadioGroupCanvasTemplate_dataField.textualColumn:
+                    FieldDisplayName: ="Prime"
+                    FieldName: ="Prime"
+                    FieldType: ="E"
+                    FieldVariantName: ="textualColumn"
+                    Order: =3
+                    ZIndex: =7
+
+                QA_other2_1 As PowerApps_CoreControls_RadioGroupCanvasTemplate_dataField.textualColumn:
+                    FieldDisplayName: ="QA_other"
+                    FieldName: ="QA_other"
+                    FieldType: ="E"
+                    FieldVariantName: ="textualColumn"
+                    Order: =4
+                    ZIndex: =8
+
+                QA_Manager2_1 As PowerApps_CoreControls_RadioGroupCanvasTemplate_dataField.textualColumn:
+                    FieldDisplayName: ="QA_Manager"
+                    FieldName: ="QA_Manager"
+                    FieldType: ="E"
+                    FieldVariantName: ="textualColumn"
+                    Order: =5
+                    ZIndex: =9
+
+                Other_CC_NCAS2_1 As PowerApps_CoreControls_RadioGroupCanvasTemplate_dataField.textualColumn:
+                    FieldDisplayName: ="Other_CC_NCAS"
+                    FieldName: ="Other_CC_NCAS"
+                    FieldType: ="E"
+                    FieldVariantName: ="textualColumn"
+                    Order: =6
+                    ZIndex: =10
+
+                t_id2_1 As PowerApps_CoreControls_RadioGroupCanvasTemplate_dataField.textualColumn:
+                    FieldDisplayName: ="t_id"
+                    FieldName: ="table_id_old"
+                    FieldType: ="s"
+                    FieldVariantName: ="textualColumn"
+                    Order: =7
+                    ZIndex: =11
+
+                Add_Purchaser_NCAS2_1 As PowerApps_CoreControls_RadioGroupCanvasTemplate_dataField.textualColumn:
+                    FieldDisplayName: ="Add_Purchaser_NCAS"
+                    FieldName: ="Add_Purchaser_NCAS"
+                    FieldType: ="E"
+                    FieldVariantName: ="textualColumn"
+                    Order: =8
+                    ZIndex: =12
+
+                Verifier_MS2_1 As PowerApps_CoreControls_RadioGroupCanvasTemplate_dataField.textualColumn:
+                    FieldDisplayName: ="Verifier_MS"
+                    FieldName: ="Verifier_MS"
+                    FieldType: ="E"
+                    FieldVariantName: ="textualColumn"
+                    Order: =9
+                    ZIndex: =13
+
+                Inspector_main2_1 As PowerApps_CoreControls_RadioGroupCanvasTemplate_dataField.textualColumn:
+                    FieldDisplayName: ="Inspector_main"
+                    FieldName: ="Inspector_main"
+                    FieldType: ="s"
+                    FieldVariantName: ="textualColumn"
+                    Order: =10
+                    ZIndex: =14
+
+                Badge_ID_main2_1 As PowerApps_CoreControls_RadioGroupCanvasTemplate_dataField.textualColumn:
+                    FieldDisplayName: ="Badge_ID_main"
+                    FieldName: ="Badge_ID_main"
+                    FieldType: ="s"
+                    FieldVariantName: ="textualColumn"
+                    Order: =11
+                    ZIndex: =15
+
+                OFFDAY_main2_1 As PowerApps_CoreControls_RadioGroupCanvasTemplate_dataField.textualColumn:
+                    FieldDisplayName: ="OFFDAY_main"
+                    FieldName: ="OFFDAY_main"
+                    FieldType: ="E"
+                    FieldVariantName: ="textualColumn"
+                    Order: =12
+                    ZIndex: =16
+
+                LOC_CheckerEmail2_1 As PowerApps_CoreControls_RadioGroupCanvasTemplate_dataField.textualColumn:
+                    FieldDisplayName: ="LOC_CheckerEmail"
+                    FieldName: ="LOC_CheckerEmail"
+                    FieldType: ="s"
+                    FieldVariantName: ="textualColumn"
+                    Order: =13
+                    ZIndex: =17
+
+                LOC_CheckerInbox2_1 As PowerApps_CoreControls_RadioGroupCanvasTemplate_dataField.textualColumn:
+                    FieldDisplayName: ="LOC_CheckerInbox"
+                    FieldName: ="LOC_CheckerInbox"
+                    FieldType: ="s"
+                    FieldVariantName: ="textualColumn"
+                    Order: =14
+                    ZIndex: =18
+
+                LOC_VerifierEmail2_1 As PowerApps_CoreControls_RadioGroupCanvasTemplate_dataField.textualColumn:
+                    FieldDisplayName: ="LOC_VerifierEmail"
+                    FieldName: ="LOC_VerifierEmail"
+                    FieldType: ="s"
+                    FieldVariantName: ="textualColumn"
+                    Order: =15
+                    ZIndex: =19
+
+                "'Plant Code SAP2_1' As PowerApps_CoreControls_RadioGroupCanvasTemplate_dataField.textualColumn":
+                    FieldDisplayName: ="Plant Code SAP"
+                    FieldName: ="PlantCodeSAP"
+                    FieldType: ="s"
+                    FieldVariantName: ="textualColumn"
+                    Order: =16
+                    ZIndex: =20
+
+                LOC_VerifierInbox2_1 As PowerApps_CoreControls_RadioGroupCanvasTemplate_dataField.textualColumn:
+                    FieldDisplayName: ="LOC_VerifierInbox"
+                    FieldName: ="LOC_VerifierInbox"
+                    FieldType: ="s"
+                    FieldVariantName: ="textualColumn"
+                    Order: =17
+                    ZIndex: =21
+
+                LOC_ApproverEmail2_1 As PowerApps_CoreControls_RadioGroupCanvasTemplate_dataField.textualColumn:
+                    FieldDisplayName: ="LOC_ApproverEmail"
+                    FieldName: ="LOC_ApproverEmail"
+                    FieldType: ="s"
+                    FieldVariantName: ="textualColumn"
+                    Order: =18
+                    ZIndex: =22
+
+                LOC_ApproverInbox2_1 As PowerApps_CoreControls_RadioGroupCanvasTemplate_dataField.textualColumn:
+                    FieldDisplayName: ="LOC_ApproverInbox"
+                    FieldName: ="LOC_ApproverInbox"
+                    FieldType: ="s"
+                    FieldVariantName: ="textualColumn"
+                    Order: =19
+                    ZIndex: =23
+
+                LOC_Finance2_1 As PowerApps_CoreControls_RadioGroupCanvasTemplate_dataField.textualColumn:
+                    FieldDisplayName: ="LOC_Finance"
+                    FieldName: ="finance"
+                    FieldType: ="s"
+                    FieldVariantName: ="textualColumn"
+                    Order: =20
+                    ZIndex: =24
+
+                REV2_1 As PowerApps_CoreControls_RadioGroupCanvasTemplate_dataField.textualColumn:
+                    FieldDisplayName: ="REV"
+                    FieldName: ="REV"
+                    FieldType: ="n"
+                    FieldVariantName: ="textualColumn"
+                    Order: =21
+                    ZIndex: =25
+
+                Inspector_Sub2_1 As PowerApps_CoreControls_RadioGroupCanvasTemplate_dataField.textualColumn:
+                    FieldDisplayName: ="Inspector_Sub"
+                    FieldName: ="Inspector_Sub"
+                    FieldType: ="s"
+                    FieldVariantName: ="textualColumn"
+                    Order: =22
+                    ZIndex: =26
+
+                Badge_ID_Sub2_1 As PowerApps_CoreControls_RadioGroupCanvasTemplate_dataField.textualColumn:
+                    FieldDisplayName: ="Badge_ID_Sub"
+                    FieldName: ="Badge_ID_Sub"
+                    FieldType: ="s"
+                    FieldVariantName: ="textualColumn"
+                    Order: =23
+                    ZIndex: =27
+
+                OFFDAY_Sub2_1 As PowerApps_CoreControls_RadioGroupCanvasTemplate_dataField.textualColumn:
+                    FieldDisplayName: ="OFFDAY_Sub"
+                    FieldName: ="OFFDAY_Sub"
+                    FieldType: ="E"
+                    FieldVariantName: ="textualColumn"
+                    Order: =24
+                    ZIndex: =28
+
+                flag2_1 As PowerApps_CoreControls_RadioGroupCanvasTemplate_dataField.textualColumn:
+                    FieldDisplayName: ="flag"
+                    FieldName: ="flag"
+                    FieldType: ="I"
+                    FieldVariantName: ="textualColumn"
+                    Order: =25
+                    ZIndex: =29
+
+                flag22_1 As PowerApps_CoreControls_RadioGroupCanvasTemplate_dataField.textualColumn:
+                    FieldDisplayName: ="flag2"
+                    FieldName: ="flag2"
+                    FieldType: ="I"
+                    FieldVariantName: ="textualColumn"
+                    Order: =26
+                    ZIndex: =30
+
+                Other_packing2_1 As PowerApps_CoreControls_RadioGroupCanvasTemplate_dataField.textualColumn:
+                    FieldDisplayName: ="Other_packing"
+                    FieldName: ="Mockup_PIC"
+                    FieldType: ="E"
+                    FieldVariantName: ="textualColumn"
+                    Order: =27
+                    ZIndex: =31
+
+                HOD_packing2_1 As PowerApps_CoreControls_RadioGroupCanvasTemplate_dataField.textualColumn:
+                    FieldDisplayName: ="HOD_packing"
+                    FieldName: ="HOD_packing"
+                    FieldType: ="E"
+                    FieldVariantName: ="textualColumn"
+                    Order: =28
+                    ZIndex: =32
+
+                Planner2_1 As PowerApps_CoreControls_RadioGroupCanvasTemplate_dataField.textualColumn:
+                    FieldDisplayName: ="Planner"
+                    FieldName: ="Planner"
+                    FieldType: ="E"
+                    FieldVariantName: ="textualColumn"
+                    Order: =29
+                    ZIndex: =33
+
+                GroupID2_1 As PowerApps_CoreControls_RadioGroupCanvasTemplate_dataField.textualColumn:
+                    FieldDisplayName: ="GroupID"
+                    FieldName: ="GroupID"
+                    FieldType: ="s"
+                    FieldVariantName: ="textualColumn"
+                    Order: =30
+                    ZIndex: =34
+
+                Arm2_1 As PowerApps_CoreControls_RadioGroupCanvasTemplate_dataField.textualColumn:
+                    FieldDisplayName: ="Arm"
+                    FieldName: ="Arm"
+                    FieldType: ="b"
+                    FieldVariantName: ="textualColumn"
+                    Order: =31
+                    ZIndex: =35
+
+                "'MQC email receiver LOC2_1' As PowerApps_CoreControls_RadioGroupCanvasTemplate_dataField.textualColumn":
+                    FieldDisplayName: ="MQC email receiver LOC"
+                    FieldName: ="MQCemailreceiverLOC"
+                    FieldType: ="s"
+                    FieldVariantName: ="textualColumn"
+                    Order: =32
+                    ZIndex: =36
+
+                MQC_LOC2_1 As PowerApps_CoreControls_RadioGroupCanvasTemplate_dataField.textualColumn:
+                    FieldDisplayName: ="MQC_LOC"
+                    FieldName: ="MQC_LOC"
+                    FieldType: ="E"
+                    FieldVariantName: ="textualColumn"
+                    Order: =33
+                    ZIndex: =37
+
+                Attachments3_1 As PowerApps_CoreControls_RadioGroupCanvasTemplate_dataField.textualColumn:
+                    FieldDisplayName: ="Attachments"
+                    FieldName: ="{Attachments}"
+                    FieldType: ="r*"
+                    FieldVariantName: ="textualColumn"
+                    Order: =34
+                    ZIndex: =38
+
+            ButtonCanvas7 As Button:
+                Align: =""
+                BasePaletteColor: =
+                BorderColor: =
+                BorderStyle: =""
+                DisplayMode: =If(IsBlank(RadioGroupCanvas1.Selected),DisplayMode.Disabled,DisplayMode.Edit)
+                FontColor: =
+                Height: =32
+                Icon: =""
+                IconRotation: =0
+                IconStyle: ="Outline"
+                Layout: ="Icon before"
+                OnSelect: |-
+                    =ClearCollect(maindata,Filter(T_MasterSample,Factory.Value=RadioGroupCanvas1.Selected.Titled));
+                    ClearCollect(usermode,{modename:Self.Text,Factory:RadioGroupCanvas1.Selected.Titled});
+                    Navigate(Home,ScreenTransition.Fade)
+                Text: ="Inspector"
+                VerticalAlign: =""
+                Width: =96
+                X: =16
+                Y: =94
+                ZIndex: =5
+
+            ButtonCanvas7_1 As Button:
+                Align: =""
+                BasePaletteColor: =
+                BorderColor: =
+                BorderStyle: =""
+                DisplayMode: =If(IsBlank(RadioGroupCanvas1_1.Selected),DisplayMode.Disabled,DisplayMode.Edit)
+                FontColor: =
+                Height: =32
+                Icon: =""
+                IconRotation: =0
+                IconStyle: ="Outline"
+                Layout: ="Icon before"
+                OnSelect: |-
+                    =ClearCollect(maindata,Filter(T_MasterSample,Factory.Value=RadioGroupCanvas1_1.Selected.Titled));
+                    ClearCollect(usermode,{modename:Self.Text,Factory:RadioGroupCanvas1_1.Selected.Titled});
+                    Navigate(Home,ScreenTransition.Fade)
+                Text: ="Verifier"
+                VerticalAlign: =""
+                Width: =96
+                X: =16
+                Y: =144
+                ZIndex: =6
+
+            ButtonCanvas8 As Button:
+                Align: =""
+                BasePaletteColor: =
+                BorderColor: =
+                BorderStyle: =""
+                DisplayMode: |-
+                    =If(TextInputCanvas3.Value in LookUp('PMQC Factory PIC',ID=1).QA_other.Email,
+                    DisplayMode.Edit,DisplayMode.Disabled)
+                FontColor: =
+                Height: =32
+                Icon: =""
+                IconRotation: =0
+                IconStyle: ="Outline"
+                Layout: ="Icon before"
+                OnSelect: |-
+                    =ClearCollect(maindata,T_MasterSample);ClearCollect(usermode,{modename:Self.Text,Factory:"-"});Navigate(Home,ScreenTransition.Fade)
+                Text: ="Admin"
+                VerticalAlign: =""
+                Width: =96
+                X: =291
+                Y: =44
+                ZIndex: =7
+
+            ButtonCanvas9 As Button:
+                Align: =""
+                BasePaletteColor: =
+                BorderColor: =
+                BorderStyle: =""
+                DisplayMode: =DisplayMode.Edit
+                FontColor: =
+                Height: =32
+                Icon: =""
+                IconRotation: =0
+                IconStyle: ="Outline"
+                Layout: ="Icon before"
+                OnSelect: |-
+                    =ClearCollect(maindata,T_MasterSample);ClearCollect(usermode,{modename:Self.Text,Factory:"-"});Navigate(Home,ScreenTransition.Fade)
+                Text: ="Guest"
+                VerticalAlign: =""
+                Width: =96
+                X: =16
+                Y: =44
+                ZIndex: =8
+
+            "TextInputCanvas3 As 'Text input'":
+                Align: ='TextInputCanvas.Align'.Center
+                Appearance: ='TextInputCanvas.Appearance'.Outline
+                BasePaletteColor: =
+                BorderColor: =
+                BorderStyle: =""
+                DisplayMode: =DisplayMode.Edit
+                Fill: =
+                FontColor: =
+                Height: =32
+                TriggerOutput: ="FocusOut"
+                Value: =User().Email
+                Visible: =If(User().Email="azraful@topglove.com.my",true,false)
+                Width: =266
+                X: =121
+                Y: =6
+                ZIndex: =9
+
+            ButtonCanvas9_1 As Button:
+                Align: =""
+                BasePaletteColor: =
+                BorderColor: =
+                BorderStyle: =""
+                DisplayMode: =DisplayMode.Edit
+                FontColor: =
+                Height: =32
+                Icon: =""
+                IconRotation: =0
+                IconStyle: ="Outline"
+                Layout: ="Icon before"
+                OnSelect: |-
+                    =ClearCollect(maindata,T_MasterSample);ClearCollect(usermode,{modename:Self.Text,Factory:"-"});Navigate(Home,ScreenTransition.Fade)
+                Text: ="Requester"
+                VerticalAlign: =""
+                Width: =96
+                X: =153
+                Y: =44
+                ZIndex: =10
+

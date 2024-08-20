@@ -1,0 +1,137 @@
+headerscanner As CanvasComponent:
+    Fill: =RGBA(0, 0, 0, 0)
+    Height: =63
+    Width: =Max(App.Width, App.MinScreenWidth)
+    X: =0
+    Y: =0
+    ZIndex: =1
+
+    kepalaback As htmlViewer:
+        Color: =RGBA(255, 255, 255, 1)
+        Fill: =RGBA(255, 255, 255,0)
+        Height: =63
+        HtmlText: |-
+            ="<DIV style='height:50px;margin:0px 0px;background: linear-gradient(130deg, #ffffff, #99B1C3);padding:2px 5px;opacity:0.9;box-shadow: 3px 3px 5px #000000cc;font-weight:bold;color:RGBA(9, 33, 98, 1);font-size:12px;float:left;
+            width:100%;'></DIV>
+            "
+        OnSelect: =
+        PaddingBottom: =0
+        PaddingLeft: =0
+        PaddingRight: =0.00
+        PaddingTop: =0.00
+        Size: =8
+        Width: =1366
+        ZIndex: =2
+
+    Label1_1 As label:
+        BorderColor: =RGBA(0, 18, 107, 1)
+        Color: =RGBA(0, 0, 0, 1)
+        DisabledColor: =RGBA(166, 166, 166, 1)
+        FontWeight: =FontWeight.Bold
+        Height: =35
+        PaddingRight: =4.50
+        PaddingTop: =4.50
+        Size: =9.00
+        Text: =User().FullName
+        Width: =183.54
+        X: =1180
+        ZIndex: =3
+
+    Image1_1 As image:
+        BorderColor: =RGBA(0, 18, 107, 1)
+        DisabledBorderColor: =RGBA(166, 166, 166, 1)
+        DisabledFill: =RGBA(244, 244, 244, 1)
+        Height: =50
+        Image: =User().Image
+        PaddingRight: =0.00
+        PaddingTop: =0.00
+        RadiusBottomLeft: =25
+        RadiusBottomRight: =25
+        RadiusTopLeft: =25
+        RadiusTopRight: =25
+        Transparency: =0.2
+        Width: =50
+        X: =1125
+        Y: =1
+        ZIndex: =5
+
+    Label1_2 As label:
+        BorderColor: =RGBA(0, 18, 107, 1)
+        Color: =RGBA(0, 0, 0, 1)
+        DisabledColor: =RGBA(166, 166, 166, 1)
+        FontWeight: =FontWeight.Semibold
+        Height: =25
+        Italic: =true
+        PaddingRight: =4.50
+        PaddingTop: =4.50
+        Size: =9.00
+        Text: =User().Email
+        Width: =184.44
+        X: =1179
+        Y: =27
+        ZIndex: =7
+
+    htmlback_5 As htmlViewer:
+        Color: =RGBA(255, 255, 255, 1)
+        Fill: =RGBA(255, 255, 255,0)
+        Height: =62
+        HtmlText: |-
+            ="<button style='border-radius: 30px;width:50px;height:50px;border:0px;margin:2px 11px;
+            background: linear-gradient(145deg,#FFFFFF,#99B1C3);'><p style='font-weight:bold;color:RGBA(9, 33, 98, 1);font-size:20px;'></p></button>"
+        PaddingBottom: =0
+        PaddingLeft: =0
+        PaddingRight: =0.00
+        PaddingTop: =0.00
+        Size: =9.90
+        Width: =72
+        X: =24
+        ZIndex: =8
+
+    Icon3_1 As icon.ChevronLeft:
+        BorderColor: =RGBA(0, 18, 107, 1)
+        Color: =RGBA(0, 18, 107, 1)
+        DisabledBorderColor: =RGBA(166, 166, 166, 1)
+        DisabledColor: =RGBA(244, 244, 244, 1)
+        Height: =52
+        Icon: =Icon.ChevronLeft
+        OnSelect: =Back(ScreenTransition.UnCoverRight)
+        PaddingLeft: =3
+        PaddingRight: =20
+        Width: =55
+        X: =41
+        Y: =1
+        ZIndex: =10
+
+    Image27 As image:
+        BorderColor: =RGBA(0, 18, 107, 1)
+        DisabledBorderColor: =RGBA(166, 166, 166, 1)
+        DisabledFill: =RGBA(244, 244, 244, 1)
+        Height: =46
+        Image: =pmqclogpng
+        Transparency: =0.9
+        Width: =48
+        Y: =721
+        ZIndex: =11
+
+    Image2_1 As image:
+        BorderColor: =RGBA(0, 0, 0, 0)
+        BorderStyle: =BorderStyle.None
+        BorderThickness: =2
+        DisabledBorderColor: =RGBA(0, 0, 0, 0)
+        DisabledFill: =RGBA(0, 0, 0, 0)
+        FocusedBorderThickness: =4
+        Height: =50
+        HoverBorderColor: =RGBA(0, 0, 0, 0)
+        HoverFill: =RGBA(0, 0, 0, 0)
+        Image: =bulat
+        PressedBorderColor: =RGBA(0, 0, 0, 0)
+        PressedFill: =RGBA(0, 0, 0, 0)
+        RadiusBottomLeft: =25
+        RadiusBottomRight: =25
+        RadiusTopLeft: =25
+        RadiusTopRight: =25
+        Width: =50
+        X: =96
+        Y: =2
+        ZIndex: =12
+

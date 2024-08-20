@@ -1,0 +1,2283 @@
+Home_1 As screen:
+    BackgroundImage: =pxfuel
+    Fill: =RGBA(255,255,255,0.1)
+    ImagePosition: =ImagePosition.Fill
+    LoadingSpinnerColor: =App.Theme.Colors.Primary
+    OnVisible: |+
+        =ClearCollect(filterstatus,[
+        
+        {enum:1,name: "ACTIVE" , clr:RGBA(100, 220, 150, 1) ,turnon:true }
+        ,{enum:2,name: "PENDING" , clr:RGBA(170, 100, 100,1) ,turnon:true }
+        ,{enum:5,name: "REMINDER (NEAR)" , clr:RGBA(255, 191, 0, 1) ,turnon:true }
+        ,{enum:3 ,name: "REMOVED (Exp.)" , clr:RGBA(0, 0, 0, 0.5) ,turnon:true }
+        ,{enum:4 ,name: "REMOVED (Disp.)" , clr:RGBA(0, 0, 0, 0.1) ,turnon:false }
+        ,{enum:6,name: "REMINDER (EXP.)" , clr:RGBA(255, 58, 60, 1) ,turnon:true }
+        ,{enum:0,name: "OUT" , clr:RGBA(70, 120, 230, 1) ,turnon:false }
+        
+        ]
+        );
+        
+        ClearCollect(filterpmtype,[
+        
+         {enum:1,name: "CARTON",turnon:true }
+        ,{enum:2,name: "INNER" ,turnon:true }
+        ,{enum:3,name: "POUCH" ,turnon:false }
+        ,{enum:4,name: "WALLET",turnon:false }
+        ,{enum:5,name: "POLYBAG",turnon:false }
+        ,{enum:6,name: "STICKER",turnon:false}
+        
+        ])
+        
+        
+        
+    Width: =Max(App.Width, App.MinScreenWidth,3000)
+
+    header_2 As header:
+        tajuknya: ="PMQC MASTER SAMPLE LOG SYSTEM"
+        viewportfrom: =mobileview
+        ZIndex: =1
+
+    Container4_1 As groupContainer.verticalAutoLayoutContainer:
+        Fill: =RGBA(255, 255, 255, 1)
+        Height: =App.Height-Self.Y
+        LayoutDirection: =LayoutDirection.Vertical
+        LayoutGap: =10
+        LayoutMode: =LayoutMode.Auto
+        LayoutOverflowX: =LayoutOverflow.Scroll
+        LayoutOverflowY: =LayoutOverflow.Scroll
+        PaddingBottom: =10
+        PaddingLeft: =5
+        PaddingRight: =5
+        PaddingTop: =5
+        RadiusBottomLeft: =4
+        RadiusBottomRight: =4
+        RadiusTopLeft: =4
+        RadiusTopRight: =4
+        Width: =Parent.Width
+        Y: =145
+        ZIndex: =2
+
+        Container5_1 As groupContainer.manualLayoutContainer:
+            AlignInContainer: =AlignInContainer.Start
+            DropShadow: =DropShadow.Light
+            FillPortions: =0
+            Height: =600
+            LayoutMinHeight: =100
+            LayoutMinWidth: =250
+            RadiusBottomLeft: =4
+            RadiusBottomRight: =4
+            RadiusTopLeft: =4
+            RadiusTopRight: =4
+            Width: =Container6_1.Width+10
+            ZIndex: =1
+
+            Container6_1 As groupContainer.manualLayoutContainer:
+                Fill: =RGBA(222, 237, 255, 1)
+                Height: =25
+                RadiusBottomLeft: =4
+                RadiusBottomRight: =4
+                RadiusTopLeft: =4
+                RadiusTopRight: =4
+                Width: =2000+(CountRows(Filter(filterpmtype,turnon=true))*200)
+                ZIndex: =1
+
+                Label12_17 As label:
+                    Align: =Align.Center
+                    BorderColor: =App.Theme.Colors.Darker40
+                    Color: =RGBA(9, 33, 98, 1)
+                    DisabledColor: =RGBA(166, 166, 166, 1)
+                    Font: =App.Theme.Font
+                    FontWeight: =FontWeight.Bold
+                    Height: =25
+                    PaddingLeft: =0
+                    PaddingRight: =0
+                    Size: =8
+                    Text: ="MSID"
+                    Width: =107
+                    X: =26
+                    ZIndex: =1
+
+                Label12_18 As label:
+                    BorderColor: =App.Theme.Colors.Darker40
+                    Color: =RGBA(9, 33, 98, 1)
+                    DisabledColor: =RGBA(166, 166, 166, 1)
+                    Font: =App.Theme.Font
+                    FontWeight: =FontWeight.Bold
+                    Height: =25
+                    PaddingLeft: =0
+                    PaddingRight: =0
+                    Size: =8
+                    Text: ="BRAND"
+                    Width: =143
+                    X: =133
+                    ZIndex: =2
+
+                Label12_20 As label:
+                    BorderColor: =App.Theme.Colors.Darker40
+                    Color: =RGBA(9, 33, 98, 1)
+                    DisabledColor: =RGBA(166, 166, 166, 1)
+                    Font: =App.Theme.Font
+                    FontWeight: =FontWeight.Bold
+                    Height: =25
+                    PaddingLeft: =0
+                    PaddingRight: =0
+                    Size: =8
+                    Text: ="STATUS"
+                    Width: =65
+                    X: =392
+                    ZIndex: =3
+
+                Label12_21 As label:
+                    BorderColor: =App.Theme.Colors.Darker40
+                    Color: =RGBA(9, 33, 98, 1)
+                    DisabledColor: =RGBA(166, 166, 166, 1)
+                    Font: =App.Theme.Font
+                    FontWeight: =FontWeight.Bold
+                    Height: =25
+                    PaddingLeft: =0
+                    PaddingRight: =0
+                    Size: =8
+                    Text: ="LOCATION"
+                    Width: =74
+                    X: =461
+                    ZIndex: =4
+
+                Label12_22 As label:
+                    Align: =Align.Center
+                    BorderColor: =App.Theme.Colors.Darker40
+                    Color: =RGBA(9, 33, 98, 1)
+                    DisabledColor: =RGBA(166, 166, 166, 1)
+                    Font: =App.Theme.Font
+                    FontWeight: =FontWeight.Bold
+                    Height: =25
+                    PaddingLeft: =0
+                    PaddingRight: =0
+                    Size: =8
+                    Text: ="DATE PREP.   DATE EXP."
+                    Width: =147
+                    X: =539
+                    ZIndex: =5
+
+                Label12_23 As label:
+                    Align: =Align.Center
+                    BorderColor: =App.Theme.Colors.Darker40
+                    Color: =RGBA(9, 33, 98, 1)
+                    DisabledColor: =RGBA(166, 166, 166, 1)
+                    Font: =App.Theme.Font
+                    FontWeight: =FontWeight.Bold
+                    Height: =25
+                    PaddingLeft: =0
+                    PaddingRight: =0
+                    Size: =8
+                    Text: ="REMAIN"
+                    Width: =57
+                    X: =682
+                    ZIndex: =6
+
+                Gallery3_2 As gallery.galleryHorizontal:
+                    '#CopilotOverlayLabel': ="Filtered"
+                    BorderColor: =App.Theme.Colors.Darker40
+                    DelayItemLoading: =true
+                    Height: =25
+                    Items: =Filter(filterpmtype,turnon=true)
+                    LoadingSpinner: =LoadingSpinner.Data
+                    TemplatePadding: =0
+                    TemplateSize: =200
+                    Width: =1250
+                    X: =1150
+                    ZIndex: =13
+
+                    Label14_12 As label:
+                        Align: =Align.Center
+                        BorderColor: =RGBA(214, 221, 224, 1)
+                        BorderThickness: =1
+                        Color: =RGBA(9, 33, 98, 1)
+                        DisabledColor: =RGBA(166, 166, 166, 1)
+                        Fill: =RGBA(255, 255, 255, 0.73)
+                        FontWeight: =FontWeight.Bold
+                        Height: =20
+                        LineHeight: =1
+                        OnSelect: =Select(Parent)
+                        PaddingTop: =1
+                        Size: =8
+                        Text: =ThisItem.name
+                        VerticalAlign: =VerticalAlign.Top
+                        Width: =199
+                        Y: =2
+                        ZIndex: =1
+
+                    Image18_2 As image:
+                        BorderColor: =App.Theme.Colors.Darker40
+                        DisabledBorderColor: =RGBA(166, 166, 166, 1)
+                        DisabledFill: =RGBA(244, 244, 244, 1)
+                        Fill: =RGBA(15, 84, 140, 1)
+                        Height: =23
+                        Image: |-
+                            =Switch(ThisItem.name,
+                            
+                              "CARTON" , P11,
+                              "INNER" , P12,
+                              "POUCH" , P13,
+                              "WALLET" , P14,
+                              "POLYBAG" , P15,P16
+                            
+                            )
+                        ImagePosition: =ImagePosition.Fill
+                        OnSelect: =Select(Parent)
+                        RadiusBottomLeft: =10
+                        RadiusBottomRight: =10
+                        RadiusTopLeft: =10
+                        RadiusTopRight: =10
+                        Visible: =false
+                        Width: =35
+                        X: =115
+                        ZIndex: =2
+
+                    Label14_14 As label:
+                        BorderColor: =App.Theme.Colors.Darker40
+                        Color: =RGBA(92, 92, 92, 1)
+                        DisabledColor: =RGBA(166, 166, 166, 1)
+                        FontWeight: =FontWeight.Bold
+                        Height: =10
+                        OnSelect: =Select(Parent)
+                        Size: =6
+                        Text: ="Rev"
+                        Width: =35
+                        X: =80
+                        Y: =12
+                        ZIndex: =3
+
+                    Label14_15 As label:
+                        BorderColor: =App.Theme.Colors.Darker40
+                        Color: =RGBA(92, 92, 92, 1)
+                        DisabledColor: =RGBA(166, 166, 166, 1)
+                        FontWeight: =FontWeight.Bold
+                        Height: =10
+                        OnSelect: =Select(Parent)
+                        Size: =6
+                        Text: ="Supplier"
+                        Width: =63
+                        X: =101
+                        Y: =12
+                        ZIndex: =4
+
+                    Label14_13 As label:
+                        BorderColor: =App.Theme.Colors.Darker40
+                        Color: =RGBA(92, 92, 92, 1)
+                        DisabledColor: =RGBA(166, 166, 166, 1)
+                        FontWeight: =FontWeight.Bold
+                        Height: =10
+                        OnSelect: =Select(Parent)
+                        PaddingLeft: =0
+                        Size: =6
+                        Text: ="RGB"
+                        Width: =28
+                        X: =1
+                        Y: =12
+                        ZIndex: =5
+
+                Container9_2 As groupContainer:
+                    Height: =25
+                    Width: =620
+                    X: =1300+(CountRows(Filter(filterpmtype,turnon=true))*200)
+                    ZIndex: =17
+
+                    Label12_29 As label:
+                        Align: =Align.Right
+                        BorderColor: =App.Theme.Colors.Darker40
+                        Color: =RGBA(9, 33, 98, 1)
+                        DisabledColor: =RGBA(166, 166, 166, 1)
+                        Font: =App.Theme.Font
+                        FontWeight: =FontWeight.Bold
+                        Height: =25
+                        PaddingLeft: =0
+                        PaddingRight: =0
+                        Size: =8
+                        Text: ="LAST MODIFY"
+                        Width: =81
+                        ZIndex: =1
+
+                    Label12_31 As label:
+                        Align: =Align.Center
+                        BorderColor: =App.Theme.Colors.Darker40
+                        Color: =RGBA(9, 33, 98, 1)
+                        DisabledColor: =RGBA(166, 166, 166, 1)
+                        Font: =App.Theme.Font
+                        FontWeight: =FontWeight.Bold
+                        Height: =25
+                        PaddingLeft: =0
+                        PaddingRight: =0
+                        Size: =8
+                        Text: ="VERIFICATION"
+                        Width: =83
+                        X: =261
+                        ZIndex: =2
+
+                    Label12_30 As label:
+                        BorderColor: =App.Theme.Colors.Darker40
+                        Color: =RGBA(9, 33, 98, 1)
+                        DisabledColor: =RGBA(166, 166, 166, 1)
+                        Font: =App.Theme.Font
+                        FontWeight: =FontWeight.Bold
+                        Height: =25
+                        PaddingLeft: =0
+                        PaddingRight: =0
+                        Size: =8
+                        Text: ="MODIFIED BY"
+                        Width: =81
+                        X: =96
+                        ZIndex: =3
+
+                    Label12_32 As label:
+                        BorderColor: =App.Theme.Colors.Darker40
+                        Color: =RGBA(9, 33, 98, 1)
+                        DisabledColor: =RGBA(166, 166, 166, 1)
+                        Font: =App.Theme.Font
+                        FontWeight: =FontWeight.Bold
+                        Height: =25
+                        PaddingLeft: =0
+                        PaddingRight: =0
+                        Size: =8
+                        Text: ="VERIFIER"
+                        Width: =195
+                        X: =351
+                        ZIndex: =4
+
+                    Label12_33 As label:
+                        Align: =Align.Right
+                        BorderColor: =App.Theme.Colors.Darker40
+                        Color: =RGBA(9, 33, 98, 1)
+                        DisabledColor: =RGBA(166, 166, 166, 1)
+                        Font: =App.Theme.Font
+                        FontWeight: =FontWeight.Bold
+                        Height: =25
+                        PaddingLeft: =0
+                        PaddingRight: =0
+                        Size: =8
+                        Text: ="DATE VERIFY"
+                        Width: =68
+                        X: =534
+                        ZIndex: =5
+
+                Label12_19 As label:
+                    BorderColor: =App.Theme.Colors.Darker40
+                    Color: =RGBA(9, 33, 98, 1)
+                    DisabledColor: =RGBA(166, 166, 166, 1)
+                    Font: =App.Theme.Font
+                    FontWeight: =FontWeight.Bold
+                    Height: =25
+                    PaddingLeft: =0
+                    PaddingRight: =0
+                    Size: =8
+                    Text: ="REMARK"
+                    Width: =78
+                    X: =280
+                    ZIndex: =18
+
+                Label12_24 As label:
+                    Align: =Align.Center
+                    BorderColor: =App.Theme.Colors.Darker40
+                    Color: =RGBA(9, 33, 98, 1)
+                    DisabledColor: =RGBA(166, 166, 166, 1)
+                    Font: =App.Theme.Font
+                    FontWeight: =FontWeight.Bold
+                    Height: =25
+                    LineHeight: =1
+                    PaddingLeft: =0
+                    PaddingRight: =0
+                    Size: =7
+                    Text: ="PRIMARY ITEM CODE"
+                    Width: =55
+                    X: =754
+                    ZIndex: =19
+
+                Label12_25 As label:
+                    BorderColor: =App.Theme.Colors.Darker40
+                    Color: =RGBA(9, 33, 98, 1)
+                    DisabledColor: =RGBA(166, 166, 166, 1)
+                    Font: =App.Theme.Font
+                    FontWeight: =FontWeight.Bold
+                    Height: =25
+                    PaddingLeft: =0
+                    PaddingRight: =0
+                    Size: =8
+                    Text: ="PRODUCT TYPE"
+                    Width: =96
+                    X: =820
+                    ZIndex: =20
+
+                Label12_26 As label:
+                    BorderColor: =App.Theme.Colors.Darker40
+                    Color: =RGBA(9, 33, 98, 1)
+                    DisabledColor: =RGBA(166, 166, 166, 1)
+                    Font: =App.Theme.Font
+                    FontWeight: =FontWeight.Bold
+                    Height: =25
+                    PaddingLeft: =0
+                    PaddingRight: =0
+                    Size: =8
+                    Text: ="FINISHING"
+                    Width: =96
+                    X: =925
+                    ZIndex: =21
+
+                Label12_27 As label:
+                    BorderColor: =App.Theme.Colors.Darker40
+                    Color: =RGBA(9, 33, 98, 1)
+                    DisabledColor: =RGBA(166, 166, 166, 1)
+                    Font: =App.Theme.Font
+                    FontWeight: =FontWeight.Bold
+                    Height: =25
+                    PaddingLeft: =0
+                    PaddingRight: =0
+                    Size: =8
+                    Text: ="MAIN COLOR"
+                    Width: =96
+                    X: =1046
+                    ZIndex: =22
+
+                Label12_28 As label:
+                    BorderColor: =App.Theme.Colors.Darker40
+                    Color: =RGBA(9, 33, 98, 1)
+                    DisabledColor: =RGBA(166, 166, 166, 1)
+                    Font: =App.Theme.Font
+                    FontWeight: =FontWeight.Bold
+                    Height: =25
+                    PaddingLeft: =0
+                    PaddingRight: =0
+                    Size: =8
+                    Text: ="MCC / LSD REMARK"
+                    Width: =144
+                    X: =1155
+                    ZIndex: =23
+
+                "InfoButtonCanvas1_1 As 'Information button'":
+                    BasePaletteColor: =
+                    Content: |-
+                        ="REMARK 
+                        when compare with Master Color chart / LightStandartDark"
+                    DisplayMode: =DisplayMode.Edit
+                    FontColor: =
+                    Height: =14
+                    IconColor: =
+                    Width: =32
+                    X: =1254
+                    Y: =0
+                    ZIndex: =24
+
+            GalleryMaster_1 As gallery.variableTemplateHeightGallery:
+                '#CopilotOverlayLabel': ="Filtered"
+                BorderColor: =App.Theme.Colors.Darker40
+                DelayItemLoading: =true
+                Fill: =RGBA(255, 255, 255, 1)
+                Height: =508
+                Items: |-
+                    =Sort(
+                    If(Last(usermode).modename = "Guest" || Last(usermode).modename = "Requester" ,
+                        Search(maindata,SearchInput_1.Value,BRAND,INNER,CARTON,POLYBAG)
+                        ,
+                        If(IsBlank(SearchInput_1.Value),
+                            Filter(maindata,Status_enum in Filter(filterstatus,turnon=true).enum),
+                            Search(maindata,SearchInput_1.Value,BRAND,INNER,CARTON,POLYBAG)
+                                ) 
+                    )
+                    , Switch(RadioSort_1.Selected.Value,
+                           "Brand",BRAND
+                           ,"Date Prepare",PREP_DATE
+                           ,"Date Verified",VER_DATE
+                           ,Main_Color),
+                           RadioAsDs_1.Selected.Order
+                    )
+                Layout: =Layout.Vertical
+                LoadingSpinner: =LoadingSpinner.Data
+                TemplatePadding: =0
+                TemplateSize: =20
+                Width: =Container6_1.Width
+                Y: =25
+                ZIndex: =3
+
+                Rectangle6_1 As rectangle:
+                    BorderColor: =App.Theme.Colors.Darker40
+                    DisplayMode: =DisplayMode.Disabled
+                    Fill: =RGBA(214, 221, 224, 1)
+                    Height: =1
+                    OnSelect: =Select(Parent)
+                    Width: =Parent.Width
+                    Y: =19
+                    ZIndex: =1
+
+                Container8_2 As groupContainer.manualLayoutContainer:
+                    DropShadow: =DropShadow.Light
+                    Fill: |+
+                        =Switch(Int(ThisItem.Status_enum)
+                        ,2,RGBA(170, 100, 100,0.1)
+                        ,5,RGBA(255, 191, 0, 0.1)
+                        ,6,RGBA(255, 58, 60, 0.1)
+                        ,1,RGBA(100, 220, 150, 0.1)
+                        ,0,RGBA(70, 120, 230, 0.1)
+                        ,RGBA(50,50,50,0.1))
+                        
+                        //0purchaser, 1active, 2pending,3removed exp, 4remove disp ,5reminder near ,6reminder dead
+                        
+                        
+                        
+                        
+                    Height: =16
+                    RadiusBottomLeft: =3
+                    RadiusBottomRight: =3
+                    RadiusTopLeft: =3
+                    RadiusTopRight: =3
+                    Width: =100
+                    X: =30
+                    Y: =1
+                    ZIndex: =2
+
+                Button1_1 As button:
+                    BorderColor: =App.Theme.Colors.Primary
+                    BorderStyle: =BorderStyle.None
+                    BorderThickness: =0
+                    Color: |
+                        =Switch(Int(ThisItem.Status_enum)
+                        ,2,RGBA(170, 100, 100,1)
+                        ,5,RGBA(255, 191, 0, 1)
+                        ,6,RGBA(255, 58, 60, 1)
+                        ,3,RGBA(0, 0, 0, 0.5)
+                        ,4,RGBA(0, 0, 0, 0.1)
+                        ,1,RGBA(100, 220, 150, 1)
+                        ,0,RGBA(70, 120, 230, 1)
+                        ,RGBA(255, 255, 255, 1))
+                        
+                        //0purchaser, 1active, 2pending,3removed exp, 4remove disp ,5reminder near ,6reminder dead
+                    DisabledBorderColor: =RGBA(244, 244, 244, 1)
+                    DisabledColor: =RGBA(166, 166, 166, 1)
+                    DisabledFill: =RGBA(244, 244, 244, 1)
+                    Fill: =RGBA(0, 0, 0, 0)
+                    Font: =App.Theme.Font
+                    FontWeight: =FontWeight.Semibold
+                    Height: =18
+                    HoverBorderColor: =App.Theme.Colors.Darker10
+                    HoverColor: =RGBA(0, 0, 0, 1)
+                    HoverFill: =RGBA(255, 255, 255, 0.48)
+                    OnSelect: |-
+                        =Select(Parent);UpdateContext({viewform:true});UpdateContext({newms:false})
+                    PaddingBottom: =0
+                    PaddingLeft: =0
+                    PaddingRight: =0
+                    PaddingTop: =0
+                    PressedBorderColor: =App.Theme.Colors.Darker40
+                    PressedColor: =Self.Color
+                    PressedFill: =App.Theme.Colors.Darker40
+                    RadiusBottomLeft: =2
+                    RadiusBottomRight: =2
+                    RadiusTopLeft: =2
+                    RadiusTopRight: =2
+                    Size: =8
+                    Text: =ThisItem.MSID
+                    Width: =100
+                    X: =30
+                    ZIndex: =3
+
+                TextCanvas1_9 As Text:
+                    BorderColor: =
+                    BorderStyle: =""
+                    DisplayMode: =DisplayMode.Edit
+                    Fill: =
+                    Font: =Font.'Segoe UI'
+                    FontColor: =RGBA(0, 0, 0, 1)
+                    Height: =20
+                    Size: =12
+                    Text: =ThisItem.BRAND
+                    Width: =139
+                    Wrap: =false
+                    X: =135
+                    Y: =0
+                    ZIndex: =4
+
+                TextCanvas1_11 As Text:
+                    AutoHeight: =false
+                    BorderColor: =
+                    BorderStyle: =""
+                    DisplayMode: =DisplayMode.Edit
+                    Fill: =
+                    Font: =Font.'Segoe UI'
+                    FontColor: =RGBA(122, 138, 143, 1)
+                    FontItalic: =true
+                    Height: =20
+                    Size: =10
+                    Text: =ThisItem.REMARKS
+                    VerticalAlign: ='TextCanvas.VerticalAlign'.Middle
+                    Visible: =true
+                    Width: =95
+                    Wrap: =false
+                    X: =281
+                    Y: =0
+                    ZIndex: =5
+
+                TextCanvas1_12 As Text:
+                    Align: ='TextCanvas.Align'.Start
+                    BorderColor: =
+                    BorderStyle: =""
+                    DisplayMode: =DisplayMode.Edit
+                    Fill: =
+                    Font: =Font.'Segoe UI'
+                    FontColor: |-
+                        =Switch(Int(ThisItem.Status_enum)
+                        ,2,RGBA(170, 100, 100,1)
+                        ,5,RGBA(255, 191, 0, 1)
+                        ,6,RGBA(255, 58, 60, 1)
+                        ,3,RGBA(0, 0, 0, 0.5)
+                        ,4,RGBA(0, 0, 0, 0.1)
+                        ,1,RGBA(100, 220, 150, 1)
+                        ,0,RGBA(70, 120, 230, 1)
+                        ,RGBA(255, 255, 255, 1))
+                        
+                        //0purchaser, 1active, 2pending,3removed exp, 4remove disp ,5reminder near ,6reminder dead
+                    Height: =20
+                    Size: =12
+                    Text: =ThisItem.Status_Auto
+                    Weight: ='TextCanvas.Weight'.Regular
+                    Width: =64
+                    Wrap: =false
+                    X: =394
+                    Y: =0
+                    ZIndex: =6
+
+                TextCanvas1_15 As Text:
+                    Align: ='TextCanvas.Align'.End
+                    BorderColor: =
+                    BorderStyle: =""
+                    DisplayMode: =DisplayMode.Edit
+                    Fill: =
+                    Font: =Font.'Segoe UI'
+                    FontColor: =Label9_1.Color
+                    FontItalic: =false
+                    Height: =20
+                    Size: =12
+                    Text: =Text(ThisItem.PREP_DATE,"d-m-yyyy")
+                    VerticalAlign: ='TextCanvas.VerticalAlign'.Middle
+                    Weight: ='TextCanvas.Weight'.Regular
+                    Width: =70
+                    X: =608
+                    Y: =0
+                    ZIndex: =7
+
+                Label9_1 As label:
+                    Align: =Align.Right
+                    BorderColor: =App.Theme.Colors.Darker40
+                    Color: |-
+                        =Switch(ThisItem.LOCATION,
+                        "ACTIVE RACK",RGBA(0, 0, 0, 1),"PURCHASER",RGBA(0, 0, 0, 1),RGBA(214, 221, 224, 1))
+                    DisabledColor: =RGBA(166, 166, 166, 1)
+                    Font: =Font.'Segoe UI'
+                    FontWeight: =FontWeight.Semibold
+                    Height: =20
+                    OnSelect: =Select(Parent)
+                    PaddingBottom: =0
+                    PaddingLeft: =0
+                    PaddingRight: =0
+                    PaddingTop: =0
+                    Size: =10
+                    Text: =Round(ThisItem.Remain,0)
+                    Width: =35
+                    X: =698
+                    ZIndex: =8
+
+                TextCanvas1_13 As Text:
+                    Align: ='TextCanvas.Align'.Start
+                    BorderColor: =
+                    BorderStyle: =""
+                    DisplayMode: =DisplayMode.Edit
+                    Fill: =
+                    Font: =Font.'Segoe UI'
+                    FontColor: =RGBA(0, 0, 0, 1)
+                    Height: =20
+                    Size: =12
+                    Text: =ThisItem.LOCATION
+                    Weight: ='TextCanvas.Weight'.Medium
+                    Width: =99
+                    Wrap: =false
+                    X: =462
+                    Y: =0
+                    ZIndex: =9
+
+                TextCanvas1_14 As Text:
+                    Align: ='TextCanvas.Align'.End
+                    BorderColor: =
+                    BorderStyle: =""
+                    DisplayMode: =DisplayMode.Edit
+                    Fill: =
+                    Font: =Font.'Segoe UI'
+                    FontColor: =Label9_1.Color
+                    FontItalic: =false
+                    Height: =20
+                    Size: =12
+                    Text: =Text(DateAdd(ThisItem.PREP_DATE,1,TimeUnit.Years),"d-m-yyyy")
+                    VerticalAlign: ='TextCanvas.VerticalAlign'.Middle
+                    Weight: ='TextCanvas.Weight'.Regular
+                    Width: =70
+                    X: =540
+                    Y: =0
+                    ZIndex: =10
+
+                ButtonCanvas2_1 As Button:
+                    Align: =""
+                    Appearance: ='ButtonCanvas.Appearance'.Transparent
+                    BasePaletteColor: =
+                    BorderColor: =
+                    BorderStyle: =""
+                    DisplayMode: =DisplayMode.Edit
+                    FontColor: =RGBA(15, 108, 189, 1)
+                    FontSize: =10
+                    Height: =18
+                    Icon: =""
+                    IconRotation: =0
+                    IconStyle: ="Outline"
+                    Layout: ="Icon before"
+                    Text: =ThisItem.Title
+                    VerticalAlign: =""
+                    Width: =81
+                    X: =739
+                    Y: =0
+                    ZIndex: =11
+
+                Icon3_3 As icon.CalendarBlank:
+                    BorderColor: =App.Theme.Colors.Darker40
+                    Color: |
+                        =If(ThisItem.LOCATION="ACTIVE RACK",
+                            If(Value(Label9_1.Text)>30,
+                            RGBA(100, 100, 100, 1)
+                          ,  If(Value(Label9_1.Text)>0,RGBA(255, 191, 0, 1),RGBA(255, 58, 60, 1) 
+                                     
+                          )
+                            )
+                        ,RGBA(214, 221, 224, 1) //dissable
+                        )
+                    DisabledBorderColor: =RGBA(166, 166, 166, 1)
+                    DisabledColor: =RGBA(244, 244, 244, 1)
+                    DisplayMode: =DisplayMode.View
+                    Height: =16
+                    Icon: |
+                        =If(ThisItem.LOCATION="ACTIVE RACK",
+                            If(Value(Label9_1.Text)>30,
+                            Icon.Pin
+                          ,  If(Value(Label9_1.Text)>0,Icon.Warning,Icon.Warning
+                                     
+                          )
+                            )
+                        ,Icon.History //dissable
+                        )
+                    OnSelect: =Select(Parent)
+                    PaddingLeft: =2
+                    PaddingRight: =2
+                    Width: =20
+                    X: =682
+                    Y: =2
+                    ZIndex: =12
+
+                Container9_3 As groupContainer.manualLayoutContainer:
+                    Height: =18
+                    Width: =841
+                    X: =1559
+                    Y: =1
+                    ZIndex: =18
+
+                    Label14_22 As label:
+                        BorderColor: =App.Theme.Colors.Darker40
+                        Color: =RGBA(0, 0, 0, 1)
+                        DisabledColor: =RGBA(166, 166, 166, 1)
+                        Font: =Font.'Segoe UI'
+                        Height: =18
+                        OnSelect: =
+                        PaddingBottom: =0
+                        PaddingTop: =0
+                        Size: =8
+                        Text: =ThisItem.VerifyBy
+                        Width: =200
+                        Wrap: =false
+                        X: =347
+                        ZIndex: =4
+
+                    Label14_23 As label:
+                        Align: =Align.Right
+                        BorderColor: =App.Theme.Colors.Darker40
+                        Color: =RGBA(0, 0, 0, 1)
+                        DisabledColor: =RGBA(166, 166, 166, 1)
+                        Font: =Font.'Segoe UI'
+                        Height: =18
+                        OnSelect: =
+                        PaddingBottom: =0
+                        PaddingTop: =0
+                        Size: =8
+                        Text: =Text(ThisItem.VER_DATE,"d-m-yyyy")
+                        Width: =61
+                        Wrap: =false
+                        X: =547
+                        ZIndex: =5
+
+                    Label14_21 As label:
+                        Align: =Align.Center
+                        BorderColor: =App.Theme.Colors.Darker40
+                        Color: =If(Self.Text="VERIFIED",RGBA(52, 152, 47, 1),RGBA(255, 191, 0, 1))
+                        DisabledColor: =RGBA(166, 166, 166, 1)
+                        FontWeight: =FontWeight.Bold
+                        Height: =18
+                        OnSelect: =
+                        Size: =8
+                        Text: =ThisItem.VER
+                        Width: =92
+                        Wrap: =false
+                        X: =255
+                        ZIndex: =6
+
+                    Label14_20 As label:
+                        BorderColor: =App.Theme.Colors.Darker40
+                        Color: =RGBA(79, 90, 94, 1)
+                        DisabledColor: =RGBA(166, 166, 166, 1)
+                        Font: =Font.'Segoe UI'
+                        Height: =18
+                        OnSelect: =
+                        PaddingBottom: =0
+                        PaddingTop: =0
+                        Size: =8
+                        Text: =First(Split(ThisItem.'Created By'.DisplayName," (")).Value
+                        Width: =166
+                        Wrap: =false
+                        X: =89
+                        ZIndex: =7
+
+                    Label14_19 As label:
+                        Align: =Align.Right
+                        BorderColor: =App.Theme.Colors.Darker40
+                        Color: =RGBA(79, 90, 94, 1)
+                        DisabledColor: =RGBA(166, 166, 166, 1)
+                        Font: =Font.'Segoe UI'
+                        Height: =18
+                        OnSelect: =
+                        PaddingBottom: =0
+                        PaddingLeft: =0
+                        PaddingRight: =0
+                        PaddingTop: =0
+                        Size: =8
+                        Text: |-
+                            =Text(ThisItem.Modified,"HH:mm dd/mm/yyyy")
+                        Width: =89
+                        Wrap: =false
+                        ZIndex: =8
+
+                "InfoButtonCanvas2_1 As 'Information button'":
+                    BasePaletteColor: =
+                    Content: =ThisItem.REMARKS
+                    DisplayMode: =DisplayMode.Edit
+                    FontColor: =RGBA(15, 108, 189, 1)
+                    Height: =16
+                    IconColor: =
+                    OnSelect: =Select(Parent)
+                    Visible: =Len(ThisItem.REMARKS)>16
+                    Width: =32
+                    X: =359
+                    Y: =0
+                    ZIndex: =19
+
+                TextCanvas1_16 As Text:
+                    Align: ='TextCanvas.Align'.Start
+                    BorderColor: =
+                    BorderStyle: =""
+                    DisplayMode: =DisplayMode.Edit
+                    Fill: =
+                    Font: =Font.'Segoe UI'
+                    FontColor: =RGBA(0, 0, 0, 1)
+                    Height: =20
+                    Size: =10
+                    Text: =LookUp('M_MASTER SAMPLE',ID=ThisItem.key_TOG).Title
+                    Weight: ='TextCanvas.Weight'.Medium
+                    Width: =100
+                    Wrap: =false
+                    X: =825
+                    Y: =0
+                    ZIndex: =21
+
+                TextCanvas1_17 As Text:
+                    Align: ='TextCanvas.Align'.Start
+                    BorderColor: =
+                    BorderStyle: =""
+                    DisplayMode: =DisplayMode.Edit
+                    Fill: =
+                    Font: =Font.'Segoe UI'
+                    FontColor: =RGBA(0, 0, 0, 1)
+                    Height: =20
+                    Size: =10
+                    Text: =LookUp('M_MASTER SAMPLE',ID=ThisItem.key_TOF).Title
+                    Weight: ='TextCanvas.Weight'.Medium
+                    Width: =110
+                    Wrap: =false
+                    X: =925
+                    Y: =0
+                    ZIndex: =22
+
+                TextCanvas1_18 As Text:
+                    Align: ='TextCanvas.Align'.Start
+                    BorderColor: =
+                    BorderStyle: =""
+                    DisplayMode: =DisplayMode.Edit
+                    Fill: =
+                    Font: =Font.'Segoe UI'
+                    FontColor: =RGBA(0, 0, 0, 1)
+                    Height: =20
+                    Size: =10
+                    Text: =ThisItem.Main_Color
+                    Weight: ='TextCanvas.Weight'.Medium
+                    Width: =110
+                    Wrap: =false
+                    X: =1040
+                    Y: =0
+                    ZIndex: =24
+
+                TextCanvas1_19 As Text:
+                    AutoHeight: =false
+                    BorderColor: =
+                    BorderStyle: =""
+                    DisplayMode: =DisplayMode.Edit
+                    Fill: =
+                    Font: =Font.'Segoe UI'
+                    FontColor: =RGBA(122, 138, 143, 1)
+                    FontItalic: =true
+                    Height: =20
+                    Size: =10
+                    Text: =ThisItem.REMARKS_COLOR
+                    VerticalAlign: ='TextCanvas.VerticalAlign'.Middle
+                    Visible: =true
+                    Width: =120
+                    Wrap: =false
+                    X: =1150
+                    Y: =0
+                    ZIndex: =25
+
+                Label18_1 As label:
+                    Align: =Align.Center
+                    BorderColor: =App.Theme.Colors.Darker40
+                    Color: =RGBA(0, 0, 0, 1)
+                    DisabledColor: =RGBA(166, 166, 166, 1)
+                    Font: =Font.'Open Sans Condensed'
+                    FontWeight: =FontWeight.Semibold
+                    Height: =20
+                    OnSelect: =Select(Parent)
+                    PaddingLeft: =0
+                    PaddingRight: =0
+                    Size: =6
+                    Text: =ThisItem.ID
+                    Width: =30
+                    ZIndex: =26
+
+                ButtonCanvas6_1 As Button:
+                    Appearance: ='ButtonCanvas.Appearance'.Secondary
+                    BasePaletteColor: =
+                    BorderColor: =
+                    BorderStyle: =BorderStyle.None
+                    DisplayMode: =DisplayMode.Edit
+                    FontColor: =
+                    Height: =16
+                    Icon: ="Camera"
+                    IconStyle: ='ButtonCanvas.IconStyle'.Outline
+                    Layout: ='ButtonCanvas.Layout'.IconOnly
+                    OnSelect: |-
+                        =Select(Parent);UpdateContext({selectedimage:ThisItem.PictureVer});UpdateContext({showimage:true})
+                    Width: =21
+                    X: =2307
+                    Y: =1
+                    ZIndex: =28
+
+    Container14_1 As groupContainer.manualLayoutContainer:
+        DropShadow: =DropShadow.ExtraBold
+        Fill: =RGBA(255, 255, 255, 1)
+        Height: =544
+        RadiusBottomLeft: =4
+        RadiusBottomRight: =4
+        RadiusTopLeft: =4
+        RadiusTopRight: =4
+        Visible: =viewform
+        Width: =1139
+        X: =96
+        Y: =107
+        ZIndex: =3
+
+        Container8_3 As groupContainer.manualLayoutContainer:
+            DropShadow: =DropShadow.Light
+            Fill: |-
+                =Switch(GalleryMaster_1.Selected.Status_Auto
+                ,"PENDING",RGBA(170, 100, 100,1)
+                ,"REMINDER",Icon3_3.Color
+                ,"REMOVED",RGBA(0, 0, 0, 0.1)
+                ,"ACTIVE",RGBA(100, 250, 100, 1)//RGBA(100, 250, 100, 1)
+                ,"OUT",RGBA(70, 120, 230, 1)
+                ,RGBA(255, 255, 255, 1))
+            Height: =3
+            RadiusBottomLeft: =2
+            RadiusBottomRight: =2
+            RadiusTopLeft: =2
+            RadiusTopRight: =2
+            Width: =954
+            X: =8
+            Y: =40
+            ZIndex: =2
+
+        Icon6_1 As icon.Cancel:
+            BorderColor: =App.Theme.Colors.Darker40
+            Color: =App.Theme.Colors.Darker30
+            DisabledBorderColor: =RGBA(166, 166, 166, 1)
+            DisabledColor: =RGBA(244, 244, 244, 1)
+            Height: =40
+            Icon: =Icon.Cancel
+            OnSelect: |-
+                =UpdateContext({viewform:false})
+            Width: =30
+            X: =908
+            ZIndex: =3
+
+        Label17_1 As label:
+            BorderColor: =App.Theme.Colors.Darker40
+            Color: =RGBA(0, 0, 0, 1)
+            DisabledColor: =RGBA(166, 166, 166, 1)
+            Font: =App.Theme.Font
+            Size: =13
+            Text: =DropdownCanvas1_1.Selected.t_id
+            X: =367
+            Y: =57
+            ZIndex: =4
+
+        DataCardValue62_1 As Combobox.pcfdataset:
+            AccessibleLabel: =
+            Appearance: ="FilledDarker"
+            BorderStyle: =""
+            DefaultSelectedItems: =LookUp(Choices([@T_MasterSample].Factory),Id=DropdownCanvas1_1.Selected.ID)
+            DisplayMode: =Parent.DisplayMode
+            Height: =32
+            Items: =Choices([@T_MasterSample].Factory)
+            ValidationState: =
+            Width: =215
+            X: =41
+            Y: =61
+            ZIndex: =5
+
+        HtmlText1_5 As htmlViewer:
+            Height: =50
+            HtmlText: |-
+                ="<div style='height:40px;background:linear-gradient(170deg, RGBA("&"255,200,100"&", 1) , RGBA(255, 255, 255, 1))'>&nbsp;</div> "
+            PaddingBottom: =0
+            PaddingLeft: =0
+            PaddingRight: =0
+            PaddingTop: =0
+            Size: =13
+            Width: =15
+            X: =840
+            Y: =125
+            ZIndex: =6
+
+        Container15_1 As groupContainer:
+            DropShadow: =DropShadow.Light
+            Fill: =RGBA(207, 207, 207, 1)
+            Height: =336
+            RadiusBottomLeft: =4
+            RadiusBottomRight: =4
+            RadiusTopLeft: =4
+            RadiusTopRight: =4
+            Width: =675
+            X: =41
+            Y: =125
+            ZIndex: =7
+
+            "TextInputCanvas1_1 As 'Text input'":
+                Appearance: ="FilledDarker"
+                BasePaletteColor: =
+                BorderColor: =
+                BorderStyle: =""
+                DisplayMode: =DisplayMode.Edit
+                Fill: =
+                FontColor: =
+                Height: =32
+                Placeholder: |-
+                    ="Item Code example: ABC001NF"
+                TriggerOutput: ="FocusOut"
+                Value: =If(newms,Blank(),GalleryMaster_1.Selected.INNER)
+                Width: =181
+                X: =16
+                Y: =16
+                ZIndex: =1
+
+            DropdownCanvas2_1 As Dropdown.pcfdataset:
+                Appearance: ="FilledDarker"
+                BorderStyle: =""
+                DefaultSelectedItems: =LookUp(PM_Supplier,ID=GalleryMaster_1.Selected.INNER_supp.Id)
+                DisplayMode: =DisplayMode.Edit
+                Height: =32
+                Items: =Filter(PM_Supplier,Type_Inner)
+                Width: =192
+                X: =361
+                Y: =16
+                ZIndex: =2
+
+                Title1_1 As PowerApps_CoreControls_DropdownCanvasTemplate_dataField.textualColumn:
+                    FieldDisplayName: ="Title"
+                    FieldName: ="Title"
+                    FieldType: ="s"
+                    FieldVariantName: ="textualColumn"
+                    Order: =1
+                    ZIndex: =60
+
+                FullName1_1 As PowerApps_CoreControls_DropdownCanvasTemplate_dataField.textualColumn:
+                    FieldDisplayName: ="FullName"
+                    FieldName: ="FullName"
+                    FieldType: ="s"
+                    FieldVariantName: ="textualColumn"
+                    Order: =2
+                    ZIndex: =61
+
+                SAP1_1 As PowerApps_CoreControls_DropdownCanvasTemplate_dataField.textualColumn:
+                    FieldDisplayName: ="SAP"
+                    FieldName: ="SAP"
+                    FieldType: ="s"
+                    FieldVariantName: ="textualColumn"
+                    Order: =3
+                    ZIndex: =62
+
+                PIC1_1 As PowerApps_CoreControls_DropdownCanvasTemplate_dataField.textualColumn:
+                    FieldDisplayName: ="PIC"
+                    FieldName: ="PIC"
+                    FieldType: ="s"
+                    FieldVariantName: ="textualColumn"
+                    Order: =4
+                    ZIndex: =63
+
+                Email1_1 As PowerApps_CoreControls_DropdownCanvasTemplate_dataField.textualColumn:
+                    FieldDisplayName: ="Email"
+                    FieldName: ="Email"
+                    FieldType: ="s"
+                    FieldVariantName: ="textualColumn"
+                    Order: =5
+                    ZIndex: =64
+
+                Type_Carton1_1 As PowerApps_CoreControls_DropdownCanvasTemplate_dataField.textualColumn:
+                    FieldDisplayName: ="Type_Carton"
+                    FieldName: ="Type_Carton"
+                    FieldType: ="b"
+                    FieldVariantName: ="textualColumn"
+                    Order: =6
+                    ZIndex: =65
+
+                Type_Inner1_1 As PowerApps_CoreControls_DropdownCanvasTemplate_dataField.textualColumn:
+                    FieldDisplayName: ="Type_Inner"
+                    FieldName: ="Type_Inner"
+                    FieldType: ="b"
+                    FieldVariantName: ="textualColumn"
+                    Order: =7
+                    ZIndex: =66
+
+                Type_Pouch1_1 As PowerApps_CoreControls_DropdownCanvasTemplate_dataField.textualColumn:
+                    FieldDisplayName: ="Type_Pouch"
+                    FieldName: ="Type_Pouch"
+                    FieldType: ="b"
+                    FieldVariantName: ="textualColumn"
+                    Order: =8
+                    ZIndex: =67
+
+                Type_Wallet1_1 As PowerApps_CoreControls_DropdownCanvasTemplate_dataField.textualColumn:
+                    FieldDisplayName: ="Type_Wallet"
+                    FieldName: ="Type_Wallet"
+                    FieldType: ="b"
+                    FieldVariantName: ="textualColumn"
+                    Order: =9
+                    ZIndex: =68
+
+                Type_Polybag1_1 As PowerApps_CoreControls_DropdownCanvasTemplate_dataField.textualColumn:
+                    FieldDisplayName: ="Type_Polybag"
+                    FieldName: ="Type_Polybag"
+                    FieldType: ="b"
+                    FieldVariantName: ="textualColumn"
+                    Order: =10
+                    ZIndex: =69
+
+                Type_Sticker_Sheet1_1 As PowerApps_CoreControls_DropdownCanvasTemplate_dataField.textualColumn:
+                    FieldDisplayName: ="Type_Sticker_Sheet"
+                    FieldName: ="Type_Sticker_Sheet"
+                    FieldType: ="b"
+                    FieldVariantName: ="textualColumn"
+                    Order: =11
+                    ZIndex: =70
+
+                Activeness1_1 As PowerApps_CoreControls_DropdownCanvasTemplate_dataField.textualColumn:
+                    FieldDisplayName: ="Activeness"
+                    FieldName: ="Activeness"
+                    FieldType: ="s"
+                    FieldVariantName: ="textualColumn"
+                    Order: =12
+                    ZIndex: =71
+
+                Attachments2_1 As PowerApps_CoreControls_DropdownCanvasTemplate_dataField.textualColumn:
+                    FieldDisplayName: ="Attachments"
+                    FieldName: ="{Attachments}"
+                    FieldType: ="r*"
+                    FieldVariantName: ="textualColumn"
+                    Order: =13
+                    ZIndex: =72
+
+            "NumberInput1_1 As 'Number input'":
+                Appearance: ="FilledDarker"
+                BasePaletteColor: =
+                BorderColor: =
+                BorderStyle: =""
+                DisplayMode: =DisplayMode.Edit
+                Fill: =
+                Height: =32
+                Value: =If(newms,Blank(),GalleryMaster_1.Selected.INNER_rev)
+                Width: =138
+                X: =210
+                Y: =16
+                ZIndex: =3
+
+        DropdownCanvas3_3 As Dropdown.pcfdataset:
+            Appearance: ="FilledDarker"
+            BorderStyle: =""
+            DisplayMode: =DisplayMode.Edit
+            Height: =32
+            Items: =Sort(Filter('M_MASTER SAMPLE',Product="Top"),Code,SortOrder.Ascending)
+            Width: =126
+            X: =290
+            Y: =61
+            ZIndex: =8
+
+            Title2_3 As PowerApps_CoreControls_DropdownCanvasTemplate_dataField.textualColumn:
+                FieldDisplayName: ="Title"
+                FieldName: ="Title"
+                FieldType: ="s"
+                FieldVariantName: ="textualColumn"
+                Order: =2
+                ZIndex: =73
+
+            Code1_3 As PowerApps_CoreControls_DropdownCanvasTemplate_dataField.textualColumn:
+                FieldDisplayName: ="Code"
+                FieldName: ="Code"
+                FieldType: ="s"
+                FieldVariantName: ="textualColumn"
+                Order: =1
+                ZIndex: =74
+
+            Product1_1 As PowerApps_CoreControls_DropdownCanvasTemplate_dataField.textualColumn:
+                FieldDisplayName: ="Product"
+                FieldName: ="Product"
+                FieldType: ="s"
+                FieldVariantName: ="textualColumn"
+                Order: =3
+                ZIndex: =75
+
+        DropdownCanvas3_2 As Dropdown.pcfdataset:
+            Appearance: ="FilledDarker"
+            BasePaletteColor: =
+            BorderStyle: =""
+            DisplayMode: =DisplayMode.Edit
+            Height: =32
+            Items: =Sort(Filter('M_MASTER SAMPLE',Product="Finishing"),Code,SortOrder.Ascending)
+            Width: =288
+            X: =444
+            Y: =57
+            ZIndex: =9
+
+            Title2_2 As PowerApps_CoreControls_DropdownCanvasTemplate_dataField.textualColumn:
+                FieldDisplayName: ="Title"
+                FieldName: ="Title"
+                FieldType: ="s"
+                FieldVariantName: ="textualColumn"
+                Order: =1
+                ZIndex: =73
+
+            Code1_2 As PowerApps_CoreControls_DropdownCanvasTemplate_dataField.textualColumn:
+                FieldDisplayName: ="Code"
+                FieldName: ="Code"
+                FieldType: ="s"
+                FieldVariantName: ="textualColumn"
+                Order: =2
+                ZIndex: =74
+
+        Label16_1 As label:
+            BorderColor: =App.Theme.Colors.Darker40
+            Color: =RGBA(9, 33, 98, 1)
+            DisabledColor: =RGBA(166, 166, 166, 1)
+            Font: =App.Theme.Font
+            FontWeight: =FontWeight.Bold
+            Size: =13
+            Text: =GalleryMaster_1.Selected.MSID
+            Width: =180
+            X: =8
+            ZIndex: =10
+
+        Container11_1 As groupContainer.manualLayoutContainer:
+            DropShadow: =DropShadow.Light
+            Fill: =RGBA(255, 255, 255, 1)
+            RadiusBottomLeft: =4
+            RadiusBottomRight: =4
+            RadiusTopLeft: =4
+            RadiusTopRight: =4
+            Width: =520
+            X: =290
+            Y: =283
+            ZIndex: =16
+
+            Gallery5_1 As gallery.galleryHorizontal:
+                BorderColor: =App.Theme.Colors.Darker40
+                DelayItemLoading: =true
+                Height: =117
+                Items: |
+                    =[
+                    {redv:CurrentR,greenv:CurrentG,   bluev:CurrentB}, 
+                       {redv:255,greenv:0,   bluev:0},       // Red
+                       {redv:255,greenv:69,  bluev:0},      // Orange Red
+                       {redv:255,greenv:165, bluev:0},     // Orange
+                       {redv:255,greenv:215, bluev:0},     // Gold
+                       {redv:255,greenv:255, bluev:0},     // Yellow
+                       {redv:173,greenv:255, bluev:47},    // Green Yellow
+                       {redv:154,greenv:205, bluev:50},    // Yellow Green
+                       {redv:0,  greenv:255, bluev:0},       // Green
+                       {redv:50, greenv:205, bluev:50},     // Lime Green
+                       {redv:0,  greenv:255, bluev:127},     // Spring Green
+                       {redv:0,  greenv:250, bluev:154},     // Medium Spring Green
+                       {redv:0,  greenv:255, bluev:255},     // Cyan
+                       {redv:0,  greenv:206, bluev:209},     // Dark Turquoise
+                       {redv:64, greenv:224, bluev:208},    // Turquoise
+                       {redv:72, greenv:209, bluev:204},    // Medium Turquoise
+                       {redv:0,  greenv:191, bluev:255},     // Deep Sky Blue
+                       {redv:135,greenv:206, bluev:235},   // Sky Blue
+                       {redv:0,  greenv:0,   bluev:255},       // Blue
+                       {redv:138,greenv:43,  bluev:226},    // Blue Violet
+                       {redv:153,greenv:50,  bluev:204},    // Dark Orchid
+                       {redv:186,greenv:85,  bluev:211},    // Medium Orchid
+                       {redv:218,greenv:112, bluev:214},   // Orchid
+                       {redv:255,greenv:0,   bluev:255},     // Magenta
+                       {redv:255,greenv:20,  bluev:147},    // Deep Pink
+                       {redv:255,greenv:105, bluev:180},   // Hot Pink
+                       {redv:255,greenv:182, bluev:193},   // Light Pink
+                       {redv:255,greenv:69,  bluev:0},      // Orange Red
+                       {redv:255,greenv:99,  bluev:71},     // Tomato
+                       {redv:255,greenv:160, bluev:122}    // Light Salmon
+                    ]
+                LoadingSpinner: =LoadingSpinner.Data
+                TemplatePadding: =2
+                TemplateSize: =30
+                Width: =329
+                WrapCount: =3
+                ZIndex: =1
+
+                Rectangle2_1 As rectangle:
+                    BorderColor: =App.Theme.Colors.Darker40
+                    Fill: =RGBA(ThisItem.redv,ThisItem.greenv,ThisItem.bluev,1)
+                    Height: =34
+                    OnSelect: =Select(Parent)
+                    Width: =30
+                    ZIndex: =1
+
+                ButtonCanvas15_1 As Button:
+                    Appearance: ='ButtonCanvas.Appearance'.Transparent
+                    BasePaletteColor: =
+                    DisplayMode: =DisplayMode.Edit
+                    Height: =36.333333333333336
+                    Icon: ="Copy"
+                    IconStyle: ='ButtonCanvas.IconStyle'.Outline
+                    Layout: ='ButtonCanvas.Layout'.IconOnly
+                    OnSelect: =Select(Parent)
+                    Width: =30
+                    X: =0
+                    Y: =0
+                    ZIndex: =2
+
+            HtmlText4_1 As htmlViewer:
+                DisabledBorderColor: =RGBA(166, 166, 166, 1)
+                Font: =App.Theme.Font
+                Height: =195
+                HtmlText: |-
+                    ="<table style='width:150px;height:180px'><tr>"&
+                    
+                    "<th style='text-align:center;vertical-align:bottom;background:
+                    linear-gradient(#FF"&Dec2Hex(SliderG_1.Value,2)&Dec2Hex(SliderB_1.Value,2)&",
+                    #00"&Dec2Hex(SliderG_1.Value,2)&Dec2Hex(SliderB_1.Value,2)&")
+                    ;width:100px:'></th>"&
+                    
+                    "<th style='text-align:center;vertical-align:bottom;background:
+                    linear-gradient(#"&Dec2Hex(SliderR_1.Value,2)&"FF"&Dec2Hex(SliderB_1.Value,2)&",
+                    #"&Dec2Hex(SliderR_1.Value,2)&"00"&Dec2Hex(SliderB_1.Value,2)&")
+                    ;width:100px:'></th>"&
+                    
+                    "<th style='text-align:center;vertical-align:bottom;background:
+                    linear-gradient(#"&Dec2Hex(SliderR_1.Value,2)&Dec2Hex(SliderG_1.Value,2)&"FF,
+                    #"&Dec2Hex(SliderR_1.Value,2)&Dec2Hex(SliderG_1.Value,2)&"00)
+                    ;width:100px:'></th>"&
+                    
+                    
+                    "</tr><table>"
+                Size: =13
+                Width: =176
+                X: =329
+                ZIndex: =2
+
+            SliderR_1 As Slider:
+                BasePaletteColor: =RGBA(SliderR_1.Value,SliderG_1.Value,SliderB_1.Value,1)
+                DisplayMode: =DisplayMode.Edit
+                Height: =180
+                Layout: ='Slider.Layout'.Vertical
+                Max: =255
+                Value: =Gallery5_1.Selected.redv
+                Width: =20
+                X: =349
+                Y: =0
+                ZIndex: =3
+
+            SliderG_1 As Slider:
+                BasePaletteColor: =RGBA(SliderR_1.Value,SliderG_1.Value,SliderB_1.Value,1)
+                DisplayMode: =DisplayMode.Edit
+                Height: =180
+                Layout: ='Slider.Layout'.Vertical
+                Max: =255
+                Value: =Gallery5_1.Selected.greenv
+                Width: =20
+                X: =400
+                Y: =0
+                ZIndex: =4
+
+            SliderB_1 As Slider:
+                BasePaletteColor: =RGBA(SliderR_1.Value,SliderG_1.Value,SliderB_1.Value,1)
+                DisplayMode: =DisplayMode.Edit
+                Height: =180
+                Layout: ='Slider.Layout'.Vertical
+                Max: =255
+                Value: =Gallery5_1.Selected.bluev
+                Width: =20
+                X: =451
+                Y: =0
+                ZIndex: =5
+
+            Container17_1 As groupContainer.manualLayoutContainer:
+                DropShadow: =DropShadow.Semibold
+                Fill: =RGBA(SliderR_1.Value,SliderG_1.Value,SliderB_1.Value,1)
+                Height: =64
+                RadiusBottomLeft: =4
+                RadiusBottomRight: =4
+                RadiusTopLeft: =4
+                RadiusTopRight: =4
+                Width: =279
+                X: =25
+                Y: =117
+                ZIndex: =6
+
+        "NumberInput2_1 As 'Number input'":
+            DisplayMode: =DisplayMode.Edit
+            Height: =32
+            Max: =510
+            Step: =51
+            Width: =320
+            X: =705
+            Y: =152
+            ZIndex: =18
+
+        ButtonCanvas16_1 As Button:
+            DisplayMode: =DisplayMode.Edit
+            Height: =32
+            OnSelect: |-
+                =If(IsBlank(GalleryMaster_1.Selected.INNER_COL),
+                Set(CurrentR,0);Set(CurrentG,0);Set(CurrentB,0),
+                
+                Set(CurrentR,Int(First(Split(GalleryMaster_1.Selected.INNER_COL,", ")).Value));
+                Set(CurrentG,Int(Index(Split(GalleryMaster_1.Selected.INNER_COL,", "),2).Value));
+                Set(CurrentB,Int(Last(Split(GalleryMaster_1.Selected.INNER_COL,", ")).Value))
+                )
+            Text: =GalleryMaster_1.Selected.INNER_COL
+            Width: =200
+            X: =256
+            Y: =0
+            ZIndex: =19
+
+    Container16_1 As groupContainer.verticalAutoLayoutContainer:
+        Height: =108
+        LayoutGap: =10
+        LayoutMode: =LayoutMode.Auto
+        LayoutOverflowX: =LayoutOverflow.Scroll
+        LayoutWrap: =true
+        PaddingLeft: =5
+        PaddingTop: =5
+        RadiusBottomLeft: =4
+        RadiusBottomRight: =4
+        RadiusTopLeft: =4
+        RadiusTopRight: =4
+        Width: =1366
+        Y: =40
+        ZIndex: =5
+
+        Container12_1 As groupContainer:
+            AlignInContainer: =AlignInContainer.Start
+            DropShadow: =DropShadow.Semilight
+            Fill: =RGBA(255, 255, 255, 1)
+            FillPortions: =0
+            Height: =95
+            LayoutMinHeight: =100
+            LayoutMinWidth: =250
+            Width: =318
+            X: =128
+            Y: =45
+            ZIndex: =1
+
+            "SearchInput_1 As 'Text input'":
+                Appearance: ="FilledDarker"
+                BasePaletteColor: =
+                BorderColor: =
+                BorderStyle: =""
+                DisplayMode: =DisplayMode.Edit
+                Fill: =
+                FontColor: =
+                Height: =32
+                Placeholder: ="Brand / Item Code"
+                TriggerOutput: ="FocusOut"
+                Width: =231
+                X: =73
+                Y: =50
+                ZIndex: =14
+
+            Icon9_1 As icon.Search:
+                BorderColor: =App.Theme.Colors.Darker40
+                Color: =App.Theme.Colors.Darker30
+                DisabledBorderColor: =RGBA(166, 166, 166, 1)
+                DisabledColor: =RGBA(180, 214, 250, 1)
+                DisplayMode: =If(IsBlank(SearchInput_1.Value),DisplayMode.Disabled,DisplayMode.Edit) 
+                Height: =30
+                Icon: =If(IsBlank(SearchInput_1.Value),Icon.Search,Icon.Cancel)
+                OnSelect: =Reset(SearchInput_1)
+                Width: =46
+                X: =260
+                Y: =50
+                ZIndex: =15
+
+            Label15_1 As label:
+                BorderColor: =App.Theme.Colors.Darker40
+                Color: =RGBA(9, 33, 98, 1)
+                DisabledColor: =RGBA(166, 166, 166, 1)
+                Font: =App.Theme.Font
+                FontWeight: =FontWeight.Bold
+                Height: =30
+                Size: =10
+                Text: |-
+                    ="Search :"
+                Width: =66
+                X: =7
+                Y: =50
+                ZIndex: =16
+
+            ButtonCanvas5_1 As Button:
+                Align: =""
+                BasePaletteColor: =
+                BorderColor: =
+                BorderStyle: =""
+                DisplayMode: =DisplayMode.Edit
+                FontColor: =
+                Height: =32
+                Icon: =""
+                IconRotation: =0
+                IconStyle: ="Outline"
+                Layout: ="Icon before"
+                OnSelect: |-
+                    =UpdateContext({newms:true})
+                Text: ="New"
+                VerticalAlign: =""
+                Visible: |-
+                    =If(Last(usermode).modename = "Guest" || Last(usermode).modename = "Requester" ,
+                    
+                    false
+                    ,
+                    true
+                    )
+                Width: =73
+                X: =232
+                Y: =11
+                ZIndex: =18
+
+            DropdownCanvas1_1 As Dropdown.pcfdataset:
+                Appearance: ="FilledDarker"
+                BasePaletteColor: =
+                BorderStyle: =""
+                DefaultSelectedItems: =LookUp('PMQC Factory PIC',Titled= Last(usermode).Factory)
+                DisplayMode: |+
+                    =If(Last(usermode).modename = "Admin" ,
+                    DisplayMode.Edit
+                    ,
+                    DisplayMode.View
+                    )
+                    
+                    
+                    
+                FontSize: =16
+                Height: =32
+                Items: ='PMQC Factory PIC'
+                Visible: |-
+                    =If(Last(usermode).modename = "Guest" || Last(usermode).modename = "Requester" ,
+                    
+                    false
+                    ,
+                    true
+                    )
+                Width: =128
+                X: =73
+                Y: =11
+                ZIndex: =19
+
+                Titled1_1 As PowerApps_CoreControls_DropdownCanvasTemplate_dataField.textualColumn:
+                    FieldDisplayName: ="Titled"
+                    FieldName: ="Title"
+                    FieldType: ="s"
+                    FieldVariantName: ="textualColumn"
+                    Order: =1
+                    ZIndex: =26
+
+                Factory1_1 As PowerApps_CoreControls_DropdownCanvasTemplate_dataField.textualColumn:
+                    FieldDisplayName: ="Factory"
+                    FieldName: ="Factory"
+                    FieldType: ="s"
+                    FieldVariantName: ="textualColumn"
+                    Order: =2
+                    ZIndex: =27
+
+                Prime1_1 As PowerApps_CoreControls_DropdownCanvasTemplate_dataField.textualColumn:
+                    FieldDisplayName: ="Prime"
+                    FieldName: ="Prime"
+                    FieldType: ="E"
+                    FieldVariantName: ="textualColumn"
+                    Order: =3
+                    ZIndex: =28
+
+                QA_other1_1 As PowerApps_CoreControls_DropdownCanvasTemplate_dataField.textualColumn:
+                    FieldDisplayName: ="QA_other"
+                    FieldName: ="QA_other"
+                    FieldType: ="E"
+                    FieldVariantName: ="textualColumn"
+                    Order: =4
+                    ZIndex: =29
+
+                QA_Manager1_1 As PowerApps_CoreControls_DropdownCanvasTemplate_dataField.textualColumn:
+                    FieldDisplayName: ="QA_Manager"
+                    FieldName: ="QA_Manager"
+                    FieldType: ="E"
+                    FieldVariantName: ="textualColumn"
+                    Order: =5
+                    ZIndex: =30
+
+                Other_CC_NCAS1_1 As PowerApps_CoreControls_DropdownCanvasTemplate_dataField.textualColumn:
+                    FieldDisplayName: ="Other_CC_NCAS"
+                    FieldName: ="Other_CC_NCAS"
+                    FieldType: ="E"
+                    FieldVariantName: ="textualColumn"
+                    Order: =6
+                    ZIndex: =31
+
+                t_id1_1 As PowerApps_CoreControls_DropdownCanvasTemplate_dataField.textualColumn:
+                    FieldDisplayName: ="t_id"
+                    FieldName: ="table_id_old"
+                    FieldType: ="s"
+                    FieldVariantName: ="textualColumn"
+                    Order: =7
+                    ZIndex: =32
+
+                Add_Purchaser_NCAS1_1 As PowerApps_CoreControls_DropdownCanvasTemplate_dataField.textualColumn:
+                    FieldDisplayName: ="Add_Purchaser_NCAS"
+                    FieldName: ="Add_Purchaser_NCAS"
+                    FieldType: ="E"
+                    FieldVariantName: ="textualColumn"
+                    Order: =8
+                    ZIndex: =33
+
+                Verifier_MS1_1 As PowerApps_CoreControls_DropdownCanvasTemplate_dataField.textualColumn:
+                    FieldDisplayName: ="Verifier_MS"
+                    FieldName: ="Verifier_MS"
+                    FieldType: ="E"
+                    FieldVariantName: ="textualColumn"
+                    Order: =9
+                    ZIndex: =34
+
+                Inspector_main1_1 As PowerApps_CoreControls_DropdownCanvasTemplate_dataField.textualColumn:
+                    FieldDisplayName: ="Inspector_main"
+                    FieldName: ="Inspector_main"
+                    FieldType: ="s"
+                    FieldVariantName: ="textualColumn"
+                    Order: =10
+                    ZIndex: =35
+
+                Badge_ID_main1_1 As PowerApps_CoreControls_DropdownCanvasTemplate_dataField.textualColumn:
+                    FieldDisplayName: ="Badge_ID_main"
+                    FieldName: ="Badge_ID_main"
+                    FieldType: ="s"
+                    FieldVariantName: ="textualColumn"
+                    Order: =11
+                    ZIndex: =36
+
+                OFFDAY_main1_1 As PowerApps_CoreControls_DropdownCanvasTemplate_dataField.textualColumn:
+                    FieldDisplayName: ="OFFDAY_main"
+                    FieldName: ="OFFDAY_main"
+                    FieldType: ="E"
+                    FieldVariantName: ="textualColumn"
+                    Order: =12
+                    ZIndex: =37
+
+                LOC_CheckerEmail1_1 As PowerApps_CoreControls_DropdownCanvasTemplate_dataField.textualColumn:
+                    FieldDisplayName: ="LOC_CheckerEmail"
+                    FieldName: ="LOC_CheckerEmail"
+                    FieldType: ="s"
+                    FieldVariantName: ="textualColumn"
+                    Order: =13
+                    ZIndex: =38
+
+                LOC_CheckerInbox1_1 As PowerApps_CoreControls_DropdownCanvasTemplate_dataField.textualColumn:
+                    FieldDisplayName: ="LOC_CheckerInbox"
+                    FieldName: ="LOC_CheckerInbox"
+                    FieldType: ="s"
+                    FieldVariantName: ="textualColumn"
+                    Order: =14
+                    ZIndex: =39
+
+                LOC_VerifierEmail1_1 As PowerApps_CoreControls_DropdownCanvasTemplate_dataField.textualColumn:
+                    FieldDisplayName: ="LOC_VerifierEmail"
+                    FieldName: ="LOC_VerifierEmail"
+                    FieldType: ="s"
+                    FieldVariantName: ="textualColumn"
+                    Order: =15
+                    ZIndex: =40
+
+                "'Plant Code SAP1_1' As PowerApps_CoreControls_DropdownCanvasTemplate_dataField.textualColumn":
+                    FieldDisplayName: ="Plant Code SAP"
+                    FieldName: ="PlantCodeSAP"
+                    FieldType: ="s"
+                    FieldVariantName: ="textualColumn"
+                    Order: =16
+                    ZIndex: =41
+
+                LOC_VerifierInbox1_1 As PowerApps_CoreControls_DropdownCanvasTemplate_dataField.textualColumn:
+                    FieldDisplayName: ="LOC_VerifierInbox"
+                    FieldName: ="LOC_VerifierInbox"
+                    FieldType: ="s"
+                    FieldVariantName: ="textualColumn"
+                    Order: =17
+                    ZIndex: =42
+
+                LOC_ApproverEmail1_1 As PowerApps_CoreControls_DropdownCanvasTemplate_dataField.textualColumn:
+                    FieldDisplayName: ="LOC_ApproverEmail"
+                    FieldName: ="LOC_ApproverEmail"
+                    FieldType: ="s"
+                    FieldVariantName: ="textualColumn"
+                    Order: =18
+                    ZIndex: =43
+
+                LOC_ApproverInbox1_1 As PowerApps_CoreControls_DropdownCanvasTemplate_dataField.textualColumn:
+                    FieldDisplayName: ="LOC_ApproverInbox"
+                    FieldName: ="LOC_ApproverInbox"
+                    FieldType: ="s"
+                    FieldVariantName: ="textualColumn"
+                    Order: =19
+                    ZIndex: =44
+
+                LOC_Finance1_1 As PowerApps_CoreControls_DropdownCanvasTemplate_dataField.textualColumn:
+                    FieldDisplayName: ="LOC_Finance"
+                    FieldName: ="finance"
+                    FieldType: ="s"
+                    FieldVariantName: ="textualColumn"
+                    Order: =20
+                    ZIndex: =45
+
+                REV1_1 As PowerApps_CoreControls_DropdownCanvasTemplate_dataField.textualColumn:
+                    FieldDisplayName: ="REV"
+                    FieldName: ="REV"
+                    FieldType: ="n"
+                    FieldVariantName: ="textualColumn"
+                    Order: =21
+                    ZIndex: =46
+
+                Inspector_Sub1_1 As PowerApps_CoreControls_DropdownCanvasTemplate_dataField.textualColumn:
+                    FieldDisplayName: ="Inspector_Sub"
+                    FieldName: ="Inspector_Sub"
+                    FieldType: ="s"
+                    FieldVariantName: ="textualColumn"
+                    Order: =22
+                    ZIndex: =47
+
+                Badge_ID_Sub1_1 As PowerApps_CoreControls_DropdownCanvasTemplate_dataField.textualColumn:
+                    FieldDisplayName: ="Badge_ID_Sub"
+                    FieldName: ="Badge_ID_Sub"
+                    FieldType: ="s"
+                    FieldVariantName: ="textualColumn"
+                    Order: =23
+                    ZIndex: =48
+
+                OFFDAY_Sub1_1 As PowerApps_CoreControls_DropdownCanvasTemplate_dataField.textualColumn:
+                    FieldDisplayName: ="OFFDAY_Sub"
+                    FieldName: ="OFFDAY_Sub"
+                    FieldType: ="E"
+                    FieldVariantName: ="textualColumn"
+                    Order: =24
+                    ZIndex: =49
+
+                flag1_1 As PowerApps_CoreControls_DropdownCanvasTemplate_dataField.textualColumn:
+                    FieldDisplayName: ="flag"
+                    FieldName: ="flag"
+                    FieldType: ="I"
+                    FieldVariantName: ="textualColumn"
+                    Order: =25
+                    ZIndex: =50
+
+                flag21_1 As PowerApps_CoreControls_DropdownCanvasTemplate_dataField.textualColumn:
+                    FieldDisplayName: ="flag2"
+                    FieldName: ="flag2"
+                    FieldType: ="I"
+                    FieldVariantName: ="textualColumn"
+                    Order: =26
+                    ZIndex: =51
+
+                Other_packing1_1 As PowerApps_CoreControls_DropdownCanvasTemplate_dataField.textualColumn:
+                    FieldDisplayName: ="Other_packing"
+                    FieldName: ="Mockup_PIC"
+                    FieldType: ="E"
+                    FieldVariantName: ="textualColumn"
+                    Order: =27
+                    ZIndex: =52
+
+                HOD_packing1_1 As PowerApps_CoreControls_DropdownCanvasTemplate_dataField.textualColumn:
+                    FieldDisplayName: ="HOD_packing"
+                    FieldName: ="HOD_packing"
+                    FieldType: ="E"
+                    FieldVariantName: ="textualColumn"
+                    Order: =28
+                    ZIndex: =53
+
+                Planner1_1 As PowerApps_CoreControls_DropdownCanvasTemplate_dataField.textualColumn:
+                    FieldDisplayName: ="Planner"
+                    FieldName: ="Planner"
+                    FieldType: ="E"
+                    FieldVariantName: ="textualColumn"
+                    Order: =29
+                    ZIndex: =54
+
+                GroupID1_1 As PowerApps_CoreControls_DropdownCanvasTemplate_dataField.textualColumn:
+                    FieldDisplayName: ="GroupID"
+                    FieldName: ="GroupID"
+                    FieldType: ="s"
+                    FieldVariantName: ="textualColumn"
+                    Order: =30
+                    ZIndex: =55
+
+                Arm1_1 As PowerApps_CoreControls_DropdownCanvasTemplate_dataField.textualColumn:
+                    FieldDisplayName: ="Arm"
+                    FieldName: ="Arm"
+                    FieldType: ="b"
+                    FieldVariantName: ="textualColumn"
+                    Order: =31
+                    ZIndex: =56
+
+                "'MQC email receiver LOC1_1' As PowerApps_CoreControls_DropdownCanvasTemplate_dataField.textualColumn":
+                    FieldDisplayName: ="MQC email receiver LOC"
+                    FieldName: ="MQCemailreceiverLOC"
+                    FieldType: ="s"
+                    FieldVariantName: ="textualColumn"
+                    Order: =32
+                    ZIndex: =57
+
+                MQC_LOC1_1 As PowerApps_CoreControls_DropdownCanvasTemplate_dataField.textualColumn:
+                    FieldDisplayName: ="MQC_LOC"
+                    FieldName: ="MQC_LOC"
+                    FieldType: ="E"
+                    FieldVariantName: ="textualColumn"
+                    Order: =33
+                    ZIndex: =58
+
+                Attachments1_1 As PowerApps_CoreControls_DropdownCanvasTemplate_dataField.textualColumn:
+                    FieldDisplayName: ="Attachments"
+                    FieldName: ="{Attachments}"
+                    FieldType: ="r*"
+                    FieldVariantName: ="textualColumn"
+                    Order: =34
+                    ZIndex: =59
+
+            Arrow1_1 As arrow.backArrow:
+                BorderColor: =App.Theme.Colors.Darker40
+                DisabledBorderColor: =RGBA(166, 166, 166, 1)
+                Fill: =App.Theme.Colors.Primary
+                Height: =40
+                OnSelect: =Back()
+                Width: =40
+                X: =7
+                Y: =7
+                ZIndex: =20
+
+            Icon10_2 As icon.CancelBadge:
+                BorderColor: =App.Theme.Colors.Darker40
+                Color: =RGBA(39, 113, 194, 1)
+                DisabledBorderColor: =RGBA(166, 166, 166, 1)
+                DisabledColor: =RGBA(244, 244, 244, 1)
+                Height: =21
+                Icon: =Icon.CancelBadge
+                OnSelect: =Reset(DropdownCanvas1_1)
+                Visible: |-
+                    =If(Last(usermode).modename = "Admin",true
+                    ,
+                    false
+                    )
+                Width: =19
+                X: =201
+                Y: =7
+                ZIndex: =21
+
+        Container13_2 As groupContainer:
+            AlignInContainer: =AlignInContainer.Start
+            DropShadow: =DropShadow.Semilight
+            Fill: =RGBA(255, 255, 255, 1)
+            FillPortions: =0
+            Height: =95
+            LayoutMinHeight: =100
+            LayoutMinWidth: =250
+            Visible: |-
+                =If(Last(usermode).modename = "Guest" || Last(usermode).modename = "Requester" ,
+                
+                false
+                ,
+                true
+                )
+            Width: =475
+            X: =320
+            ZIndex: =2
+
+            Label19_3 As label:
+                BorderColor: =App.Theme.Colors.Darker40
+                Color: =RGBA(9, 33, 98, 1)
+                DisabledColor: =RGBA(166, 166, 166, 1)
+                Fill: =RGBA(180, 214, 250, 1)
+                Font: =App.Theme.Font
+                FontWeight: =FontWeight.Bold
+                Height: =18
+                Size: =10
+                Text: |-
+                    ="Filter : Status"
+                Width: =475
+                ZIndex: =1
+
+            Gallery2_2 As gallery.galleryHorizontal:
+                '#CopilotOverlayLabel': ="Filtered"
+                BorderColor: =App.Theme.Colors.Darker40
+                DelayItemLoading: =true
+                Height: =72
+                Items: |-
+                    =filterstatus
+                    
+                    
+                    //0purchaser, 1active, 2pending,3removed exp, 4remove disp ,5reminder near ,6reminder dead
+                LoadingSpinner: =LoadingSpinner.Data
+                TemplatePadding: =0
+                TemplateSize: =145
+                Width: =442
+                WrapCount: =3
+                Y: =18
+                ZIndex: =2
+
+                CheckboxS_active_2 As Checkbox:
+                    BasePaletteColor: =
+                    CheckboxSize: =16
+                    Checked: =ThisItem.turnon
+                    DisplayMode: =If(IsBlank(SearchInput_1.Value),DisplayMode.Edit,DisplayMode.Disabled) 
+                    FontColor: =ThisItem.clr
+                    FontSize: =12
+                    Height: =20
+                    Label: =ThisItem.name
+                    OnCheck: |-
+                        =Patch(filterstatus,ThisItem,{turnon:true})
+                    OnUncheck: |-
+                        =Patch(filterstatus,ThisItem,{turnon:false})
+                    Width: =145
+                    X: =0
+                    Y: =3
+                    ZIndex: =1
+
+            Label13_2 As label:
+                BorderColor: =App.Theme.Colors.Darker40
+                Color: =RGBA(0, 0, 0, 1)
+                DisabledColor: =RGBA(166, 166, 166, 1)
+                Font: =App.Theme.Font
+                Height: =18
+                Size: =8
+                Text: ="All"
+                Width: =30
+                X: =445
+                ZIndex: =3
+
+            Icon8_2 As icon.FilterFlatFilled:
+                BorderColor: =App.Theme.Colors.Darker40
+                Color: =App.Theme.Colors.Darker30
+                DisabledBorderColor: =RGBA(166, 166, 166, 1)
+                DisabledColor: =RGBA(244, 244, 244, 1)
+                DisplayMode: =If(IsBlank(SearchInput_1.Value),DisplayMode.Edit,DisplayMode.Disabled) 
+                Height: =14
+                Icon: =Icon.FilterFlatFilled
+                OnSelect: |-
+                    =ClearCollect(filterstatus,[
+                    
+                    {enum:1,name: "ACTIVE" , clr:RGBA(100, 220, 150, 1) ,turnon:true }
+                    ,{enum:2,name: "PENDING" , clr:RGBA(170, 100, 100,1) ,turnon:true }
+                    ,{enum:5,name: "REMINDER (NEAR)" , clr:RGBA(255, 191, 0, 1) ,turnon:true }
+                    ,{enum:3 ,name: "REMOVED (Exp.)" , clr:RGBA(0, 0, 0, 0.5) ,turnon:true }
+                    ,{enum:4 ,name: "REMOVED (Disp.)" , clr:RGBA(0, 0, 0, 0.1) ,turnon:true }
+                    ,{enum:6,name: "REMINDER (EXP.)" , clr:RGBA(255, 58, 60, 1) ,turnon:true }
+                    ,{enum:0,name: "OUT" , clr:RGBA(70, 120, 230, 1) ,turnon:true }
+                    
+                    ]
+                    )
+                Width: =30
+                X: =412
+                Y: =2
+                ZIndex: =4
+
+            CompositePieChart1_1 As group:
+                Height: =5
+                Width: =5
+                X: =40
+                Y: =40
+                ZIndex: =10
+
+                Legend1_1 As legend:
+                    DisabledColor: =RGBA(166, 166, 166, 1)
+                    Font: =App.Theme.Font
+                    Height: =79
+                    ItemColorSet: =PieChart1_1.ItemColorSet
+                    Items: =PieChart1_1.SeriesLabels
+                    Size: =10
+                    Visible: =false
+                    Width: =36
+                    X: =438
+                    Y: =9
+                    ZIndex: =5
+
+                PieChart1_1 As pieChart:
+                    DisabledBorderColor: =RGBA(166, 166, 166, 1)
+                    Height: =77
+                    ItemBorderThickness: =1
+                    ItemColorSet: |-
+                        =[
+                        RGBA(100, 220, 150, 1)
+                        ,RGBA(170, 100, 100,1)
+                        ,RGBA(255, 191, 0, 1)
+                        ,RGBA(50, 50, 50, 1)
+                        ,RGBA(100, 100, 100, 1)
+                        ,RGBA(255, 58, 60, 1)
+                        ,RGBA(70, 120, 230, 1)
+                        
+                        
+                        , RGBA(96, 197, 234, 1)]
+                    Items: |+
+                        =[{enum:1,count:CountRows(Filter(maindata,Int(Status_enum)=1)),name: "ACTIVE" }
+                        ,{enum:2,count:CountRows(Filter(maindata,Int(Status_enum)=2)),name: "PENDING" }
+                        ,{enum:5,count:CountRows(Filter(maindata,Int(Status_enum)=5)),name: "REMINDER (NEAR)" }
+                        ,{enum:3,count:CountRows(Filter(maindata,Int(Status_enum)=3)),name: "REMOVED (Exp.)" }
+                        ,{enum:4,count:CountRows(Filter(maindata,Int(Status_enum)=4)),name: "REMOVED (Disp.)"}
+                        ,{enum:6,count:CountRows(Filter(maindata,Int(Status_enum)=6)),name: "REMINDER (EXP.)" }
+                        ,{enum:0,count:CountRows(Filter(maindata,Int(Status_enum)=0)),name: "OUT" }
+                        
+                        ]
+                        
+                        
+                        
+                        
+                    Size: =8
+                    Width: =130
+                    X: =345
+                    Y: =18
+                    ZIndex: =6
+
+        Container10_1 As groupContainer:
+            AlignInContainer: =AlignInContainer.Start
+            DropShadow: =DropShadow.Semilight
+            Fill: =RGBA(255, 255, 255, 1)
+            FillPortions: =0
+            Height: =95
+            LayoutMinHeight: =100
+            LayoutMinWidth: =250
+            Width: =244
+            X: =819
+            ZIndex: =3
+
+            Label19_4 As label:
+                BorderColor: =App.Theme.Colors.Darker40
+                Color: =RGBA(9, 33, 98, 1)
+                DisabledColor: =RGBA(166, 166, 166, 1)
+                Fill: =RGBA(180, 214, 250, 1)
+                Font: =App.Theme.Font
+                FontWeight: =FontWeight.Bold
+                Height: =18
+                Size: =10
+                Text: ="Sort "
+                Width: =244
+                ZIndex: =1
+
+            RadioSort_1 As radio:
+                BorderColor: =App.Theme.Colors.Darker40
+                Color: =RGBA(0, 0, 0, 1)
+                Default: ="Date Prepare"
+                FocusedBorderThickness: =0
+                Font: =Font.'Segoe UI'
+                Height: =77
+                HoverColor: =App.Theme.Colors.Darker30
+                Items: |-
+                    =["Brand",
+                    "Date Prepare",
+                    "Date Verified",
+                    "Color"]
+                Layout: =Layout.Horizontal
+                LineHeight: =1
+                PaddingBottom: =0
+                PaddingTop: =0
+                RadioBorderColor: =App.Theme.Colors.Primary
+                RadioSelectionFill: =App.Theme.Colors.Primary
+                RadioSize: =15
+                Size: =8
+                Width: =130
+                Y: =18
+                ZIndex: =2
+
+            RadioAsDs_1 As radio:
+                BorderColor: =App.Theme.Colors.Darker40
+                Color: =RGBA(0, 0, 0, 1)
+                Default: ="Ascending"
+                FocusedBorderThickness: =0
+                Font: =Font.'Segoe UI'
+                Height: =46
+                HoverColor: =App.Theme.Colors.Darker30
+                Items: |-
+                    =[{name:"Ascending",Order:SortOrder.Ascending},{name:"Descending",Order:SortOrder.Descending}]
+                Layout: =Layout.Horizontal
+                LineHeight: =1
+                PaddingBottom: =0
+                PaddingTop: =0
+                RadioBorderColor: =App.Theme.Colors.Primary
+                RadioSelectionFill: =App.Theme.Colors.Primary
+                RadioSize: =15
+                Size: =8
+                Width: =106
+                X: =126
+                Y: =18
+                ZIndex: =3
+
+        Container13_3 As groupContainer:
+            AlignInContainer: =AlignInContainer.Start
+            DropShadow: =DropShadow.Semilight
+            Fill: =RGBA(255, 255, 255, 1)
+            FillPortions: =0
+            Height: =95
+            LayoutMinHeight: =100
+            LayoutMinWidth: =250
+            Visible: |-
+                =If(Last(usermode).modename = "Guest" || Last(usermode).modename = "Requester" ,
+                
+                false
+                ,
+                true
+                )
+            Width: =276
+            X: =1085
+            ZIndex: =4
+
+            Label19_5 As label:
+                BorderColor: =App.Theme.Colors.Darker40
+                Color: =RGBA(9, 33, 98, 1)
+                DisabledColor: =RGBA(166, 166, 166, 1)
+                Fill: =RGBA(180, 214, 250, 1)
+                Font: =App.Theme.Font
+                FontWeight: =FontWeight.Bold
+                Height: =18
+                Size: =10
+                Text: |-
+                    ="View : PM Type"
+                Width: =276
+                ZIndex: =1
+
+            Gallery2_3 As gallery.galleryHorizontal:
+                '#CopilotOverlayLabel': ="Filtered"
+                BorderColor: =App.Theme.Colors.Darker40
+                DelayItemLoading: =true
+                Height: =72
+                Items: =filterpmtype
+                LoadingSpinner: =LoadingSpinner.Data
+                TemplatePadding: =0
+                TemplateSize: =145
+                Width: =307
+                WrapCount: =3
+                Y: =18
+                ZIndex: =2
+
+                CheckboxS_active_3 As Checkbox:
+                    BasePaletteColor: =
+                    CheckboxSize: =16
+                    Checked: =ThisItem.turnon
+                    DisplayMode: =DisplayMode.Edit
+                    FontColor: =RGBA(9, 33, 98, 1)
+                    FontSize: =12
+                    Height: =20
+                    Label: =ThisItem.name
+                    OnCheck: |-
+                        =Patch(filterpmtype,ThisItem,{turnon:true})
+                    OnUncheck: |-
+                        =Patch(filterpmtype,ThisItem,{turnon:false})
+                    Width: =145
+                    X: =0
+                    Y: =3
+                    ZIndex: =1
+
+            Label13_3 As label:
+                BorderColor: =App.Theme.Colors.Darker40
+                Color: =RGBA(0, 0, 0, 1)
+                DisabledColor: =RGBA(166, 166, 166, 1)
+                Font: =App.Theme.Font
+                Height: =18
+                Size: =8
+                Text: ="All"
+                Width: =30
+                X: =222
+                ZIndex: =3
+
+            Icon8_3 As icon.FilterFlatFilled:
+                BorderColor: =App.Theme.Colors.Darker40
+                Color: =App.Theme.Colors.Darker30
+                DisabledBorderColor: =RGBA(166, 166, 166, 1)
+                DisabledColor: =RGBA(244, 244, 244, 1)
+                DisplayMode: =If(IsBlank(SearchInput_1.Value),DisplayMode.Edit,DisplayMode.Disabled) 
+                Height: =14
+                Icon: =Icon.FilterFlatFilled
+                OnSelect: |
+                    =
+                    ClearCollect(filterpmtype,[
+                    
+                     {enum:1,name: "CARTON",turnon:true }
+                    ,{enum:2,name: "INNER" ,turnon:true }
+                    ,{enum:3,name: "POUCH" ,turnon:true }
+                    ,{enum:4,name: "WALLET",turnon:true }
+                    ,{enum:5,name: "POLYBAG",turnon:true }
+                    ,{enum:6,name: "STICKER",turnon:true }
+                    
+                    ])
+                Width: =30
+                X: =189
+                Y: =2
+                ZIndex: =4
+
+    imageViewer_2 As imageViewer:
+        Imageinput: =selectedimage
+        Visible: =showimage
+        ZIndex: =6
+
+    Icon5_1 As icon.CancelBadge:
+        BorderColor: =App.Theme.Colors.Darker40
+        Color: =App.Theme.Colors.Darker30
+        DisabledBorderColor: =RGBA(166, 166, 166, 1)
+        DisabledColor: =RGBA(244, 244, 244, 1)
+        Height: =38
+        Icon: =Icon.CancelBadge
+        OnSelect: |
+            =UpdateContext({showimage:false})
+        Visible: =showimage
+        Width: =37
+        X: =Parent.Width-50
+        Y: =12
+        ZIndex: =7
+

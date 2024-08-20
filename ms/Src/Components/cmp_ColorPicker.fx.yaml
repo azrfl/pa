@@ -1,0 +1,249 @@
+cmp_ColorPicker As CanvasComponent:
+    Fill: =RGBA(0, 0, 0, 0)
+    Height: =250
+    OnReset: =Set(xPos,100);Set(yPos,100);Reset(sld_Hvalue_1);Reset(sld_Opacity_1)
+    PickedColor: |-
+        =With({SVMax:((yPos+100)*255/200),SVMin:(yPos+100)*255/200-((xPos+100)/200*(yPos+100)*255/200),Hvalue:sld_Hvalue_1.Value},
+        Switch(RoundDown(Hvalue/60,0),
+        0,RGBA(SVMax,(Hvalue/60*(SVMax-SVMin)+SVMin),SVMin,sld_Opacity_1.Value/100),
+        1,RGBA(((120-Hvalue)/60*(SVMax-SVMin)+SVMin),SVMax,SVMin,sld_Opacity_1.Value/100),
+        2,RGBA(SVMin,SVMax,((Hvalue-120)/60*(SVMax-SVMin)+SVMin),sld_Opacity_1.Value/100),
+        3,RGBA(SVMin,((240-Hvalue)/60*(SVMax-SVMin)+SVMin),SVMax,sld_Opacity_1.Value/100),
+        4,RGBA(((Hvalue-240)/60*(SVMax-SVMin)+SVMin),SVMin,SVMax,sld_Opacity_1.Value/100),
+        RGBA(SVMax,SVMin,((360-Hvalue)/60*(SVMax-SVMin)+SVMin),sld_Opacity_1.Value/100)))
+    PickedColor_RGBA: |-
+        =With({SVMax:((yPos+100)*255/200),SVMin:(yPos+100)*255/200-((xPos+100)/200*(yPos+100)*255/200),Hvalue:sld_Hvalue_1.Value},
+        Switch(RoundDown(Hvalue/60,0),
+        0,{R:SVMax,G:(Hvalue/60*(SVMax-SVMin)+SVMin),B:SVMin,A:sld_Opacity_1.Value/100},
+        1,{R:((120-Hvalue)/60*(SVMax-SVMin)+SVMin),G:SVMax,B:SVMin,A:sld_Opacity_1.Value/100},
+        2,{R:SVMin,G:SVMax,B:((Hvalue-120)/60*(SVMax-SVMin)+SVMin),A:sld_Opacity_1.Value/100},
+        3,{R:SVMin,G:((240-Hvalue)/60*(SVMax-SVMin)+SVMin),B:SVMax,A:sld_Opacity_1.Value/100},
+        4,{R:((Hvalue-240)/60*(SVMax-SVMin)+SVMin),G:SVMin,B:SVMax,A:sld_Opacity_1.Value/100},
+        {R:SVMax,G:SVMin,B:((360-Hvalue)/60*(SVMax-SVMin)+SVMin),A:sld_Opacity_1.Value/100}))
+    Width: =250
+    X: =0
+    Y: =0
+    ZIndex: =1
+
+    comp_timer_1 As timer:
+        BorderColor: =ColorFade(comp_timer_1.Fill, -15%)
+        DisabledBorderColor: =ColorFade(comp_timer_1.BorderColor, 70%)
+        DisabledColor: =ColorFade(comp_timer_1.Fill, 90%)
+        DisabledFill: =ColorFade(comp_timer_1.Fill, 70%)
+        Duration: =1
+        Fill: =RGBA(56, 96, 178, 1)
+        FocusedBorderColor: =comp_timer_1.BorderColor
+        HoverBorderColor: =ColorFade(comp_timer_1.BorderColor, 20%)
+        HoverColor: =RGBA(255, 255, 255, 1)
+        HoverFill: =ColorFade(RGBA(56, 96, 178, 1), -20%)
+        OnTimerEnd: |-
+            =If( isVertical,
+                If( xPos <> sld_SVplane_1.Value, Set(yPos, sld_SVplane_1.Value)),
+                If( yPos <> sld_SVplane_1.Value, Set(xPos, sld_SVplane_1.Value))
+            );
+            Set(interval,Mod(interval+1,2));
+        OnTimerStart: =Set(isVertical,!isVertical)
+        PressedBorderColor: =comp_timer_1.Fill
+        PressedColor: =comp_timer_1.Fill
+        PressedFill: =comp_timer_1.Color
+        Repeat: =true
+        Start: =pressed
+        Text: |-
+            =Text(Time(0, 0, comp_timer_1.Value/1000), "hh:mm:ss")
+        Visible: =false
+        ZIndex: =1
+
+    lbl_PickedColor_RGB_1 As label:
+        BorderColor: =RGBA(0, 18, 107, 1)
+        Color: =RGBA(0, 0, 0, 1)
+        DisabledColor: =RGBA(166, 166, 166, 1)
+        Height: =25
+        Size: =13
+        Text: |-
+            ="("&
+            With({SVMax:((yPos+100)*255/200),SVMin:(yPos+100)*255/200-((xPos+100)/200*(yPos+100)*255/200),Hvalue:sld_Hvalue_1.Value},
+            Switch(RoundDown(Hvalue/60,0),
+            0,Round(SVMax,0)&","&Round((Hvalue/60*(SVMax-SVMin)+SVMin),0)&","&Round(SVMin,0),
+            1,Round(((120-Hvalue)/60*(SVMax-SVMin)+SVMin),0)&","&Round(SVMax,0)&","&Round(SVMin,0),
+            2,Round(SVMin,0)&","&Round(SVMax,0)&","&Round(((Hvalue-120)/60*(SVMax-SVMin)+SVMin),0),
+            3,Round(SVMin,0)&","&Round(((240-Hvalue)/60*(SVMax-SVMin)+SVMin),0)&","&Round(SVMax,0),
+            4,Round(((Hvalue-240)/60*(SVMax-SVMin)+SVMin),0)&","&Round(SVMin,0)&","&Round(SVMax,0),
+            Round(SVMax,0)&","&Round(SVMin,0)&","&Round(((360-Hvalue)/60*(SVMax-SVMin)+SVMin),0)))&","&sld_Opacity_1.Value/100&")"
+        Width: =217
+        X: =33
+        Y: =184
+        ZIndex: =2
+
+    htxt_PickedColorBG As htmlViewer:
+        Height: =36
+        HtmlText: |-
+            ="<div style='height:18px;width:18px;background-image:linear-gradient(45deg,rgba(112,128,144,.5) 25%,transparent 0),linear-gradient(45deg,transparent 75%,rgba(112,128,144,.5) 0),linear-gradient(-45deg,rgba(112,128,144,.5) 25%,transparent 0),linear-gradient(-45deg,transparent 75%,rgba(112,128,144,.5) 0);background-size: 6px 6px;background-position: 0 0,3px -3px,0 3px,-3px 0;'></div>"
+        Size: =13
+        Width: =36
+        X: =9
+        Y: =182
+        ZIndex: =3
+
+    rect_PickedColor_1 As rectangle:
+        BorderColor: =RGBA(0, 18, 107, 1)
+        BorderThickness: =2
+        Fill: |-
+            =With({SVMax:((yPos+100)*255/200),SVMin:(yPos+100)*255/200-((xPos+100)/200*(yPos+100)*255/200),Hvalue:sld_Hvalue_1.Value},
+            Switch(RoundDown(Hvalue/60,0),
+            0,RGBA(SVMax,(Hvalue/60*(SVMax-SVMin)+SVMin),SVMin,sld_Opacity_1.Value/100),
+            1,RGBA(((120-Hvalue)/60*(SVMax-SVMin)+SVMin),SVMax,SVMin,sld_Opacity_1.Value/100),
+            2,RGBA(SVMin,SVMax,((Hvalue-120)/60*(SVMax-SVMin)+SVMin),sld_Opacity_1.Value/100),
+            3,RGBA(SVMin,((240-Hvalue)/60*(SVMax-SVMin)+SVMin),SVMax,sld_Opacity_1.Value/100),
+            4,RGBA(((Hvalue-240)/60*(SVMax-SVMin)+SVMin),SVMin,SVMax,sld_Opacity_1.Value/100),
+            RGBA(SVMax,SVMin,((360-Hvalue)/60*(SVMax-SVMin)+SVMin),sld_Opacity_1.Value/100)))
+        Height: =20
+        Width: =19
+        X: =14
+        Y: =186
+        ZIndex: =4
+
+    rect_bg_1 As rectangle:
+        BorderColor: =RGBA(0, 18, 107, 1)
+        Fill: =RGBA(153, 153, 153, 1)
+        Height: =156
+        Width: =148
+        X: =14
+        Y: =21
+        ZIndex: =5
+
+    htxt_Hvalue_1 As htmlViewer:
+        Height: =170
+        HtmlText: |-
+            ="<div style='height:152px;width:30px;background-image:linear-gradient(to top,#f00 0,#ff0 17%,#0f0 33%,#0ff 50%,#00f 67%,#f0f 83%,#f00 100%);'></div>"
+        Size: =13
+        Width: =47
+        X: =174
+        Y: =15
+        ZIndex: =6
+
+    sld_Hvalue_1 As slider:
+        BorderColor: =RGBA(0, 0, 0, 0)
+        Default: =360
+        DisabledBorderColor: =RGBA(166, 166, 166, 1)
+        HandleFill: |-
+            =RGBA(255, 255, 255, 0.5
+            )
+        HandleSize: =20
+        Height: =156
+        Layout: =Layout.Vertical
+        Max: =360
+        RailFill: =RGBA(0, 0, 0, 0)
+        RailThickness: =28
+        ShowValue: =false
+        ValueFill: =RGBA(0, 0, 0, 0)
+        Width: =30
+        X: =180
+        Y: =19
+        ZIndex: =7
+
+    htxt_SVplane_1 As htmlViewer:
+        Height: =170
+        HtmlText: |-
+            ="<div style='height:"&Min(Self.Height,Self.Width)&"px;width:"&Min(Self.Height,Self.Width)&"px;background-color:"&With({SVMax:255,SVMin:0,Hvalue:sld_Hvalue_1.Value},
+            Switch(RoundDown(Hvalue/60,0),
+            0,"rgb("&SVMax&","&(Hvalue/60*(SVMax-SVMin)+SVMin)&","&SVMin&")",
+            1,"rgb("&((120-Hvalue)/60*(SVMax-SVMin)+SVMin)&","&SVMax&","&SVMin&")",
+            2,"rgb("&SVMin&","&SVMax&","&((Hvalue-120)/60*(SVMax-SVMin)+SVMin)&")",
+            3,"rgb("&SVMin&","&((240-Hvalue)/60*(SVMax-SVMin)+SVMin)&","&SVMax&")",
+            4,"rgb("&((Hvalue-240)/60*(SVMax-SVMin)+SVMin)&","&SVMin&","&SVMax&")",
+            "rgb("&SVMax&","&SVMin&","&((360-Hvalue)/60*(SVMax-SVMin)+SVMin)&")"))
+            &";background-image:linear-gradient(to top,#000,rgba(0,0,0,0)),linear-gradient(to right,#fff,rgba(255,255,255,0));'></div>"
+        Size: =13
+        Width: =150
+        X: =13
+        Y: =19
+        ZIndex: =8
+
+    icn_Cursor_1 As icon.CancelBadge:
+        BorderColor: =RGBA(0, 18, 107, 1)
+        Color: =RGBA(0, 18, 107, 1)
+        DisabledBorderColor: =RGBA(166, 166, 166, 1)
+        DisabledColor: =RGBA(244, 244, 244, 1)
+        Height: =25
+        Icon: =Icon.CancelBadge
+        Width: =25
+        X: =sld_SVplane_1.X+sld_SVplane_1.Width/2-Self.Width/2+sld_SVplane_1.Width/2*xPos/100
+        Y: =sld_SVplane_1.Y+sld_SVplane_1.Width/2-Self.Width/2-sld_SVplane_1.Width/2*yPos/100
+        ZIndex: =9
+
+    sld_SVplane_1 As slider:
+        BorderColor: =RGBA(0, 0, 0, 0)
+        BorderThickness: =1
+        Default: =0
+        DisabledBorderColor: =RGBA(166, 166, 166, 1)
+        FocusedBorderColor: =sld_SVplane_1.BorderColor
+        HandleActiveFill: =sld_SVplane_1.HandleFill
+        HandleFill: =RGBA(0, 0, 0, 0)
+        HandleHoverFill: =sld_SVplane_1.HandleFill
+        Height: =150
+        HoverBorderColor: =ColorFade(sld_SVplane_1.BorderColor, 30%)
+        Layout: =If(isVertical,Layout.Vertical,Layout.Horizontal)
+        Min: =-100
+        OnChange: =Set(pressed,false)
+        OnSelect: |-
+            =Set(pressed,false);
+            Set(pressed,true)
+        PressedBorderColor: =ColorFade(sld_SVplane_1.BorderColor, -30%)
+        RailFill: =RGBA(128, 130, 133, 0)
+        RailHoverFill: =ColorFade(sld_SVplane_1.RailFill, 15%)
+        RailThickness: =htxt_SVplane_1.Height
+        ShowValue: =false
+        ValueFill: =RGBA(0, 18, 107, 0)
+        ValueHoverFill: =ColorFade(sld_SVplane_1.ValueFill, 15%)
+        Width: =150
+        X: =13
+        Y: =25
+        ZIndex: =10
+
+    htxt_Opacity_BG As htmlViewer:
+        Height: =170
+        HtmlText: |-
+            ="<div style='height:152px;width:30px;background-image:linear-gradient(45deg,rgba(112,128,144,.5) 25%,transparent 0),linear-gradient(45deg,transparent 75%,rgba(112,128,144,.5) 0),linear-gradient(-45deg,rgba(112,128,144,.5) 25%,transparent 0),linear-gradient(-45deg,transparent 75%,rgba(112,128,144,.5) 0);background-size: 6px 6px;background-position: 0 0,3px -3px,0 3px,-3px 0;'></div>"
+        Size: =13
+        Width: =40
+        X: =210
+        Y: =16
+        ZIndex: =11
+
+    htxt_Opacity_1 As htmlViewer:
+        Height: =170
+        HtmlText: |-
+            ="<div style='height:152px;width:30px;background-image:linear-gradient(0deg, rgba(0, 0, 0, 0), rgb("&
+            With({SVMax:((yPos+100)*255/200),SVMin:(yPos+100)*255/200-((xPos+100)/200*(yPos+100)*255/200),Hvalue:sld_Hvalue_1.Value},
+            Switch(RoundDown(Hvalue/60,0),
+            0,Round(SVMax,0)&","&Round((Hvalue/60*(SVMax-SVMin)+SVMin),0)&","&Round(SVMin,0),
+            1,Round(((120-Hvalue)/60*(SVMax-SVMin)+SVMin),0)&","&Round(SVMax,0)&","&Round(SVMin,0),
+            2,Round(SVMin,0)&","&Round(SVMax,0)&","&Round(((Hvalue-120)/60*(SVMax-SVMin)+SVMin),0),
+            3,Round(SVMin,0)&","&Round(((240-Hvalue)/60*(SVMax-SVMin)+SVMin),0)&","&Round(SVMax,0),
+            4,Round(((Hvalue-240)/60*(SVMax-SVMin)+SVMin),0)&","&Round(SVMin,0)&","&Round(SVMax,0),
+            Round(SVMax,0)&","&Round(SVMin,0)&","&Round(((360-Hvalue)/60*(SVMax-SVMin)+SVMin),0)))&"));'></div>"
+        Size: =13
+        Width: =40
+        X: =210
+        Y: =15
+        ZIndex: =12
+
+    sld_Opacity_1 As slider:
+        BorderColor: =RGBA(0, 0, 0, 0)
+        Default: =100
+        DisabledBorderColor: =RGBA(166, 166, 166, 1)
+        HandleFill: |-
+            =RGBA(255, 255, 255, 0.5
+            )
+        HandleSize: =18
+        Height: =156
+        Layout: =Layout.Vertical
+        RailFill: =RGBA(0, 0, 0, 0)
+        RailThickness: =28
+        ShowValue: =false
+        ValueFill: =RGBA(0, 0, 0, 0)
+        Width: =30
+        X: =215
+        Y: =19
+        ZIndex: =13
+

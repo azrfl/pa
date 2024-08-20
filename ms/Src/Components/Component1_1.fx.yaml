@@ -1,0 +1,55 @@
+Component1_1 As CanvasComponent:
+    Fill: =RGBA(0, 0, 0, 0)
+    Height: =640
+    Width: =640
+    X: =0
+    Y: =0
+    ZIndex: =1
+
+    HtmlText1_1 As htmlViewer:
+        BorderThickness: =1
+        Height: =45
+        HtmlText: |-
+            ="<button style='border:0px solid;border-radius: 1px;width:100px;height:30px;background:transparent;box-shadow:  5px 5px 10px #9d9d9d;'></button><button style='border:0px solid;border-radius: 1px;width:100px;height:30px;background:transparent;box-shadow:  5px 5px 10px #9d9d9d;margin-left:15px;'></button> <button style='border:0px solid;border-radius: 10px;width:30px;height:30px;background: linear-gradient(145deg, #daf7ff, #b8d0dd);box-shadow:  5px 5px 10px #9d9d9d;margin-left:15px;'></button><button style='border:0px solid;border-radius: 10px;width:30px;height:30px;background: linear-gradient(145deg, #daf7ff, #b8d0dd);box-shadow:  5px 5px 10px #9d9d9d;margin-left:15px;'></button>"
+        PaddingBottom: =0
+        PaddingLeft: =0
+        PaddingRight: =0
+        PaddingTop: =0
+        Size: =13
+        Width: =416
+        X: =40
+        Y: =40
+        ZIndex: =1
+
+    requestbut_1 As htmlViewer:
+        BorderThickness: =1
+        Height: =61
+        HtmlText: |-
+            ="<button style='margin-left:10px;margin-top:10px;border:0px solid;border-radius: 10px;width:300px;height:30px;background: linear-gradient(145deg, #daf7ff, #b8d0dd);
+            box-shadow:  5px 5px 10px #9bb0bb,-5px -5px 10px #fdffff;Font-Family:Open Sans;Font-size:16px;font-weight:bold'cursor:pointer;><span style='color:#000d4b;'>NOTICE BOARD</span></button>"
+        PaddingBottom: =0
+        PaddingLeft: =0
+        PaddingRight: =0
+        PaddingTop: =0
+        Size: =13
+        Width: =331
+        X: =100
+        Y: =176
+        ZIndex: =2
+
+    Image1_3 As image:
+        BorderColor: =RGBA(0, 0, 0, 0)
+        BorderStyle: =BorderStyle.None
+        BorderThickness: =2
+        DisabledBorderColor: =RGBA(0, 0, 0, 0)
+        DisabledFill: =RGBA(0, 0, 0, 0)
+        FocusedBorderThickness: =4
+        HoverBorderColor: =RGBA(0, 0, 0, 0)
+        HoverFill: =RGBA(0, 0, 0, 0)
+        Image: =icon
+        PressedBorderColor: =RGBA(0, 0, 0, 0)
+        PressedFill: =RGBA(0, 0, 0, 0)
+        X: =331
+        Y: =252
+        ZIndex: =3
+
