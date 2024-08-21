@@ -1,0 +1,74 @@
+Screen1 As screen:
+
+    TextCanvas1 As Text:
+        DisplayMode: =DisplayMode.Edit
+        Height: =32
+        Text: ="exampletext"
+        Width: =96
+        X: =40
+        Y: =40
+        ZIndex: =1
+
+    "InputTextS As 'Text input'":
+        DisplayMode: =DisplayMode.Edit
+        Height: =32
+        Value: ="the value"
+        Width: =320
+        X: =168
+        Y: =40
+        ZIndex: =2
+
+    "InputMulti As 'Text input'":
+        DisplayMode: =DisplayMode.Edit
+        Height: =50
+        Mode: ='TextInputCanvas.Mode'.Multiline
+        Placeholder: ="theplaceholder"
+        Width: =320
+        X: =180
+        Y: =112
+        ZIndex: =3
+
+    DropdownCanvas1 As Dropdown.pcfdataset:
+        DisplayMode: =DisplayMode.Edit
+        Height: =32
+        Items: =["some", "bod", "y"]
+        Width: =320
+        X: =560
+        Y: =56
+        ZIndex: =4
+
+    "DatePickerCanvas1 As 'Date picker'":
+        DisplayMode: =DisplayMode.Edit
+        Format: ='DatePickerCanvas.Format'.Short
+        Height: =32
+        Width: =320
+        X: =560
+        Y: =121
+        ZIndex: =5
+
+    "NumberInput1 As 'Number input'":
+        DisplayMode: =DisplayMode.Edit
+        Height: =32
+        Width: =320
+        X: =914
+        Y: =56
+        ZIndex: =6
+
+    CheckboxCanvas1 As Checkbox:
+        DisplayMode: =DisplayMode.Edit
+        Height: =32
+        OnCheck: =false
+        OnUncheck: =false
+        Width: =160
+        X: =914
+        Y: =130
+        ZIndex: =7
+
+    ButtonCanvas1 As Button:
+        DisplayMode: =DisplayMode.Edit
+        Height: =32
+        Width: =96
+        X: =1112
+        Y: =130
+        ZIndex: =8
+
