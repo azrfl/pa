@@ -5,8 +5,8 @@ Screen1 As screen:
         Height: =32
         Text: ="exampletext"
         Width: =96
-        X: =40
-        Y: =40
+        X: =0
+        Y: =0
         ZIndex: =1
 
     "InputTextS As 'Text input'":
@@ -14,7 +14,7 @@ Screen1 As screen:
         Height: =32
         Value: ="the value"
         Width: =320
-        X: =168
+        X: =0
         Y: =40
         ZIndex: =2
 
@@ -24,8 +24,8 @@ Screen1 As screen:
         Mode: ='TextInputCanvas.Mode'.Multiline
         Placeholder: ="theplaceholder"
         Width: =320
-        X: =180
-        Y: =112
+        X: =0
+        Y: =80
         ZIndex: =3
 
     DropdownCanvas1 As Dropdown.pcfdataset:
@@ -33,8 +33,8 @@ Screen1 As screen:
         Height: =32
         Items: =["some", "bod", "y"]
         Width: =320
-        X: =560
-        Y: =56
+        X: =0
+        Y: =120
         ZIndex: =4
 
     "DatePickerCanvas1 As 'Date picker'":
@@ -42,16 +42,16 @@ Screen1 As screen:
         Format: ='DatePickerCanvas.Format'.Short
         Height: =32
         Width: =320
-        X: =560
-        Y: =121
+        X: =0
+        Y: =160
         ZIndex: =5
 
     "NumberInput1 As 'Number input'":
         DisplayMode: =DisplayMode.Edit
         Height: =32
         Width: =320
-        X: =914
-        Y: =56
+        X: =0
+        Y: =200
         ZIndex: =6
 
     CheckboxCanvas1 As Checkbox:
@@ -59,8 +59,8 @@ Screen1 As screen:
         Height: =32
         OnCheck: =false
         OnUncheck: =false
-        Width: =160
-        X: =914
+        Width: =240
+        X: =0
         Y: =130
         ZIndex: =7
 
@@ -68,7 +68,354 @@ Screen1 As screen:
         DisplayMode: =DisplayMode.Edit
         Height: =32
         Width: =96
-        X: =1112
-        Y: =130
+        X: =0
+        Y: =280
         ZIndex: =8
+
+    "InputItemF As 'Text input'":
+        DisplayMode: =DisplayMode.Edit
+        Height: =32
+        Placeholder: ="ABC001NF"
+        Value: =If(newms,Blank(),GalleryMaster.Selected.INNER_COL)
+        Width: =150
+        X: =300
+        Y: =40
+        ZIndex: =9
+
+    "InputLocationF As 'Text input'":
+        DisplayMode: =DisplayMode.Edit
+        Height: =32
+        Value: =If(newms,Blank(),GalleryMaster.Selected.INNER_COL)
+        Width: =150
+        X: =300
+        Y: =80
+        ZIndex: =10
+
+    "InputBrandF As 'Text input'":
+        DisplayMode: =DisplayMode.Edit
+        Height: =32
+        Value: =If(newms,Blank(),GalleryMaster.Selected.INNER_COL)
+        Width: =450
+        X: =300
+        Y: =120
+        ZIndex: =11
+
+    "InputRemarkMainF As 'Text input'":
+        DisplayMode: =DisplayMode.Edit
+        Height: =72
+        Mode: ='TextInputCanvas.Mode'.Multiline
+        Placeholder: ="theplaceholder"
+        Width: =450
+        X: =300
+        Y: =160
+        ZIndex: =12
+
+    "InputMatP1 As 'Text input'":
+        DisplayMode: =DisplayMode.Edit
+        Height: =32
+        Value: =If(newms,Blank(),GalleryMaster.Selected.INNER_COL)
+        Width: =150
+        X: =300
+        Y: =240
+        ZIndex: =13
+
+    "InputRevP1 As 'Number input'":
+        DisplayMode: =DisplayMode.Edit
+        Height: =32
+        Value: =If(newms,Blank(),GalleryMaster.Selected.INNER_rev)
+        Width: =80
+        X: =460
+        Y: =240
+        ZIndex: =14
+
+    DropdownP1 As Dropdown.pcfdataset:
+        DisplayMode: =DisplayMode.Edit
+        Height: =32
+        Items: =Filter(PM_Supplier,Type_Inner)
+        DefaultSelectedItems: =LookUp(PM_Supplier,ID=GalleryMaster.Selected.INNER_supp.Id)
+        Width: =200
+        X: =550
+        Y: =240
+        ZIndex: =15
+
+    "InputColP1 As 'Text input'":
+        DisplayMode: =DisplayMode.Edit
+        Height: =32
+        Value: =If(newms,Blank(),GalleryMaster.Selected.INNER_COL)
+        Width: =100
+        X: =760
+        Y: =240
+        ZIndex: =16
+
+    ButtonColP1 As Button:
+        DisplayMode: =DisplayMode.Edit
+        Height: =32
+        Width: =100
+        X: =870
+        Y: =240
+        ZIndex: =17
+
+    "InputMatP2 As 'Text input'":
+        DisplayMode: =DisplayMode.Edit
+        Height: =32
+        Value: =If(newms,Blank(),GalleryMaster.Selected.INNER_COL)
+        Width: =150
+        X: =300
+        Y: =280
+        ZIndex: =18
+
+    "InputRevP2 As 'Number input'":
+        DisplayMode: =DisplayMode.Edit
+        Height: =32
+        Value: =If(newms,Blank(),GalleryMaster.Selected.INNER_rev)
+        Width: =80
+        X: =460
+        Y: =280
+        ZIndex: =19
+
+    DropdownP2 As Dropdown.pcfdataset:
+        DisplayMode: =DisplayMode.Edit
+        Height: =32
+        Items: =Filter(PM_Supplier,Type_Inner)
+        DefaultSelectedItems: =LookUp(PM_Supplier,ID=GalleryMaster.Selected.INNER_supp.Id)
+        Width: =200
+        X: =550
+        Y: =280
+        ZIndex: =20
+
+    "InputColP2 As 'Text input'":
+        DisplayMode: =DisplayMode.Edit
+        Height: =32
+        Value: =If(newms,Blank(),GalleryMaster.Selected.INNER_COL)
+        Width: =100
+        X: =760
+        Y: =280
+        ZIndex: =21
+
+    ButtonColP2 As Button:
+        DisplayMode: =DisplayMode.Edit
+        Height: =32
+        Width: =100
+        X: =870
+        Y: =280
+        ZIndex: =22
+
+    "InputMatP3 As 'Text input'":
+        DisplayMode: =DisplayMode.Edit
+        Height: =32
+        Value: =If(newms,Blank(),GalleryMaster.Selected.INNER_COL)
+        Width: =150
+        X: =300
+        Y: =320
+        ZIndex: =23
+
+    "InputRevP3 As 'Number input'":
+        DisplayMode: =DisplayMode.Edit
+        Height: =32
+        Value: =If(newms,Blank(),GalleryMaster.Selected.INNER_rev)
+        Width: =80
+        X: =460
+        Y: =320
+        ZIndex: =24
+
+    DropdownP3 As Dropdown.pcfdataset:
+        DisplayMode: =DisplayMode.Edit
+        Height: =32
+        Items: =Filter(PM_Supplier,Type_Inner)
+        DefaultSelectedItems: =LookUp(PM_Supplier,ID=GalleryMaster.Selected.INNER_supp.Id)
+        Width: =200
+        X: =550
+        Y: =320
+        ZIndex: =25
+
+    "InputColP3 As 'Text input'":
+        DisplayMode: =DisplayMode.Edit
+        Height: =32
+        Value: =If(newms,Blank(),GalleryMaster.Selected.INNER_COL)
+        Width: =100
+        X: =760
+        Y: =320
+        ZIndex: =26
+
+    ButtonColP3 As Button:
+        DisplayMode: =DisplayMode.Edit
+        Height: =32
+        Width: =100
+        X: =870
+        Y: =320
+        ZIndex: =27
+
+    "InputMatP4 As 'Text input'":
+        DisplayMode: =DisplayMode.Edit
+        Height: =32
+        Value: =If(newms,Blank(),GalleryMaster.Selected.INNER_COL)
+        Width: =150
+        X: =300
+        Y: =360
+        ZIndex: =28
+
+    "InputRevP4 As 'Number input'":
+        DisplayMode: =DisplayMode.Edit
+        Height: =32
+        Value: =If(newms,Blank(),GalleryMaster.Selected.INNER_rev)
+        Width: =80
+        X: =460
+        Y: =360
+        ZIndex: =29
+
+    DropdownP4 As Dropdown.pcfdataset:
+        DisplayMode: =DisplayMode.Edit
+        Height: =32
+        Items: =Filter(PM_Supplier,Type_Inner)
+        DefaultSelectedItems: =LookUp(PM_Supplier,ID=GalleryMaster.Selected.INNER_supp.Id)
+        Width: =200
+        X: =550
+        Y: =360
+        ZIndex: =30
+
+    "InputColP4 As 'Text input'":
+        DisplayMode: =DisplayMode.Edit
+        Height: =32
+        Value: =If(newms,Blank(),GalleryMaster.Selected.INNER_COL)
+        Width: =100
+        X: =760
+        Y: =360
+        ZIndex: =31
+
+    ButtonColP4 As Button:
+        DisplayMode: =DisplayMode.Edit
+        Height: =32
+        Width: =100
+        X: =870
+        Y: =360
+        ZIndex: =32
+
+    "InputMatP5 As 'Text input'":
+        DisplayMode: =DisplayMode.Edit
+        Height: =32
+        Value: =If(newms,Blank(),GalleryMaster.Selected.INNER_COL)
+        Width: =150
+        X: =300
+        Y: =400
+        ZIndex: =33
+
+    "InputRevP5 As 'Number input'":
+        DisplayMode: =DisplayMode.Edit
+        Height: =32
+        Value: =If(newms,Blank(),GalleryMaster.Selected.INNER_rev)
+        Width: =80
+        X: =460
+        Y: =400
+        ZIndex: =34
+
+    DropdownP5 As Dropdown.pcfdataset:
+        DisplayMode: =DisplayMode.Edit
+        Height: =32
+        Items: =Filter(PM_Supplier,Type_Inner)
+        DefaultSelectedItems: =LookUp(PM_Supplier,ID=GalleryMaster.Selected.INNER_supp.Id)
+        Width: =200
+        X: =550
+        Y: =400
+        ZIndex: =35
+
+    "InputColP5 As 'Text input'":
+        DisplayMode: =DisplayMode.Edit
+        Height: =32
+        Value: =If(newms,Blank(),GalleryMaster.Selected.INNER_COL)
+        Width: =100
+        X: =760
+        Y: =400
+        ZIndex: =36
+
+    ButtonColP5 As Button:
+        DisplayMode: =DisplayMode.Edit
+        Height: =32
+        Width: =100
+        X: =870
+        Y: =400
+        ZIndex: =37
+
+    "InputMatP6 As 'Text input'":
+        DisplayMode: =DisplayMode.Edit
+        Height: =32
+        Value: =If(newms,Blank(),GalleryMaster.Selected.INNER_COL)
+        Width: =150
+        X: =300
+        Y: =440
+        ZIndex: =38
+
+    "InputRevP6 As 'Number input'":
+        DisplayMode: =DisplayMode.Edit
+        Height: =32
+        Value: =If(newms,Blank(),GalleryMaster.Selected.INNER_rev)
+        Width: =80
+        X: =460
+        Y: =440
+        ZIndex: =39
+
+    DropdownP6 As Dropdown.pcfdataset:
+        DisplayMode: =DisplayMode.Edit
+        Height: =32
+        Items: =Filter(PM_Supplier,Type_Inner)
+        DefaultSelectedItems: =LookUp(PM_Supplier,ID=GalleryMaster.Selected.INNER_supp.Id)
+        Width: =200
+        X: =550
+        Y: =440
+        ZIndex: =40
+
+    "InputColP6 As 'Text input'":
+        DisplayMode: =DisplayMode.Edit
+        Height: =32
+        Value: =If(newms,Blank(),GalleryMaster.Selected.INNER_COL)
+        Width: =100
+        X: =760
+        Y: =440
+        ZIndex: =41
+
+    ButtonColP6 As Button:
+        DisplayMode: =DisplayMode.Edit
+        Height: =32
+        Width: =100
+        X: =870
+        Y: =440
+        ZIndex: =42
+
+    DropdownFinishingF As Dropdown.pcfdataset:
+        DisplayMode: =DisplayMode.Edit
+        Height: =32
+        Items: =Filter(PM_Supplier,Type_Inner)
+        Width: =500
+        X: =300
+        Y: =480
+        ZIndex: =43
+
+    "InputMainColorF As 'Text input'":
+        DisplayMode: =DisplayMode.Edit
+        Height: =32
+        Placeholder: ="GREEN Lime"
+        Value: =If(newms,Blank(),GalleryMaster.Selected.INNER_COL)
+        Width: =150
+        X: =300
+        Y: =520
+        ZIndex: =44
+
+    "InputRemarkLSDF As 'Text input'":
+        DisplayMode: =DisplayMode.Edit
+        Height: =72
+        Mode: ='TextInputCanvas.Mode'.Multiline
+        Placeholder: ="Remark Check with LSD chart"
+        Width: =450
+        X: =300
+        Y: =600
+        ZIndex: =45
+
+    "InputProductF As 'Text input'":
+        DisplayMode: =DisplayMode.Edit
+        Height: =32
+        Placeholder: ="Product/Glove"
+        Value: =If(newms,Blank(),GalleryMaster.Selected.INNER_COL)
+        Width: =150
+        X: =300
+        Y: =640
+        ZIndex: =46
 
